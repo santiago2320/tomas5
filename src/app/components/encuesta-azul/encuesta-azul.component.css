@@ -1,0 +1,26 @@
+#grid-prin-encuesta-azul{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#subgriduno{
+    display: grid;
+    grid-template-columns: 5fr 5fr 5fr;
+}
+#subgrid-dos{
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+}
+#subgrid-tres{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#subgrid-dos-uno{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.celda {
+    border: solid #d80d0d;
+}
+.cel1{
+    border: solid #66f108f1;
+}

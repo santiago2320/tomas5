@@ -1,0 +1,7 @@
+#grid-develop{
+    display: grid;
+    grid-template-columns: 15fr 50fr 15fr 15fr;
+}
+.celda {
+    border: solid #fa0b0b;
+}

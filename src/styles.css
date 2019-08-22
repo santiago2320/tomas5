@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: url("assets/background.PNG");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 input[type="radio"]:checked {
     background-color: #d80d0d;
     color: #636161;
   }
+
   input[type="radio" i] {
     background-color: initial;
     cursor: default;

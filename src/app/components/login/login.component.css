@@ -1,0 +1,29 @@
+
+ .blueText{
+    font-family: 'Poppins', sans-serif;
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+ }
+
+ .inputLogIn{
+    width: 100%;
+ }
+
+ .grid2{
+    display: grid;
+	grid-template-columns: 20vw auto 20vw;
+	margin-top: 25vh;
+	/*margin-bottom: 22vh;*/
+ }
+
+ .botonEntrar{
+    background-color: red;
+    position: center;
+    color: white;
+ }
+
+ .selectLogIn{
+    width: 100%;
+    margin-bottom: 30vh;
+ }

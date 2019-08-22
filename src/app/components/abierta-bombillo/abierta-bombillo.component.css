@@ -1,0 +1,17 @@
+#grid-abierta-bombillo {
+    display: grid;
+    grid-template-columns: 1fr
+}
+#griduno{
+    display: grid;
+    grid-template-columns: 1fr 5fr;   
+}
+#imgbombillo{
+    justify-self: center;
+}
+.celda {
+    border: solid #d80d0d;
+}
+.cel1{
+    border: solid #66f108f1;
+}

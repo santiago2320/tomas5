@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+input[type="radio"]:checked {
+    background-color: #d80d0d;
+    color: #636161;
+  }
+  input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: radio;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: 10px 10px 10px;
+    border: solid  #a5a1a1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

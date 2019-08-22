@@ -1,0 +1,14 @@
+#grid-riesgos {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#grid-uno{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+.celda {
+    border: solid #d80d0d;
+}
+.cel1{
+    border: solid #66f108f1;
+}

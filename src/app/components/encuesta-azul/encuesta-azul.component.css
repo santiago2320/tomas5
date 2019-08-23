@@ -19,8 +19,117 @@
     grid-template-columns: 1fr;
 }
 .celda {
-    border: solid #d80d0d;
+    /*border: solid #d80d0d;*/
 }
 .cel1{
-    border: solid #66f108f1;
+    /*border: solid #66f108f1;    */
 }
+
+.eaHead {
+    background-color: #02254f;
+}
+
+.eaBody {
+    background-color: #033671;
+}
+
+.eaContenido {    
+    background-color: #4472c4;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+    height: 300px;
+    text-align: center;
+}
+
+.textEaContenido {    
+    margin-top: 50%;
+    font-size: 25px;
+}
+
+.eaFooter {
+    background-color: #011a34;
+    color: #ffffff;
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.center {
+    justify-self: center;
+    text-align: center;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px
+}
+
+.lineLeft {
+    height: 6px;
+    width: 75%;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+}
+
+.lineRight {
+    height: 6px;
+    width: 75%;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: start;
+}
+
+.btnEnviar {
+    border-radius: 20px;/*radio de prueba*/
+    color: #142350;
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 45px;
+    font-size: 22px;
+    border: 3px solid #a1b3c7;
+    font-weight: 600;
+}
+
+/*barra de carga*/
+
+.progressBarCont{
+   border-radius: 14px;
+   background-color: #ffffff;
+   width: 85%;
+   justify-self: end;
+   margin-right: 15px;
+   margin-top: 30px;
+   margin-bottom: 40px;
+}
+
+.progress-bar {
+   border: 3px solid #ffffff;
+   border-radius: 14px;
+} 
+
+.progress-bar > div {   
+   background: #e52c36;
+   overflow: hidden;
+   white-space: nowrap;
+   padding: 7px 20px;
+   border-radius: 10px;
+   -webkit-animation: progress-bar 2s;
+   -moz-animation: progress-bar 2s;
+} 
+
+@-webkit-keyframes progress-bar {
+  0% { width: 0; }
+} 
+
+@-moz-keyframes progress-bar {
+   0% { width: 0; }
+}
+

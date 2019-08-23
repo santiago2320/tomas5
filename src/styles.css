@@ -2,7 +2,8 @@
 body {
     background: url("assets/background.PNG");
 	background-repeat: no-repeat;
-	background-size: cover;
+  background-size: cover;
+  margin: 0;
 }
 
 input[type="radio"]:checked {

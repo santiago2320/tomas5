@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,11 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PreguntaSiNoComponent implements OnInit {
 
-	@Input() infoPaso: any;
+
+@Input() infoPaso: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.infopaso = {pregunta:"pregunta",id:1}
+                                     
   }
 
 }

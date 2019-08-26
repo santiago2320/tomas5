@@ -6,12 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./abierta.component.css']
 })
 export class AbiertaComponent implements OnInit {
-	
-	@Input() infoPaso: any;
+  @Input() infoPaso: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.infopaso = {pregunta:"pregunta",id:1}
   }
 
 }

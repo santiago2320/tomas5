@@ -14,7 +14,7 @@ export class PreguntaSiNoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
                                      
   }
 

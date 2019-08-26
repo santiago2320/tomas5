@@ -45,7 +45,8 @@
     grid-column-end: 4;
     color: white;
     text-align: center;
-    font-weight: bold;
+    align-self: center;
+    font-weight: 600;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }

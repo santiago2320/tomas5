@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./abierta.component.css']
 })
 export class AbiertaComponent implements OnInit {
-  @Input () infopaso: any;
+  @Input() infoPaso: any;
 
   constructor() { }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
+
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pregunta-si-no',
@@ -7,8 +8,8 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class PreguntaSiNoComponent implements OnInit {
 
-  //evento input
-  @Input () infopaso: any;
+
+@Input() infoPaso: any;
 
   constructor() { }
 

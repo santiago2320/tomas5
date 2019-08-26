@@ -1,10 +1,12 @@
 #grid-prin-encuesta-azul{
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 20vh 67vh 13vh;
 }
 #subgriduno{
     display: grid;
     grid-template-columns: 5fr 5fr 5fr;
+    grid-template-rows: 30fr 22fr;
 }
 #subgrid-dos{
     display: grid;
@@ -17,6 +19,7 @@
 #subgrid-dos-uno{
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 47vh 8vh 10vh;
 }
 .celda {
     /*border: solid #d80d0d;*/
@@ -52,15 +55,12 @@
 .eaFooter {
     background-color: #011a34;
     color: #ffffff;
-    width: 100%;
-    height: auto;
     font-size: 12px;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
 .center {
-    justify-self: center;
     text-align: center;
 }
 
@@ -121,8 +121,8 @@
    white-space: nowrap;
    padding: 7px 20px;
    border-radius: 10px;
-   -webkit-animation: progress-bar 2s;
-   -moz-animation: progress-bar 2s;
+   -webkit-animation: progress-bar 1s;
+   -moz-animation: progress-bar 1s;
 } 
 
 @-webkit-keyframes progress-bar {
@@ -131,5 +131,14 @@
 
 @-moz-keyframes progress-bar {
    0% { width: 0; }
+}
+
+#btnSend{
+  align-self: center;
+}
+
+#stepContainer {
+  overflow: scroll;
+  height: 100%;
 }
 

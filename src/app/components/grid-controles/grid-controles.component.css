@@ -7,8 +7,14 @@
     grid-template-columns: 5fr 1fr 1fr;
 }
 .celda {
-    border: solid #d80d0d;
+    /*border: solid #d80d0d;*/
 }
 .cel1{
-    border: solid #66f108f1;
+    /*border: solid #66f108f1;*/
+}
+
+.control {
+	display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    grid-column: span 3;	
 }

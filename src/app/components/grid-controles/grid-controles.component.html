@@ -4,15 +4,19 @@
         <div class="cel1">b</div>
         
         <div class="cel1">C</div>
-        <div class="cel1">
-            <p class="txtblanco">¿cuento con el EEP adecuado y en bues estado?</p>
+
+        <div *ngFor="let control of infoPaso.controles" class="control">
+            <div class="cel1">
+            <p>{{control.pregunta}}</p>
+            </div>
+            <div class="cel1">
+                <input type="radio" id="radiouno">
+            </div>
+            <div class="cel1">
+                <input type="radio" id="radiouno">
+            </div>
         </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
+        
         <div class="cel1">
             <p class="txtblanco">¿ya revise el SW de la tarea?</p>
         </div>

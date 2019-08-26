@@ -11,7 +11,6 @@ export class AbiertaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.infopaso = {pregunta:"pregunta",id:1}
   }
 
 }

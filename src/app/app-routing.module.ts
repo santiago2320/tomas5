@@ -7,6 +7,7 @@ import { EscogerComponent } from './components/escoger/escoger.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
+	{path:"", redirectTo:"/login", pathMatch: 'full'},
   {path:"develop",component:DevelopComponent },
   {path:"encuestaroja",component:EncuestaRojaComponent },
   {path:"encuestaazul",component:EncuestaAzulComponent },

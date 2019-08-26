@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bombillo-abierta',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bombillo-abierta.component.css']
 })
 export class BombilloAbiertaComponent implements OnInit {
+
+	@Input() infoPaso: any;
 
   constructor() { }
 

@@ -10,15 +10,20 @@
 }
 
 .opacityBottom{
-    background-color:black;
-    opacity:0.3; /* Opacidad 60% */
+    background-color:#00000087;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     color: white;
     text-align: center;
     padding-top: 35px;
     bottom: 0;
+    font-size: 12px;
  }
+
+
+#textFooter {
+    opacity:1;
+}

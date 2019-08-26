@@ -1,4 +1,4 @@
-iimport { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-encuesta-azul',
@@ -10,6 +10,8 @@ export class EncuestaAzulComponent implements OnInit {
 	proceso: any[];
 
   pasoActual: any;
+
+  indexActual: number;
 
 
   constructor() { }
@@ -30,6 +32,16 @@ export class EncuestaAzulComponent implements OnInit {
                     {pregunta:"controles 2", id:1},
                     {pregunta:"controles 3", id:1}]}}  		
   	];
+
+    this.indexActual = 0;
+    this.pasoActual = this.proceso[this.indexActual];
+  }
+
+  nextStep() {
+    if(this.indexActual< this.proceso.length -1){
+      this.indexActual++;
+      this.pasoActual = this.proceso[this.indexActual];
+    }
   }
 
 }

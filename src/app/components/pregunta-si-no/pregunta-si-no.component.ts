@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pregunta-si-no',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pregunta-si-no.component.css']
 })
 export class PreguntaSiNoComponent implements OnInit {
+
+	@Input() infoPaso: any;
 
   constructor() { }
 

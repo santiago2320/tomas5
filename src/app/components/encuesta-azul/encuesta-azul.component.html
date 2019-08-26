@@ -1,8 +1,8 @@
 <div id="grid-prin-encuesta-azul">
     <div class="celda eaHead" id="subgriduno">
-        <div class="cel1">A</div>
-        <div class="cel1">B</div>
-        <div class="cel1">C</div>
+        <div class="cel1"></div>
+        <div class="cel1"></div>
+        <div class="cel1"></div>
         <div class="cel1 lineLeft"></div>
         <div class="cel1 center wText">Todos alerta en seguridad</div>
         <div class="cel1 lineRight"></div>
@@ -10,11 +10,18 @@
     </div>
     <div class="celda" id="subgrid-dos">
         <div class="eaBody" id="subgrid-dos-uno">
-            <div class="cel1 eaContenido">
-                <p class="textEaContenido">Where the magic happens</p>
+            <div id="stepContainer" class="cel1">
+                <!-- ACA VAN LOS PASOS DE LA ENCUESTA -->
+                <app-titulo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='titulo'"></app-titulo>
+                <app-abierta [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='abierta'"></app-abierta>
+                <app-abierta-bombillo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='abierta_bombillo'"></app-abierta-bombillo>
+                <app-bombillo-abierta [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='bombillo_abierta'"></app-bombillo-abierta>
+                <app-pregunta-si-no [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='cerrada'"></app-pregunta-si-no>
+                <app-grid-riesgos [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgos'"></app-grid-riesgos>
+                <app-grid-controles [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='controles'"></app-grid-controles>
             </div>
-            <div class="cel1 center">
-                <button class="btnEnviar">ENVIAR</button>
+            <div id="btnSend" class="cel1 center">
+                <button (click)="nextStep()" class="btnEnviar">ENVIAR</button>
             </div>
             <div class="cel1 progressBarCont">
                 <div class="progress-bar">
@@ -25,7 +32,7 @@
         <div class="cel1">B</div>
     </div>
     <div class="celda eaFooter center" id="subgrid-tres">
-        <div class="cel1">Este contenido lo ha creado el propietario del formulario.<br>Los datos que proporcione se enviaran a este propietario.</div>
+        <!-- <div class="cel1">Este contenido lo ha creado el propietario del formulario.<br>Los datos que proporcione se enviaran a este propietario.</div> -->
     </div>
 
 </div>

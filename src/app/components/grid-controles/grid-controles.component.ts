@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grid-controles',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid-controles.component.css']
 })
 export class GridControlesComponent implements OnInit {
+	
+	@Input() infoPaso: any;
 
   constructor() { }
 

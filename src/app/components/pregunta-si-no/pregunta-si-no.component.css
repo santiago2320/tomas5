@@ -13,9 +13,22 @@
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.celda {
-    border: solid #d80d0d;
+#rdn-space {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 125px;
+   
 }
-.cel1{
-    border: solid #66f108f1;
+#radiouno {
+    padding: 12px 12px 12px 12px;
+    border-radius: 7px;
+    border: solid #ffffff;
+}
+#size {
+    font-size: 33px;
+    padding-top: 18px;
+}
+.txt-size {
+    font-size: 20px;
+    text-align: center;
 }

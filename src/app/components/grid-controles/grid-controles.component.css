@@ -12,6 +12,15 @@
 .cel1{
     /*border: solid #66f108f1;*/
 }
+.size {
+    font-size: 20px;
+}
+#radiouno {
+    border-radius: 7px;
+    border: solid #ffffff;
+    margin-top: 21px;
+  
+}
 
 .control {
 	display: grid;

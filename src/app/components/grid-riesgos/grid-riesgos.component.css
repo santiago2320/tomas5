@@ -6,9 +6,10 @@
     display: grid;
     grid-template-columns: 5fr 1fr;
 }
-.celda {
-    border: solid #d80d0d;
+#radiouno {
+    border-radius: 7px;
+    border: solid #ffffff;
 }
-.cel1{
-    border: solid #66f108f1;
+.size {
+    font-size: 16px;
 }

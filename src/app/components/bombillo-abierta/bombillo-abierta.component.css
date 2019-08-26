@@ -9,9 +9,24 @@
 #imgbombillo{
     justify-self: center;
 }
-.celda {
-    border: solid #d80d0d;
+.size {
+    font-size: 23px;
 }
-.cel1{
-    border: solid #66f108f1;
+.txtsize  {
+    font-size: 18px;
+    text-align: center;
+}
+.text-area {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.txt-area {
+    width:-webkit-fill-available;
+    padding: 30px 30px 30px 30px;
+    font-size: 16px;
 }

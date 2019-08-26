@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-abierta',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./abierta.component.css']
 })
 export class AbiertaComponent implements OnInit {
+  @Input () infopaso: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.infopaso = {pregunta:"pregunta",id:1}
   }
 
 }

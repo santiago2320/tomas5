@@ -5,11 +5,27 @@
 #grid-uno{
     display: grid;
     grid-template-columns: 5fr 1fr;
+    padding-left: 50px;
 }
 #radiouno {
     border-radius: 7px;
     border: solid #ffffff;
 }
+h3 {
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
+}
 .size {
-    font-size: 16px;
+    font-size: 18px;
+
+}
+.sub-griduno {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    
+}
+.cel1 {   
+    align-self: center;
 }

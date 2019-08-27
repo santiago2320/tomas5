@@ -1,11 +1,19 @@
-#grid-titulo {
+.grid-titulo {
     display: grid;
     grid-template-columns: 1fr;
+    height: 100%;
+   
+    
 }
-#grid-uno{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-.size {
+#size {
     text-align: center;
+    align-self: center;
+    letter-spacing: 0.5px;
+    padding-left: 27px;
+    padding-right: 27px;
+    text-justify: auto;
+}
+h4 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 25px;
 }

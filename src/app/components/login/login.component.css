@@ -12,18 +12,40 @@
 
  .grid2{
     display: grid;
-	grid-template-columns: 20vw auto 20vw;
+	grid-template-columns: 1fr 1fr 1fr;
 	margin-top: 25vh;
 	/*margin-bottom: 22vh;*/
  }
-
  .botonEntrar{
     background-color: red;
     position: center;
     color: white;
+
  }
 
  .selectLogIn{
     width: 100%;
     margin-bottom: 30vh;
+ }
+ .texto {
+    justify-self: center;
+ }
+ .size {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+ }
+ .inputs {
+   -webkit-appearance: none;
+   padding: 10px;
+   border-radius: 20px;
+   border: none;
+ }
+ .selects {
+   width:-webkit-fill-available;
+   -webkit-appearance: none;
+   border-radius: 10px;
+   padding: 7px;
+ }
+ .cel1 {
+   border: solid #7ada0d;
  }

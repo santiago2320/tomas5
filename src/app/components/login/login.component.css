@@ -29,6 +29,7 @@
  }
  .texto {
     justify-self: center;
+    text-align: center;
  }
  .size {
     color: #ffffff;
@@ -44,8 +45,22 @@
    width:-webkit-fill-available;
    -webkit-appearance: none;
    border-radius: 10px;
-   padding: 7px;
+   padding: 8px;
  }
  .cel1 {
-   border: solid #7ada0d;
+   
+ }
+ .btnenviar {
+    background-color: #fa1a1a;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    border: none; 
+ }
+ .botonenviar {
+   width:-webkit-fill-available;
+   align-self: center;
+   padding-top: 20px;
+   padding-left: 20px
+   
  }

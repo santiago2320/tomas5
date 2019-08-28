@@ -8,7 +8,7 @@
     grid-template-columns: 3fr 3fr;
 }
 
-#subgriduno{
+#subgriduno2{
     display: grid;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -57,5 +57,46 @@
 }
 .cel1 {
     
+}
+
+
+
+#subgriduno{
+    display: grid;
+    grid-template-columns: 5fr 9fr 5fr;
+}
+
+.lineLeft {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+}
+
+.lineRight {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: start;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.iconContainer {
+    justify-self: center;
+}
+
+.iconHead {
+    height: 4vh;
+    width: auto;
+    margin-top: 5px;
 }
 

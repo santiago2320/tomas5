@@ -12,18 +12,55 @@
 
  .grid2{
     display: grid;
-	grid-template-columns: 20vw auto 20vw;
+	grid-template-columns: 1fr 1fr 1fr;
 	margin-top: 25vh;
 	/*margin-bottom: 22vh;*/
  }
-
  .botonEntrar{
     background-color: red;
     position: center;
     color: white;
+
  }
 
  .selectLogIn{
     width: 100%;
     margin-bottom: 30vh;
+ }
+ .texto {
+    justify-self: center;
+    text-align: center;
+ }
+ .size {
+    color: #ffffff;
+    font-family: 'Titillium Web', sans-serif;
+ }
+ .inputs {
+   -webkit-appearance: none;
+   padding: 10px;
+   border-radius: 20px;
+   border: none;
+ }
+ .selects {
+   width:-webkit-fill-available;
+   -webkit-appearance: none;
+   border-radius: 10px;
+   padding: 8px;
+ }
+ .cel1 {
+   
+ }
+ .btnenviar {
+    background-color: #fa1a1a;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    border: none; 
+ }
+ .botonenviar {
+   width:-webkit-fill-available;
+   align-self: center;
+   padding-top: 20px;
+   padding-left: 20px
+   
  }

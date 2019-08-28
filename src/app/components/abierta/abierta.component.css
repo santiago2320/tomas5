@@ -1,24 +1,98 @@
-#grid-abierta{
+#grid-abierta-bombillo {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
 }
-#griduno {
+#griduno{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 3fr 9fr;   
 }
+.img-mano{
+    width: 100%;
+    height: auto;
+    justify-self: center;
+}
+.img-principal {
+    align-self: center;
+    padding-left: 20px
+}
+#size{
+    font-size: 26px;
+    font-family: 'Titillium Web', sans-serif;
+    padding: -1px 38px;
+    margin: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#size-txt{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    text-align: start;
+    padding-left: 10px;
+}
+#subgrid-uno {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
 
+}
+.textarea {
+    -webkit-appearance: none;
+     
+}
 .text-area {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 10px;
-    padding-bottom: 10px;
 }
-.txt-area {
+#txt-area {
     width:-webkit-fill-available;
-    padding: 40px 40px 40px 40px;
-    font-size: 16px;
+    padding: 26px;
+    font-size: 20px;
+    border-radius: 25px;
+    height: 63px;
 }
-.size {
-    font-size: 23px;
+
+
+#subgriduno{
+    display: grid;
+    grid-template-columns: 5fr 9fr 5fr;
+}
+
+.lineLeft {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+}
+
+.lineRight {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: start;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px;
     text-align: center;
+}
+
+.iconContainer {
+    justify-self: center;
+}
+
+.iconHead {
+    height: 4vh;
+    width: auto;
+    margin-top: 5px;
 }

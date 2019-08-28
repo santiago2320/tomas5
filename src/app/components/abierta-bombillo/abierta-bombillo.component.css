@@ -56,3 +56,43 @@
     border-radius: 25px;
     height: 53px;
 }
+
+
+#subgriduno{
+    display: grid;
+    grid-template-columns: 5fr 9fr 5fr;
+}
+
+.lineLeft {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+}
+
+.lineRight {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: start;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.iconContainer {
+    justify-self: center;
+}
+
+.iconHead {
+    height: 4vh;
+    width: auto;
+    margin-top: 5px;
+}

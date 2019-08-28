@@ -1,12 +1,6 @@
 <div id="grid-prin-encuesta-azul">
     <div class="celda eaHead" id="subgriduno">
-        <div class="cel1"></div>
-        <div class="cel1"></div>
-        <div class="cel1"></div>
-        <div class="cel1 lineLeft"></div>
-        <div class="cel1 center wText">Todos alerta en seguridad</div>
-        <div class="cel1 lineRight"></div>
-
+        <div class="cel1 headSpace"></div>        
     </div>
     <div class="celda" id="subgrid-dos">
         <div class="eaBody" id="subgrid-dos-uno">
@@ -21,15 +15,14 @@
                 <app-grid-controles [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='controles'"></app-grid-controles>
             </div>
             <div id="btnSend" class="cel1 center">
-                <button (click)="nextStep()" class="btnEnviar">ENVIAR</button>
+                <button (click)="nextStep()" class="btnEnviar">CONTINUAR</button>
             </div>
             <div class="cel1 progressBarCont">
                 <div class="progress-bar">
                    <div style="width: 50%"></div>
                 </div>
             </div>
-        </div>
-        <div class="cel1">B</div>
+        </div>        
     </div>
     <div class="celda eaFooter center" id="subgrid-tres">
         <!-- <div class="cel1">Este contenido lo ha creado el propietario del formulario.<br>Los datos que proporcione se enviaran a este propietario.</div> -->

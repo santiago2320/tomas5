@@ -8,9 +8,11 @@
 }
 .celda {
     /*border: solid #d80d0d;*/
+    font-family: 'Titillium Web', sans-serif;
 }
 .cel1{
     /*border: solid #66f108f1;*/
+    font-family: 'Titillium Web', sans-serif;
 }
 .size {
     font-size: 20px;
@@ -26,4 +28,64 @@
 	display: grid;
     grid-template-columns: 5fr 1fr 1fr;
     grid-column: span 3;	
+    margin-left: 25px;
+}
+
+.labelControles {
+    color: white;
+    font-weight: 900;
+    font-size: 20px;
+    
+}
+
+.titleControles {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+
+}
+
+.controlInfo {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#subgriduno{
+    display: grid;
+    grid-template-columns: 5fr 9fr 5fr;
+}
+
+.lineLeft {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+}
+
+.lineRight {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: start;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.iconContainer {
+    justify-self: center;
+}
+
+.iconHead {
+    height: 6vh;
+    width: auto;
+    margin-top: 5px;
 }

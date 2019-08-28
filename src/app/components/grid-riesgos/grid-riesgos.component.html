@@ -1,37 +1,23 @@
 <div id="grid-riesgos" class="celda">
+    <div class="celda" id="subgriduno">
+        <div class="cel1 lineLeft"></div>
+        <div class="cel1 center wText">Análisis de riesgos</div>
+        <div class="cel1 lineRight"></div>
+        <div class="cel1"></div>
+        <div class="cel1 iconContainer">
+            <img class="iconHead" src="../../../assets/iconRiesgos.png">
+        </div>
+        <div class="cel1"></div>
+    </div>
     <div id="grid-uno" class="celda">
-        <div class="cel1">A</div>
-        <div class="cel1">B</div>
+
+        <div class="cel1"></div>
+        <div class="cel1"></div>
         <div class="cel1 sub-griduno"><h3 class="txtblanco size-uno">¿ estoy en riesgo de...?</h3></div>
-        <div class="cel1"><p class="txtblanco size">1 Entrar en contacto / golpes con partes moviles de máquinas</p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">2 Entrar en contacto con aire comprimido</p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">3 Ser golpeado por proyección de objetos o particulas </p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">4 Ser golpeado por caida de objetos</p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">5 Ser golpeado por vehiculos en movimiento o maquinaria móvil</p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">6 Golpearse contra objetos inmóviles</p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">7 Sufrir cortes o heridas punzantes</p></div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1"><p class="txtblanco size">8 Sobre esfuerzos</p></div>
+        
+    </div>
+    <div id="grid-uno" *ngFor="let control of infoPaso.riesgos">
+        <div class="cel1"><p class="txtblanco size">{{control.pregunta}}</p></div>
         <div class="cel1">
             <input type="radio" id="radiouno">
         </div>

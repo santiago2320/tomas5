@@ -12,11 +12,21 @@
     display: grid;
     grid-column-start: 1;
     grid-column-end: 3;
+    padding-left: 28px;
+    justify-self: center;
+    align-self: center;
+    
 }
 #rdn-space {
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 15px;
-    padding-left: 125px;
+    padding-left: 104px;
+   
+}
+#rdn-space1 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-left: 32px;
    
 }
 #radiouno {
@@ -25,10 +35,26 @@
     border: solid #ffffff;
 }
 #size {
-    font-size: 33px;
-    padding-top: 18px;
+    font-size: 26px;
+    font-family: 'Titillium Web', sans-serif;
+    color:  #ffffff;
+    padding-left: 110px;
+    padding-right: 24px;
+}
+#size-uno {
+    font-size: 26px;
+    font-family:'Titillium Web', sans-serif;
+    color:  #ffffff;
+    padding-left: 33px;
+    
 }
 .txt-size {
-    font-size: 20px;
+    font-size: 23px;
     text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0px;
+    padding-right: 28px;
+}
+.cel1 {
+    
 }

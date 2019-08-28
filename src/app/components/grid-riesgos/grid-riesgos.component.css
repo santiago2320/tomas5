@@ -1,3 +1,8 @@
+
+.cel1 {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 #grid-riesgos {
     display: grid;
     grid-template-columns: 1fr;
@@ -17,6 +22,7 @@ h3 {
 }
 .size {
     font-size: 18px;
+    font-weight: 600;
 
 }
 .sub-griduno {
@@ -28,4 +34,43 @@ h3 {
 }
 .cel1 {   
     align-self: center;
+}
+
+#subgriduno{
+    display: grid;
+    grid-template-columns: 5fr 9fr 5fr;
+}
+
+.lineLeft {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: end;
+}
+
+.lineRight {
+    height: 6px;
+    width: 75%;
+    background-color: #de3b41;
+    border-radius: 8px;
+    align-self: center;
+    justify-self: start;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.iconContainer {
+    justify-self: center;
+}
+
+.iconHead {
+    height: 4vh;
+    width: auto;
+    margin-top: 5px;
 }

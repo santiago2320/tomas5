@@ -18,7 +18,7 @@ export class EncuestaAzulComponent implements OnInit {
 
   ngOnInit() {
   	this.proceso = [
-  		{tipo:"titulo",  infoPaso:{titulo:"¿ hay algo adicional que debes tener en encuenta para garantizar tu integridad ?", id:1}},
+      {tipo:"titulo",  infoPaso:{titulo:"¿ hay algo adicional que debes tener en encuenta para garantizar tu integridad ?", id:1}},
   		{tipo:"cerrada", infoPaso:{pregunta:"Pregunta uno?", si:"Que bueno", no:"que idiot eres", id:1}},
   		{tipo:"abierta", infoPaso:{pregunta:"Cual es tu sabor favorito?",  id:1}},
   		{tipo:"abierta_bombillo",infoPaso:{pregunta:"en que momento de la tarea estoy mas en riesgo?", mensaje:"asegurate de mantenerlas alejadas de la linea de fuego.imaginasi alog pasara", tipo:"arriba", id:1}},

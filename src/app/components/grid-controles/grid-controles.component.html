@@ -1,13 +1,25 @@
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700&display=swap" rel="stylesheet">
 <div id="grid-controles" class="celda">
+    <div class="celda" id="subgriduno">
+        <div class="cel1 lineLeft"></div>
+        <div class="cel1 center wText">Controles previos</div>
+        <div class="cel1 lineRight"></div>
+        <div class="cel1"></div>
+        <div class="cel1 iconContainer">
+            <img class="iconHead" src="../../../assets/iconControles.png">
+        </div>
+        <div class="cel1"></div>
+    </div>
     <div id="griduno" class="celda">
-        <div class="cel1">A</div>
-        <div class="cel1">b</div>
-        
-        <div class="cel1">C</div>
-
+        <div class="control">
+            <div class="titleControles cel1">¿Que debes considerar antes de ejecutar está actividad?</div>
+            <div class="labelControles cel1">Si</div>
+            
+            <div class="labelControles cel1">No</div>
+        </div>
         <div *ngFor="let control of infoPaso.controles" class="control">
             <div class="cel1">
-            <p class="txtblanco size">{{control.pregunta}}</p>
+            <p class="txtblanco controlInfo">{{control.pregunta}}</p>
             </div>
             <div class="cel1">
                 <input type="radio" id="radiouno">
@@ -17,33 +29,7 @@
             </div>
         </div>
         
-        <div class="cel1">
-            <p class="txtblanco size">¿ya revise el SW de la tarea?</p>
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">   
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1">
-            <p class="txtblanco size">¿Debo bloquear o etiquetar?</p>
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1">
-            <p class="txtblanco size">¿debo señalizar el area?</p>
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
-        <div class="cel1">
-            <input type="radio" id="radiouno">
-        </div>
+        
 
     </div>
 </div>

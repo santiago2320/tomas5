@@ -76,6 +76,7 @@ export class EncuestaAzulComponent implements OnInit {
       {tipo:"titulo",  infoPaso:{titulo:"Asegúrate que tu supervisor sepa que vas a realizar esta actividad", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿ Te comprometes a PARAR si observas una situación insegura o sientes que algo no esta bien?", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿Te comprometes a intervenir a un compañero si observas que está realizando un comportamiento inseguro?", id:1}}
+
   	];
 
     this.indexActual = 0;

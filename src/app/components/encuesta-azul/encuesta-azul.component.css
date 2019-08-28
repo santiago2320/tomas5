@@ -1,16 +1,16 @@
 #grid-prin-encuesta-azul{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 20vh 67vh 13vh;
+    grid-template-rows: 12vh 75vh 13vh;
+    height: 100vh;
 }
 #subgriduno{
     display: grid;
-    grid-template-columns: 5fr 5fr 5fr;
-    grid-template-rows: 30fr 22fr;
+    grid-template-columns: 1fr
 }
 #subgrid-dos{
     display: grid;
-    grid-template-columns: 10fr 2fr;
+    grid-template-columns: 1fr;
 }
 #subgrid-tres{
     display: grid;
@@ -19,7 +19,7 @@
 #subgrid-dos-uno{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 47vh 8vh 10vh;
+    grid-template-rows: 58vh 7vh 10vh;
 }
 .celda {
     /*border: solid #d80d0d;*/
@@ -69,49 +69,33 @@
     font-size: 20px
 }
 
-.lineLeft {
-    height: 6px;
-    width: 75%;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    align-self: center;
-    justify-self: end;
-}
-
-.lineRight {
-    height: 6px;
-    width: 75%;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    align-self: center;
-    justify-self: start;
-}
-
 .btnEnviar {
-    border-radius: 20px;/*radio de prueba*/
-    color: #142350;
-    background-color: #FFFFFF;
+    border-radius: 10px;/*radio de prueba*/
+    color: #ffffff;
+    background-color: #e72c37;
     width: 140px;
     height: 45px;
     font-size: 22px;
-    border: 3px solid #a1b3c7;
-    font-weight: 600;
+    border: 2px solid #b81d2e;
+    font-weight: 400;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 /*barra de carga*/
 
-.progressBarCont{
-   border-radius: 14px;
-   background-color: #ffffff;
-   width: 85%;
+.progressBarCont{    
+   width: 75%;
    justify-self: end;
-   margin-right: 15px;
-   margin-top: 30px;
+   margin-right: 13vw;
+   margin-top: 2vh;
    margin-bottom: 40px;
+   background-color: #ffffff;
+   border-radius: 14px;
+   height: 21px;
 }
 
 .progress-bar {
-   border: 3px solid #ffffff;
+   border: 5px solid #ffffff;
    border-radius: 14px;
 } 
 
@@ -119,7 +103,7 @@
    background: #e52c36;
    overflow: hidden;
    white-space: nowrap;
-   padding: 7px 20px;
+   padding: 5px 20px;
    border-radius: 10px;
    -webkit-animation: progress-bar 1s;
    -moz-animation: progress-bar 1s;

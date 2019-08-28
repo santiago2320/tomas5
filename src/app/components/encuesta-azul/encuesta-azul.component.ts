@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-encuesta-azul',
@@ -14,7 +15,7 @@ export class EncuestaAzulComponent implements OnInit {
   indexActual: number;
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   	this.proceso = [
@@ -87,6 +88,8 @@ export class EncuestaAzulComponent implements OnInit {
     if(this.indexActual< this.proceso.length -1){
       this.indexActual++;
       this.pasoActual = this.proceso[this.indexActual];
+    }else {
+      this.router.navigate(['/escoger']);
     }
   }
 

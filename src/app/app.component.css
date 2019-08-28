@@ -7,6 +7,7 @@
     left:0;
     top: 0;
     height: auto;
+    z-index: 3;
 }
 
 .opacityBottom{
@@ -21,6 +22,7 @@
     padding-top: 35px;
     bottom: 0;
     font-size: 12px;
+    z-index: 1;
  }
 
 

@@ -16,6 +16,7 @@ import { BombilloAbiertaComponent } from './components/bombillo-abierta/bombillo
 import { GridControlesComponent } from './components/grid-controles/grid-controles.component';
 import { GridRiesgosComponent } from './components/grid-riesgos/grid-riesgos.component';
 import { TituloComponent } from './components/titulo/titulo.component';
+import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TituloComponent } from './components/titulo/titulo.component';
     BombilloAbiertaComponent,
     GridControlesComponent,
     GridRiesgosComponent,
-    TituloComponent
+    TituloComponent,
+    BienvenidoComponent
   ],
   imports: [
     BrowserModule,

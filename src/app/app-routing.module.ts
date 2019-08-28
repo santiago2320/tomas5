@@ -5,6 +5,8 @@ import { EncuestaRojaComponent } from './components/encuesta-roja/encuesta-roja.
 import { EncuestaAzulComponent } from './components/encuesta-azul/encuesta-azul.component';
 import { EscogerComponent } from './components/escoger/escoger.component';
 import { LoginComponent } from './components/login/login.component';
+import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
+
 
 const routes: Routes = [
 	{path:"", redirectTo:"/login", pathMatch: 'full'},
@@ -13,6 +15,7 @@ const routes: Routes = [
   {path:"encuestaazul",component:EncuestaAzulComponent },
   {path:"escoger",component:EscogerComponent },
   {path:"login",component:LoginComponent },
+  {path:"bienvenido",component:BienvenidoComponent },
 ];
 
 @NgModule({

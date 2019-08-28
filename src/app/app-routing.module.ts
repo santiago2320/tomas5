@@ -6,6 +6,7 @@ import { EncuestaAzulComponent } from './components/encuesta-azul/encuesta-azul.
 import { EscogerComponent } from './components/escoger/escoger.component';
 import { LoginComponent } from './components/login/login.component';
 import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
+import { CargaHomeComponent } from './components/carga-home/carga-home.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"escoger",component:EscogerComponent },
   {path:"login",component:LoginComponent },
   {path:"bienvenido",component:BienvenidoComponent },
+  {path:"home",component:CargaHomeComponent},
 ];
 
 @NgModule({

@@ -60,6 +60,7 @@
 }
 
 
+
 #subgriduno{
     display: grid;
     grid-template-columns: 5fr 9fr 5fr;
@@ -98,3 +99,4 @@
     width: auto;
     margin-top: 5px;
 }
+

@@ -1,0 +1,22 @@
+.grid-uno {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    margin-top: 40vh;
+}
+.cel1 {
+   
+}
+.img-gif {
+    width: 40%;
+    height: auto;  
+    padding-left: 34px; 
+}
+.imglogo {
+    padding-left: 64px;
+}
+.size {
+    color: #ffffff;
+    text-align: center;
+    padding-left: 24px;
+    font-family: 'Titillium Web', sans-serif;
+}

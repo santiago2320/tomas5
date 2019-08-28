@@ -4,6 +4,16 @@
     height: 100vh;
     margin: 0;
 }
+.subgrid-uno {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 47% 11% 19% 10%; 
+}
+
+
+.celnegra {
+    border-right: solid 4px #0000009f;
+}
 
 .grid2{
     display: grid;
@@ -27,8 +37,8 @@
     padding-bottom: 2vh;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-    border: 1px solid black;
-    border-left: 0px;
+    border-right: solid 3px #0000009f;
+    border-bottom: solid 3px #0000009f;
 }
 
 .text2{

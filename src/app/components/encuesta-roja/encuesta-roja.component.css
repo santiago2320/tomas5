@@ -1,0 +1,128 @@
+#grid-prin-encuesta-azul{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 14vh 78vh 8vh;
+    height: 100vh;
+}
+#subgriduno{
+    display: grid;
+    grid-template-columns: 1fr
+}
+#subgrid-dos{
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 74vh;
+}
+#subgrid-tres{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#subgrid-dos-uno{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64vh 7vh 7vh;
+}
+.celda {
+    /*border: solid #d80d0d;*/
+}
+.cel1{
+    /*border: solid #66f108f1;    */
+}
+
+.eaHead {
+    background-color: #02254f;
+}
+
+.eaBody {
+    background-color: #033671;
+}
+
+.eaContenido {    
+    background-color: #4472c4;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+    height: 300px;
+    text-align: center;
+}
+
+.textEaContenido {    
+    margin-top: 50%;
+    font-size: 25px;
+}
+
+.eaFooter {
+    background-color: #011a34;
+    color: #ffffff;
+    font-size: 12px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.center {
+    text-align: center;
+}
+
+.wText {
+    color: #ffffff;
+    font-size: 20px
+}
+
+.btnEnviar {
+    border-radius: 10px;/*radio de prueba*/
+    color: #ffffff;
+    background-color: #e72c37;
+    width: 140px;
+    height: 45px;
+    font-size: 22px;
+    border: 2px solid #b81d2e;
+    font-weight: 400;
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+}
+
+/*barra de carga*/
+
+.progressBarCont{    
+   width: 75%;
+   justify-self: end;
+   margin-right: 13vw;
+   margin-top: 2vh;   
+   background-color: #ffffff;
+   border-radius: 14px;
+   height: 21px;
+}
+
+.progress-bar {
+   border: 5px solid #ffffff;
+   border-radius: 14px;
+} 
+
+.progress-bar > div {   
+   background: #e52c36;
+   overflow: hidden;
+   white-space: nowrap;
+   padding: 5px 20px;
+   border-radius: 10px;
+   -webkit-animation: progress-bar 1s;
+   -moz-animation: progress-bar 1s;
+} 
+
+@-webkit-keyframes progress-bar {
+  0% { width: 0; }
+} 
+
+@-moz-keyframes progress-bar {
+   0% { width: 0; }
+}
+
+#btnSend{
+  align-self: center;
+}
+
+#stepContainer {
+  overflow: scroll;
+  height: 100%;
+}

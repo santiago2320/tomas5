@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GridControlesComponent implements OnInit {
 	
 	@Input() infoPaso: any;
+	control: any[];
 
   constructor() { }
 

@@ -23,6 +23,24 @@ input[type="radio"]:checked {
     -moz-appearance: none;
     appearance: none;
 }
+
+input[type="checkbox"]:checked {
+    background-color: #d80d0d;
+    color: #636161;
+  }
+
+  input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: radio;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: 10px 10px 10px;
+    border: solid  #a5a1a1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 .txtblanco {
   color: #ffffff;
 }

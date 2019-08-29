@@ -4,7 +4,7 @@
 }
 #griduno{
     display: grid;
-    grid-template-columns: 3fr 9fr;   
+    grid-template-columns: 3fr 9fr;    
 }
 .img-mano{
     width: 100%;
@@ -22,6 +22,7 @@
     margin: 0px;
     margin-top: 15px;
     margin-bottom: 15px;
+    line-height: 27px;
 }
 #size-txt{
     font-size: 20px;

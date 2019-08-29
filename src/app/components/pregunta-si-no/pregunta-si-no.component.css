@@ -34,6 +34,12 @@
     border-radius: 7px;
     border: solid #ffffff;
 }
+
+#radiodos {
+    padding: 12px 12px 12px 12px;
+    border-radius: 7px;
+    border: solid #ffffff;
+}
 #size {
     font-size: 26px;
     font-family: 'Titillium Web', sans-serif;

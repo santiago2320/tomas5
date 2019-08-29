@@ -31,10 +31,6 @@ export class EncuestaAzulComponent implements OnInit {
                     //{pregunta:"controles 1", id:1},
                     //{pregunta:"controles 2", id:1},
                     //{pregunta:"controles 3", id:1}]}},
-
-      {tipo:"titulo",  infoPaso:{titulo:"Bienvenid@ a Toma 5: En este momento te estás regalando unos minutos que te ayudarán a llegar sano a casa. ¡ Adelante !", id:1}},
-      {tipo:"titulo",  infoPaso:{titulo:"Bienvenid@ a Toma 5: Recuerda la razón por la que te levantas todos los días. Piensa en tu familia y comienza", id:1}},
-      {tipo:"titulo",  infoPaso:{titulo:"Bienvenid@ a Toma 5: Estos 5 minutos contribuirán a que llegues sano a casa. ¡Comienza ya!", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"Invierte un momento para observar tu entorno, respira y da una vuelta al lugar en el cual trabajarás.  Esto marcará la direrencia", id:1}},
       {tipo:"riesgos", infoPaso:{pregunta:"Selecciona los riesgos que identificas:", riesgos:[
                     {pregunta:"1 Entrar en contacto / golpes con partes móviles de máquinas.", id:1},
@@ -91,6 +87,10 @@ export class EncuestaAzulComponent implements OnInit {
     }else {
       this.router.navigate(['/escoger']);
     }
+  }
+
+  logPaso() {
+    console.log(this.pasoActual);
   }
 
 }

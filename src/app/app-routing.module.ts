@@ -10,7 +10,7 @@ import { CargaHomeComponent } from './components/carga-home/carga-home.component
 
 
 const routes: Routes = [
-	{path:"", redirectTo:"/login", pathMatch: 'full'},
+	{path:"", redirectTo:"/home", pathMatch: 'full'},
   {path:"develop",component:DevelopComponent },
   {path:"encuestaroja",component:EncuestaRojaComponent },
   {path:"encuestaazul",component:EncuestaAzulComponent },

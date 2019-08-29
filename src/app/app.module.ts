@@ -20,6 +20,8 @@ import { TituloComponent } from './components/titulo/titulo.component';
 import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
 import { CargaHomeComponent } from './components/carga-home/carga-home.component';
 import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido-rojo.component';
+import { EntornoTableComponent } from './components/entorno-table/entorno-table.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido
     TituloComponent,
     BienvenidoComponent,
     CargaHomeComponent,
-    BienvenidoRojoComponent
+    BienvenidoRojoComponent,
+    EntornoTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+.grid-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.subgrid-tres {
+    display: grid;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.subgrid-dos {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.subgrid-uno {
+    display: grid;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.size{
+    text-align: center;
+    font-size: 15px;
+}
+.size1{
+   text-align: center;
+   
+}
+.txt-title{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 19px;
+    margin: 0;
+    line-height: 19px;
+}
+.cel-blanca {
+    color: #ffffff;
+}
+
+.cel1 {
+    border: solid 1px #ffffffc9;
+}
+.cel0{
+
+    border-top: 0px;
+    border-left: solid 1px #ffffff;
+}
+.cel01{
+    border-bottom: solid 1px #ffffff;
+    border-left: solid 1px #ffffff;
+}

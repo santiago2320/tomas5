@@ -19,6 +19,7 @@ import { GridRiesgosComponent } from './components/grid-riesgos/grid-riesgos.com
 import { TituloComponent } from './components/titulo/titulo.component';
 import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
 import { CargaHomeComponent } from './components/carga-home/carga-home.component';
+import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido-rojo.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CargaHomeComponent } from './components/carga-home/carga-home.component
     GridRiesgosComponent,
     TituloComponent,
     BienvenidoComponent,
-    CargaHomeComponent
+    CargaHomeComponent,
+    BienvenidoRojoComponent
   ],
   imports: [
     BrowserModule,

@@ -22,10 +22,10 @@
             <p class="txtblanco controlInfo">{{control.pregunta}}</p>
             </div>
             <div class="cel1">
-                <input type="radio" id="radiouno">
+                <input type="radio" [(ngModel)]="control.checkSi" name="control {{control.id}}" id="radiouno">
             </div>
             <div class="cel1">
-                <input type="radio" id="radiouno">
+                <input type="radio" [(ngModel)]="control.checkNo" name="control {{control.id}}" id="radiouno">
             </div>
         </div>
         

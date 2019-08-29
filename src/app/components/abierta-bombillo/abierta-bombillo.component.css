@@ -22,6 +22,7 @@
     margin: 0px;
     margin-top: 15px;
     margin-bottom: 15px;
+    line-height: 27px;
 }
 #size-txt{
     font-size: 20px;
@@ -29,6 +30,7 @@
     font-family: 'Titillium Web', sans-serif;
     text-align: start;
     padding-left: 10px;
+    line-height: 21px;
 }
 #subgrid-uno {
     display: grid;

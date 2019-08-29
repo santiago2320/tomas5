@@ -17,11 +17,11 @@
         <div class="cel1 txtblanco" id="size">SI</div>
         <div class="cel1 txtblanco" id="size-uno">NO</div>
         <div class="cel1" id="rdn-space">
-         <input type="radio" id="radiouno" >
+         <input type="radio" [(ngModel)]="infoPaso.checkSi" name="sino {{infoPaso.id}}" id="radiouno" >
         </div>
         <div class="cel1" id="rdn-space1">
-            <input type="radio" id="radiouno">
-           </div>
+          <input type="radio" [(ngModel)]="infoPaso.checkNo" name="sino {{infoPaso.id}}" id="radiouno">
+        </div>
            <div class="cel1" id="subgriduno2">
               <h5 class="txtblanco txt-size"> {{infoPaso.si}}</h5>       
             </div>

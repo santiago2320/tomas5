@@ -1,7 +1,7 @@
 #grid-prin-encuesta-azul{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 12vh 75vh 13vh;
+    grid-template-rows: 14vh 78vh 8vh;
     height: 100vh;
 }
 #subgriduno{
@@ -11,6 +11,7 @@
 #subgrid-dos{
     display: grid;
     grid-template-columns: 1fr;
+    height: 74vh;
 }
 #subgrid-tres{
     display: grid;
@@ -19,7 +20,7 @@
 #subgrid-dos-uno{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 58vh 7vh 10vh;
+    grid-template-rows: 64vh 7vh 7vh;
 }
 .celda {
     /*border: solid #d80d0d;*/
@@ -79,6 +80,7 @@
     border: 2px solid #b81d2e;
     font-weight: 400;
     font-family: 'Titillium Web', sans-serif;
+    text-align: center;
 }
 
 /*barra de carga*/
@@ -87,8 +89,7 @@
    width: 75%;
    justify-self: end;
    margin-right: 13vw;
-   margin-top: 2vh;
-   margin-bottom: 40px;
+   margin-top: 2vh;   
    background-color: #ffffff;
    border-radius: 14px;
    height: 21px;

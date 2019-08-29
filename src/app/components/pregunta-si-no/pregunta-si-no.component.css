@@ -6,6 +6,7 @@
 #griduno {
     display: grid;
     grid-template-columns: 3fr 3fr;
+    grid-template-rows: 2fr 1fr 1fr 2fr;
 }
 
 #subgriduno2{
@@ -14,8 +15,7 @@
     grid-column-end: 3;
     padding-left: 28px;
     justify-self: center;
-    align-self: center;
-    
+    align-self: center;    
 }
 #rdn-space {
     margin-top: 5px;
@@ -54,6 +54,7 @@
     font-family: 'Titillium Web', sans-serif;
     margin: 0px;
     padding-right: 28px;
+    line-height: 24px;
 }
 .cel1 {
     

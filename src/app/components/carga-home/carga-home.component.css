@@ -1,18 +1,25 @@
+.img-blanca {
+    background-color: #ffffff;
+    
+}
 .grid-uno {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
-    margin-top: 40vh;
+    height: 100vh;
+    grid-template-rows: 8fr 1fr;
+    background-color: #ffffff;
 }
 .cel1 {
    
 }
 .img-gif {
-    width: 40%;
+    width: 70%;
     height: auto;  
-    padding-left: 34px; 
+    padding-left: 5px; 
 }
 .imglogo {
     padding-left: 64px;
+    align-self: center;
 }
 .size {
     color: #ffffff;

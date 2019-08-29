@@ -19,7 +19,7 @@
     <div id="grid-uno" *ngFor="let control of infoPaso.riesgos">
         <div class="cel1"><p class="txtblanco size">{{control.pregunta}}</p></div>
         <div class="cel1">
-            <input type="checkbox" [(ngModel)]="riesgo.check" id="radiouno">
+            <input type="checkbox" [(ngModel)]="control.check" id="radiouno">
         </div>
     </div>
 </div>

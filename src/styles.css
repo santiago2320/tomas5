@@ -4,6 +4,11 @@ body {
 	background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.wText {
+  font-family: 'Titillium Web', sans-serif;
 }
 
 input[type="radio"]:checked {

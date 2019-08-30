@@ -3,6 +3,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: 14vh 78vh 8vh;
     height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
 #subgriduno{
     display: grid;
@@ -20,7 +24,7 @@
 #subgrid-dos-uno{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 11vh 53vh 8vh 6vh;
+    grid-template-rows: 64vh 8vh 6vh;
 }
 .celda {
     /*border: solid #d80d0d;*/
@@ -129,7 +133,7 @@
 #subgridheader{
     display: grid;
     grid-template-columns: 5fr 9fr 5fr;
-    height: 3vh;
+    height: 11vh;
     padding-top:5px;
 }
 

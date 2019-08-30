@@ -31,7 +31,7 @@ export class EncuestaAzulComponent implements OnInit {
                     //{pregunta:"controles 1", id:1},
                     //{pregunta:"controles 2", id:1},
                     //{pregunta:"controles 3", id:1}]}},
-      {tipo:"titulo",  infoPaso:{titulo:"Invierte un momento para observar tu entorno, respira y da una vuelta al lugar en el cual trabajarás.  Esto marcará la direrencia", id:1}},
+      {tipo:"titulo",  infoPaso:{titulo:"Invierte un momento para observar tu entorno, respira y da una vuelta al lugar en el cual trabajarás.  Esto marcará la direrencia.", id:1}},
       {tipo:"riesgos", infoPaso:{pregunta:"Selecciona los riesgos que identificas:", riesgos:[
                     {pregunta:"1 Entrar en contacto / golpes con partes móviles de máquinas.", id:1},
                     {pregunta:"2 Entrar en contacto con aire comprimido.", id:1},
@@ -49,10 +49,10 @@ export class EncuestaAzulComponent implements OnInit {
       {tipo:"titulo",  infoPaso:{titulo:"Después de identificar los riesgos a los que estás expuesto: Pregúntate", id:1}},
       {tipo:"cerrada", infoPaso:{pregunta:"¿Tengo alguna situación personal que me esté afectando y pueda distraerme en mi trabajo?", si:"Tranquil@, a todos nos pasa. Piensa en cómo podrias sentirte más tranquil@ y de ser necesario habla con tu supervisor.", no:"Recuerda la emoción es un factor de riesgo y puede causarte un accidente", id:11}},
       {tipo:"abierta", infoPaso:{pregunta:"¿En qué momento de la tarea estoy más en riesgo?",  id:1}},
-      {tipo:"abierta_bombillo",infoPaso:{pregunta:"¿En qué momento de la tarea mis manos estarán más expuestas?", mensaje:"Aseguráte de mantenerlas alejadas de la linea de fuego. Imagina si algo les pasara", id:1}},
+      {tipo:"abierta_bombillo",infoPaso:{pregunta:"¿En qué momento de la tarea mis manos estarán más expuestas?", mensaje:"Aseguráte de mantenerlas alejadas de la linea de fuego. Imagina si algo les pasara.", id:1}},
       {tipo:"abierta_bombillo",infoPaso:{pregunta:"¿ Estoy seguro que las herramientas  son los adecuados y están en buen estado?", mensaje:"Verifica e inspecciona. Es mejor prevenir que lamentar. No pierdes nada con darles un vistazo.", id:1}},
-      {tipo:"cerrada", infoPaso:{pregunta:"¿ Ya identificaste el lugar en el cual NUNCA debes ubicarte ?", si:"Retenla en tu mente para no entrar en la línea de fuego", no:"Tómate unos minutos para identificarlo", id:1}},
-      {tipo:"cerrada", infoPaso:{pregunta:"¿ Sabes si alguien se ha lesionado realizando la labor?", si:"Recuerda a alguien le pasó. Toma las precauciones para que no te pase.", no:"Para evitar que a ti te pase. Sigue realizando análisis de riesgos", id:1}},
+      {tipo:"cerrada", infoPaso:{pregunta:"¿ Ya identificaste el lugar en el cual NUNCA debes ubicarte ?", si:"Retenla en tu mente para no entrar en la línea de fuego", no:"Tómate unos minutos para identificarlo.", id:1}},
+      {tipo:"cerrada", infoPaso:{pregunta:"¿ Sabes si alguien se ha lesionado realizando la labor?", si:"Recuerda a alguien le pasó. Toma las precauciones para que no te pase.", no:"Para evitar que a ti te pase. Sigue realizando análisis de riesgos.", id:1}},
       {tipo:"abierta_bombillo",infoPaso:{pregunta:"¿ Qué es lo peor que te puede pasar ?", mensaje:"Piensa en el peor escenario y en el impacto para ti y tu familia.", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"Es hora de pensar en los controles para proteger tu integridad. ¿ Qué debes hacer para ejecutar la actividad de manera segura?", id:1}},
       {tipo:"controles", infoPaso:{pregunta:"Cuales controles aplicas", controles:[
@@ -66,11 +66,11 @@ export class EncuestaAzulComponent implements OnInit {
       {tipo:"abierta_bombillo",infoPaso:{pregunta:"¿ Conozco los pasos para realizar esta actividad de manera segura?", mensaje:"Recuerda: Los Atajos son una de las principales causas de accidente. Sigue el SW de la actividad.", id:1}},
       {tipo:"cerrada", infoPaso:{pregunta:"¿ Participe de la reunión de 5 minutos?", si:"Qué mensaje me quedó", no:"Habla con tu supervisor o pídele a un compañero que te cuente qué tema trataron.", id:1}},
       {tipo:"abierta_bombillo",infoPaso:{pregunta:"¿ Conoces los pasos para realizar esta actividad?", mensaje:"Recuerda: Los Atajos son una de las principales causas de accidente. Sigue el SW de la actividad.", id:1}},
-      {tipo:"titulo",  infoPaso:{titulo:"Ya casi terminas…. Reflexiona", id:1}},
+      {tipo:"titulo",  infoPaso:{titulo:"Ya casi terminas…. Reflexiona.", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿ Sabes qué hacer si algo sale mal?", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿ Hay algo adicional que debas tener en cuenta para garantizar tu integridad?", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"Antes de terminar…", id:1}},
-      {tipo:"titulo",  infoPaso:{titulo:"Asegúrate que tu supervisor sepa que vas a realizar esta actividad", id:1}},
+      {tipo:"titulo",  infoPaso:{titulo:"Asegúrate que tu supervisor sepa que vas a realizar esta actividad.", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿ Te comprometes a PARAR si observas una situación insegura o sientes que algo no esta bien?", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿Te comprometes a intervenir a un compañero si observas que está realizando un comportamiento inseguro?", id:1}}
 

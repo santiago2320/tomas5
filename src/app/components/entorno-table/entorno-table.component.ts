@@ -8,6 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 export class EntornoTableComponent implements OnInit {
 
   @Input() infoPaso: any;
+  riesgo: any [];
 
   constructor() { }
 

@@ -3,6 +3,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: 14vh 78vh 8vh;
     height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
 #subgriduno{
     display: grid;

@@ -13,7 +13,7 @@ export class CargaHomeComponent implements OnInit {
   ngOnInit() {
   	setTimeout(()=>{
   		this.router.navigate(['/login']);
-  	},3500);
+  	},8500);
   }
 
 }

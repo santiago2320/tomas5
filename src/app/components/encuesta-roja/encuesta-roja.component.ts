@@ -19,7 +19,9 @@ export class EncuestaRojaComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+
     this.proceso = [
+      {tipo:"titulo",  infoPaso:{titulo:"Esta inspección se debe realizar antes del ingreso a descargue en obra de un cliente y garantizar la integridad del operador, las demas personas que se encuentren alrededor y los vehículos", id:1}},
       {tipo:"riesgosEntorno", infoPaso:{pregunta:"Riesgos mi entorno seguro", riesgosEntorno:[
                     {pregunta:"1. Terreno destapado / Fangoso / Inundado / Derrumbe", id:1},
                     {pregunta:"2. Materiales de construcción o escombros mal ubicados", id:2},

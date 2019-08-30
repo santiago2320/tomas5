@@ -9,45 +9,13 @@
         <div class="cel1 size">controlable</div>
         <div class="cel1 size">¿como controlarlo?</div>
         <!---->
-        <div class="cel0"></div>
-        <div class="cel1 size1">SI</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel01"></div>
-        <div class="cel1 size1">NO</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel0"></div>
-        <div class="cel1 size1">SI</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel01"></div>
-        <div class="cel1 size1">NO</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel0"></div>
-        <div class="cel1 size1">SI</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel01"></div>
-        <div class="cel1 size1">NO</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel0"></div>
-        <div class="cel1 size1">SI</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel01"></div>
-        <div class="cel1 size1">NO</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel0"></div>
-        <div class="cel1 size1">SI</div>
-        <div class="cel1">C</div>
-        <!---->
-        <div class="cel01"></div>
-        <div class="cel1 size1">NO</div>
-        <div class="cel1">C</div>
+        <div class="grid-riesgo" *ngFor="let riesgo of infoPaso.riesgos">
+            <div class="txt_riesgo">{{riesgo.pregunta}}</div>
+            <div class="label_si">Si</div>
+            <div class="inputs"></div>
+            <div class="label_no">NO</div>
+            <div class="txt_no">Reportar el jefe de planta o instructor de seguridad vial</div>
+        </div>
         
     </div>
     <div class="subgrid-dos cel-roja" *ngFor="let control of infoPaso.riesgos" >

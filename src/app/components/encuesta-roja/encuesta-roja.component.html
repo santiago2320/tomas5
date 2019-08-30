@@ -25,7 +25,8 @@
                 <app-grid-riesgos [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgos'"></app-grid-riesgos>
                 <app-grid-controles [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='controles'"></app-grid-controles>
                 -->
-                <!--<app-entorno-table></app-entorno-table>-->
+                <app-titulo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='titulo'"></app-titulo>
+                <app-entorno-table [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='entorno'"></app-entorno-table>
                 <app-riesgos-entorno [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgosEntorno'"></app-riesgos-entorno>
             </div>
             <div id="btnSend" class="cel1 center">

@@ -22,7 +22,7 @@ import { CargaHomeComponent } from './components/carga-home/carga-home.component
 import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido-rojo.component';
 import { EntornoTableComponent } from './components/entorno-table/entorno-table.component';
 import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-entorno.component';
-
+import { GeneralServiceService } from './services/general-service.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-en
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GeneralServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

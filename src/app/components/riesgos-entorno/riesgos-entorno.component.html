@@ -1,0 +1,36 @@
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700&display=swap" rel="stylesheet">
+<div id="grid-controles" class="celda">    
+    <div id="griduno" class="celda">
+        <div class="control">
+            <div class="titleControles cel1">Riesgos en el ingreso al sitio y en el punto de descargue:</div>
+            <div class="labelControles cel1">Si</div>
+            
+            <div class="labelControles cel1">No</div>
+        </div>
+        <div *ngFor="let riesgo of infoPaso.riesgosEntorno" class="control">
+            <div class="cel1">
+            <p class="txtblanco controlInfo">{{riesgo.pregunta}}</p>
+            </div>
+            <div class="cel1">
+                <input type="radio" [value]="true" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
+            </div>
+            <div class="cel1">
+                <input type="radio" [value]="false" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
+            </div>
+        </div>
+        <div class="abiertaRiesgosEntorno">
+        	<div class="titleControles cel1 wText">
+        		Observa a tu alrededor (360°) y pregúntate:
+        	</div>
+        	<div class="titleControles cel1 wTextN">
+        		¿Existen otros riesgos que te puedan lastimar?
+        	</div>
+        	<div class="cel1 text-area">
+	            <textarea  id="txt-area" [(ngModel)]="infoPaso.respuesta"></textarea>
+	        </div>
+        </div>
+        
+        
+
+    </div>
+</div>

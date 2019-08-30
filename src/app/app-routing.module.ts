@@ -10,6 +10,7 @@ import { CargaHomeComponent } from './components/carga-home/carga-home.component
 import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido-rojo.component';
 
 
+
 const routes: Routes = [
 	{path:"", redirectTo:"/home", pathMatch: 'full'},
   {path:"develop",component:DevelopComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:"login",component:LoginComponent },
   {path:"bienvenido",component:BienvenidoComponent },
   {path:"home",component:CargaHomeComponent},
-  {path:"bienvenidorojo",component:BienvenidoRojoComponent},
+  {path:"bienvenidorojo",component:BienvenidoRojoComponent},  
 ];
 
 @NgModule({

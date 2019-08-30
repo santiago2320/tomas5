@@ -7,7 +7,7 @@
         <div class="eaBody" id="subgrid-dos-uno">
           <div class="celda" id="subgridheader">
                 <div class="cel1 lineLeft"></div>
-                <div class="cel1 center wText">Análisis de riesgos</div>
+                <div class="cel1 center wText" >{{textoHeader}}</div>
                 <div class="cel1 lineRight"></div>
                 <div class="cel1"></div>
                 <div class="cel1 iconContainer">
@@ -25,7 +25,8 @@
                 <app-grid-riesgos [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgos'"></app-grid-riesgos>
                 <app-grid-controles [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='controles'"></app-grid-controles>
                 -->
-                <app-entorno-table></app-entorno-table>
+                <!--<app-entorno-table></app-entorno-table>-->
+                <app-riesgos-entorno [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgosEntorno'"></app-riesgos-entorno>
             </div>
             <div id="btnSend" class="cel1 center">
                 <button (click)="nextStep()" class="btnEnviar">CONTINUAR</button>

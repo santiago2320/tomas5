@@ -20,7 +20,7 @@
 #subgrid-dos-uno{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 64vh 7vh 7vh;
+    grid-template-rows: 11vh 53vh 8vh 6vh;
 }
 .celda {
     /*border: solid #d80d0d;*/
@@ -57,8 +57,6 @@
     background-color: #011a34;
     color: #ffffff;
     font-size: 12px;
-    padding-top: 30px;
-    padding-bottom: 30px;
 }
 
 .center {

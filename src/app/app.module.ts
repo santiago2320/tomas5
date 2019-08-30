@@ -21,6 +21,7 @@ import { BienvenidoComponent } from './components/bienvenido/bienvenido.componen
 import { CargaHomeComponent } from './components/carga-home/carga-home.component';
 import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido-rojo.component';
 import { EntornoTableComponent } from './components/entorno-table/entorno-table.component';
+import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-entorno.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { EntornoTableComponent } from './components/entorno-table/entorno-table.
     BienvenidoComponent,
     CargaHomeComponent,
     BienvenidoRojoComponent,
-    EntornoTableComponent
+    EntornoTableComponent,
+    RiesgosEntornoComponent
   ],
   imports: [
     BrowserModule,

@@ -82,8 +82,15 @@ export class EncuestaAzulComponent implements OnInit {
 
   nextStep() {
     if(this.indexActual< this.proceso.length -1){
-      this.indexActual++;
-      this.pasoActual = this.proceso[this.indexActual];
+      var mensaje = this.validations();
+      if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
+        this.indexActual++;
+       this.pasoActual = this.proceso[this.indexActual];
+      }else{
+        if(this.pasoActual.tipo != 'riesgos'){
+          alert(mensaje);
+        }
+      }
     }else {
       this.router.navigate(['/escoger']);
     }
@@ -93,4 +100,56 @@ export class EncuestaAzulComponent implements OnInit {
     console.log(this.pasoActual);
   }
 
+  validations(){
+    var mensaje: string;
+    var count:number;
+    if (this.pasoActual.tipo == 'titulo') {
+      
+        mensaje="OK";
+      
+    }
+    else if (this.pasoActual.tipo == 'riesgos') {
+      var total: number;
+      this.pasoActual.infoPaso.riesgos.forEach((riesgo)=>{
+        if( riesgo.check=="true" ) {
+          total ++;
+         }
+      });
+      mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar asi?";
+      
+    }
+    else if (this.pasoActual.tipo == 'cerrada') {
+      if( this.pasoActual.infoPaso.hasOwnProperty('check') ) {
+        mensaje="OK";
+       }
+       else{
+         mensaje="Por favor seleccione una respuesta";
+        }
+    }
+    else if (this.pasoActual.tipo == 'abierta' || this.pasoActual.tipo == 'abierta_bombillo') {
+      if( this.pasoActual.infoPaso.hasOwnProperty('respuesta') ) {
+        if( this.pasoActual.infoPaso.respuesta != "") {
+          mensaje="OK";
+        }
+        else{
+          mensaje="Por favor escribe una respuesta";
+        }
+      }
+      else{
+        mensaje="Por favor escribe una respuesta";
+      }
+    }
+    else if (this.pasoActual.tipo == 'controles') {
+      this.pasoActual.infoPaso.controles.forEach((control)=>{
+        if( control.hasOwnProperty('check') ) {
+          mensaje="OK";
+         }
+         else{
+           mensaje="Selecciona una respuesta para cada control";
+          }
+      });
+    } 
+    return mensaje;
+  }
+    
 }

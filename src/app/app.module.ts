@@ -23,6 +23,7 @@ import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido
 import { EntornoTableComponent } from './components/entorno-table/entorno-table.component';
 import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-entorno.component';
 import { GeneralServiceService } from './services/general-service.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { GeneralServiceService } from './services/general-service.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [GeneralServiceService],
   bootstrap: [AppComponent]

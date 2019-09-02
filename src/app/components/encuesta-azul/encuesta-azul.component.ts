@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-encuesta-azul',
@@ -14,8 +15,10 @@ export class EncuestaAzulComponent implements OnInit {
 
   indexActual: number;
 
+  mensaje: any;
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
   	this.proceso = [
@@ -80,7 +83,11 @@ export class EncuestaAzulComponent implements OnInit {
     this.pasoActual = this.proceso[this.indexActual];
   }
 
-  nextStep() {
+  openModal(content) {
+    this.modalService.open(content, { size: 'lg',centered: true });
+  }
+
+  nextStep(content) {
     if(this.indexActual< this.proceso.length -1){
       var mensaje = this.validations();
       if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
@@ -88,7 +95,9 @@ export class EncuestaAzulComponent implements OnInit {
        this.pasoActual = this.proceso[this.indexActual];
       }else{
         if(this.pasoActual.tipo != 'riesgos'){
-          alert(mensaje);
+          this.mensaje = mensaje;
+          this.openModal(content);                 
+          //alert(mensaje);
         }
       }
     }else {
@@ -103,6 +112,7 @@ export class EncuestaAzulComponent implements OnInit {
   validations(){
     var mensaje: string;
     var count:number;
+    count=0;
     if (this.pasoActual.tipo == 'titulo') {
       
         mensaje="OK";
@@ -113,7 +123,7 @@ export class EncuestaAzulComponent implements OnInit {
       this.pasoActual.infoPaso.riesgos.forEach((riesgo)=>{
         if( riesgo.check=="true" ) {
           total ++;
-         }
+         }         
       });
       mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar asi?";
       
@@ -142,7 +152,10 @@ export class EncuestaAzulComponent implements OnInit {
     else if (this.pasoActual.tipo == 'controles') {
       this.pasoActual.infoPaso.controles.forEach((control)=>{
         if( control.hasOwnProperty('check') ) {
-          mensaje="OK";
+          count=count + 1;
+          if (count == 7) {
+             mensaje="OK";
+          }          
          }
          else{
            mensaje="Selecciona una respuesta para cada control";

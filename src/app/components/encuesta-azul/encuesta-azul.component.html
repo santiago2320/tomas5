@@ -1,4 +1,4 @@
-<div id="grid-prin-encuesta-azul">
+<div id="grid-prin-encuesta-azul">    
     <div class="celda eaHead" id="subgriduno">
         <div (click)="logPaso()" class="cel1 headSpace"></div>        
     </div>
@@ -24,7 +24,7 @@
 
 <div class="fixedDown">
     <div id="btnSend" class="cel1 center">
-        <button (click)="nextStep()" class="btnEnviar">CONTINUAR</button>
+        <button (click)="nextStep(content)" class="btnEnviar">CONTINUAR</button>
     </div>
     <div class="cel1 progressBarCont">
         <div class="progress-bar">
@@ -35,3 +35,12 @@
         <!-- <div class="cel1">Este contenido lo ha creado el propietario del formulario.<br>Los datos que proporcione se enviaran a este propietario.</div> -->
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <div class="grid1">
+            <div>{{mensaje}}</div>
+            <div (click)="modal.dismiss('Cross click')" id="cerrarBtn" class="popRegular divi">X Cerrar</div>
+        </div>        
+    </div>
+</ng-template>

@@ -83,8 +83,9 @@ export class EncuestaAzulComponent implements OnInit {
     this.pasoActual = this.proceso[this.indexActual];
   }
 
-  openModal(content) {
-    this.modalService.open(content, { size: 'lg',centered: true });
+  openModal(content) {    
+    this.modalService.open(content, { size: 'lg',centered: true });    
+    setTimeout(function(){this.modalService.dismiss(content);}, 2000); 
   }
 
   nextStep(content) {
@@ -96,7 +97,7 @@ export class EncuestaAzulComponent implements OnInit {
       }else{
         if(this.pasoActual.tipo != 'riesgos'){
           this.mensaje = mensaje;
-          this.openModal(content);                 
+          this.openModal(content);                   
           //alert(mensaje);
         }
       }

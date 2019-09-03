@@ -154,13 +154,13 @@
   padding-right: 3vw;
   border-radius: 10px;
   position: absolute;
-  bottom: 13.5vh;    
+  bottom: 24vh;    
 }
 
 #cerrarBtn {
   position: relative;
   top: 25px;
-  font-size: 12px;
+  font-size: 17px;
   justify-self: end;
   cursor: pointer;  
   height: 15px;

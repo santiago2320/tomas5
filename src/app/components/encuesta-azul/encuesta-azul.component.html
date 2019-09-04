@@ -1,6 +1,6 @@
 <div id="grid-prin-encuesta-azul">    
     <div class="celda eaHead" id="subgriduno">
-        <div (click)="logPaso()" class="cel1 headSpace"></div>        
+        <div (click)="openModal2(content2)" class="cel1 headSpace"></div>        
     </div>
     <div class="celda" id="subgrid-dos">
         <div class="eaBody" id="subgrid-dos-uno">
@@ -41,6 +41,16 @@
         <div class="grid1">
             <div id="mensajeModal">{{mensaje}}</div>
             <div (click)="modal.dismiss('Cross click')" id="cerrarBtn" class="popRegular divi">X Cerrar</div>
+        </div>        
+    </div>
+</ng-template>
+
+<ng-template #content2 let-modal>
+    <div class="modal-body">
+        <div class="gridmodalriesgos celroja">
+            <div class="msgModal" id="celverde">{{mensaje}} va un mensaje aca</div>         
+            <div class="btnno celverde"><button class="no">No</button></div>
+            <div class="btnsi celverde"><button class="si">Si</button></div>
         </div>        
     </div>
 </ng-template>

@@ -105,17 +105,29 @@ export class EncuestaRojaComponent implements OnInit {
     setTimeout(()=>{this.modalService.dismissAll('Cross click');}, 2000); 
   }
 
-  nextStep(content) {
-    var mensaje = this.validations();
-    if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
-      this.guardarRespuestas();
+  openModal2 (content2){
+    this.modalService.open(content2,{size:'lg',centered:true})  
+  }
+
+  avanzar(){
+    this.guardarRespuestas();
       if(this.indexActual< this.proceso.length -1){
         this.indexActual++;
         this.pasoActual = this.proceso[this.indexActual];
         this.actualizarPorcentaje();
       }else{
         this.router.navigate(['/escoger']);
-      } 
+      }
+  }
+
+  nextStep(content,content2) {
+    var mensaje = this.validations();
+    if(mensaje=="OK" ){
+      if(this.pasoActual.tipo == 'riesgos'){
+        this.openModal2 (content2);
+      }else{
+        this.avanzar();
+      }
     }else{
       if(this.pasoActual.tipo != 'riesgos'){
         this.mensaje = mensaje;

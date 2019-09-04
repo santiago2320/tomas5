@@ -60,3 +60,12 @@
         </div>        
     </div>
 </ng-template>
+
+<ng-template #content2 let-modal>
+    <div class="modal-body">
+        <div class="grid2">
+            <div id="mensajeModal">{{mensaje}}</div>
+            <div (click)="modal.dismiss('Cross click')" id="cerrarBtn" class="popRegular divi">X Cerrar</div>
+        </div>        
+    </div>
+</ng-template>

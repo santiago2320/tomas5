@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {EncuestaService}from 'src/app/services/encuesta.service';
+import { forkJoin } from 'rxjs';
+declare var _ : any;
 
 @Component({
   selector: 'app-encuesta-roja',
@@ -16,72 +20,238 @@ export class EncuestaRojaComponent implements OnInit {
 
   textoHeader: any;
 
-  constructor(private router: Router) { }
+  mensaje: any;
+
+  constructor(private encuestaService: EncuestaService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
 
-    this.proceso = [
-      {tipo:"titulo",  infoPaso:{titulo:"Esta inspección se debe realizar antes del ingreso a descargue en obra de un cliente y garantizar la integridad del operador, las demas personas que se encuentren alrededor y los vehículos.", id:1}},
-      {tipo:"riesgosEntorno", infoPaso:{pregunta:"Riesgos mi entorno seguro.", riesgosEntorno:[
-                    {pregunta:"1. Terreno destapado / Fangoso / Inundado / Derrumbe", id:1},
-                    {pregunta:"2. Materiales de construcción o escombros mal ubicados.", id:2},
-                    {pregunta:"3. Excavaciones abiertas y profundas.", id:3},
-                    {pregunta:"4. Pendientes pronunciadas.", id:4},
-                    {pregunta:"5. Relación peso/terreno.", id:5},
-                    {pregunta:"6. Espacio acorde con las dimensiones del vehículo(1x1).", id:6},
-                    {pregunta:"7. Inclemencias del tiempo Fuertes vientos o lluvias. ", id:7},
-                    {pregunta:"8. Movimientos vehículos/maquinaria/peatones.", id:8},
-                    {pregunta:"9. Existencia de cables aéreos o líneas energizadas.", id:9},
-                    {pregunta:"10. Existe posibilidad de perdida de tracción.", id:10},
-                    {pregunta:"11. Se requiere apoyo de personal de manejo de tráfico.", id:11},
-                    {pregunta:"12. Terreno desnivelado con depresiones o montículos.", id:12},
-                    {pregunta:"13. Empozamiento de agua.", id:13},
-                    {pregunta:"14. Riesgos de tropezones o resbalones.", id:14},
-                    {pregunta:"15. Riesgo de golpes por caída de objetos.", id:15},
-                    {pregunta:"16. Malas condiciones de iluminación.", id:16},
-                    {pregunta:"17. Cargas suspendidas sobre el vehículo.", id:17},
-                    {pregunta:"18. Acoples para descargue en silo superiores a 1m de altura (cisterna).", id:18},
-      ]}},
-      {tipo:"entorno",  infoPaso:{pregunta:"pregunta1",riesgos: [
-                    {pregunta:"1. Terreno destapado / Fangoso / Inundado / Derrumbe.", id:1},
-                    {pregunta:"2. Materiales de construcción o escombros mal ubicados.", id:2},
-                    {pregunta:"3. Excavaciones abiertas y profundas.", id:3},
-                    {pregunta:"4. Pendientes pronunciadas.", id:4},
-                    {pregunta:"5. Relación peso/terreno.", id:5},
-                    {pregunta:"6. Espacio acorde con las dimensiones del vehículo(1x1).", id:6},
-                    {pregunta:"7. Inclemencias del tiempo Fuertes vientos o lluvias. ", id:7},
-                    {pregunta:"8. Movimientos vehículos/maquinaria/peatones.", id:8},
-                    {pregunta:"9. Existencia de cables aéreos o líneas energizadas.", id:9},
-                    {pregunta:"10. Existe posibilidad de perdida de tracción.", id:10},
-                    {pregunta:"11. Se requiere apoyo de personal de manejo de tráfico.", id:11},
-                    {pregunta:"12. Terreno desnivelado con depresiones o montículos.", id:12},
-                    {pregunta:"13. Empozamiento de agua.", id:13},
-                    {pregunta:"14. Riesgos de tropezones o resbalones.", id:14},
-                    {pregunta:"15. Riesgo de golpes por caída de objetos.", id:15},
-                    {pregunta:"16. Malas condiciones de iluminación.", id:16},
-                    {pregunta:"17. Cargas suspendidas sobre el vehículo.", id:17},
-                    {pregunta:"18. Acoples para descargue en silo superiores a 1m de altura (cisterna).", id:18},
-      ]}},      
-                                     
-    ];
+    this.pasoActual = {id:0, tipo:"cargando", infoPaso:{}};
+    var id_encuesta = window.localStorage.id_encuesta;
+    this.encuestaService.getEncuestaById(id_encuesta).subscribe(res=>{
+      console.log(res);
+      var pasos = res.preguntas;
+      pasos = _.orderBy(pasos,"orden");
+      this.proceso = [];
+      _.forEach(pasos,step=>{
+        this.proceso.push(this.crearPaso(step));
+      });
+      this.indexActual = 0;
+      this.pasoActual = this.proceso[this.indexActual];
+      this.actualizarPorcentaje();
+    });
 
-    this.indexActual = 0;
-    this.pasoActual = this.proceso[this.indexActual];    
+  }
+
+  crearPaso(paso){
+    var step = {id:paso.id, tipo:paso.tipo, paso:paso, infoPaso:{}};
+    if(paso.tipo =="titulo"){
+      step.infoPaso = {
+        id: paso.id,
+        titulo: paso.pregunta
+      };
+    } else if(paso.tipo =="riesgos"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        riesgos: paso.items
+      };
+    } else if(paso.tipo =="cerrada"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        si: paso.mensaje_si,
+        no: paso.mensaje_no
+      };
+    } else if(paso.tipo =="abierta"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta
+      };
+    } else if(paso.tipo =="abierta_bombillo"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        mensaje: paso.mensaje
+      };
+    } else if(paso.tipo =="controles"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        controles: paso.items
+      };
+    } else if(paso.tipo =="entorno"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        riesgos: paso.items
+      };
+    } else if(paso.tipo =="riesgosEntorno"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        riesgosEntorno: paso.items
+      };
+    } else {
+      console.log("Error: paso desconocido");
+      console.log(paso);
+    }
+    return step;
+  }
+
+  openModal(content) {    
+    this.modalService.open(content, { size: 'lg',centered: true });    
+    /*console.log(this.modalService);*/
+    setTimeout(()=>{this.modalService.dismissAll('Cross click');}, 2000); 
+  }
+
+  nextStep(content) {
+    var mensaje = this.validations();
+    if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
+      this.guardarRespuestas();
+      if(this.indexActual< this.proceso.length -1){
+        this.indexActual++;
+        this.pasoActual = this.proceso[this.indexActual];
+        this.actualizarPorcentaje();
+      }else{
+        this.router.navigate(['/escoger']);
+      } 
+    }else{
+      if(this.pasoActual.tipo != 'riesgos'){
+        this.mensaje = mensaje;
+        this.openModal(content);
+      }
+    }
+  }
+
+  guardarRespuestas(){
+    var respuestas = this.crearRespuestasItems();
+    var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno"];
+    if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
+      respuestas.push(this.crearRespuesta());
+    }
+    this.encuestaService.postRespuesta(respuestas).subscribe(res=>{
+      console.log(res);
+    });
+  }
+
+  crearRespuesta(){
+    var answer = {
+      id_pregunta: this.pasoActual.id,
+      id_entrada: window.localStorage.id_entrada,
+      id_item: 0,
+      respuesta:""
+    };
+    if(this.pasoActual.tipo =="titulo"){
+      answer.respuesta = this.pasoActual.infoPaso.titulo;
+    } else if(this.pasoActual.tipo =="riesgos"){
+      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+    } else if(this.pasoActual.tipo =="cerrada"){
+      answer.respuesta = this.pasoActual.infoPaso.check;
+    } else if(this.pasoActual.tipo =="abierta"){
+      answer.respuesta = this.pasoActual.infoPaso.respuesta;
+    } else if(this.pasoActual.tipo =="abierta_bombillo"){
+      answer.respuesta = this.pasoActual.infoPaso.respuesta;
+    } else if(this.pasoActual.tipo =="controles"){
+      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+    } else if(this.pasoActual.tipo =="entorno"){
+      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+    } else if(this.pasoActual.tipo =="riesgosEntorno"){
+      answer.respuesta = this.pasoActual.infoPaso.respuesta || "...";
+    } else {
+      console.log("Error: paso desconocido");
+      console.log(this.pasoActual);
+    }
+    return answer;
+
+  }
+
+  crearRespuestasItems(){
+    var answers = [];
+    if(this.pasoActual.tipo =="titulo"){
+    } else if(this.pasoActual.tipo =="riesgos"){
+      _.forEach(this.pasoActual.infoPaso.riesgos,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.check? "Si":"No";
+        answers.push(answer);
+      });
+    } else if(this.pasoActual.tipo =="controles"){
+      _.forEach(this.pasoActual.infoPaso.controles,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.check;
+        answers.push(answer);
+      });
+    } else if(this.pasoActual.tipo =="entorno"){
+      _.forEach(this.pasoActual.infoPaso.riesgos,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.respuesta || "...";
+        answers.push(answer);
+      });
+    } else if(this.pasoActual.tipo =="riesgosEntorno"){
+      _.forEach(this.pasoActual.infoPaso.riesgosEntorno,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.check;
+        answers.push(answer);
+      });
+    } 
+    return answers;
+  }
+
+  actualizarPorcentaje() {
+    var porcentaje = (this.indexActual+1)/this.proceso.length;
+    var progressbar = document.querySelector(".barraprogreso") as HTMLElement;
+    var widthBarra =  Math.round(porcentaje * 86);
+    progressbar.style.width = widthBarra+"%";
     if(this.pasoActual.tipo == "titulo"){
       this.textoHeader = "Análisis de Riesgos";
     }else {
       this.textoHeader = "Mi entorno seguro";
     }
+    var stepCont = document.querySelector("#stepContainer") as HTMLElement;
+    stepCont.scrollTop = 0;
 
   }
 
-  nextStep() {
-    if(this.indexActual< this.proceso.length -1){
-      this.indexActual++;
-      this.pasoActual = this.proceso[this.indexActual];            
-    }else {
-      this.router.navigate(['/escoger']);
-    }    
+  validations(){
+    var mensaje: string;
+    var counter: number;
+    mensaje = "OK";
+
+    if (this.pasoActual.tipo == 'riesgosEntorno') {
+      this.pasoActual.infoPaso.riesgosEntorno.forEach((riesgo)=>{
+        if( riesgo.hasOwnProperty('check') ) {
+          counter ++;
+         }
+         else{
+           mensaje = "Selecciona una respuesta para cada control";
+          }
+      });
+    }
+    return mensaje;
+  }
+
+  logPaso() {
+    console.log(this.pasoActual);
   }
 
 }

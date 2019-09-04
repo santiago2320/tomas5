@@ -28,7 +28,7 @@
     </div>
     <div class="cel1 progressBarCont">
         <div class="progress-bar">
-           <div style="width: 50%"></div>
+           <div class="barraprogreso" style="width:0%"></div>
         </div>
     </div>
     <div class="celda eaFooter center" id="subgrid-tres">
@@ -39,7 +39,7 @@
 <ng-template #content let-modal>
     <div class="modal-body">
         <div class="grid1">
-            <div>{{mensaje}}</div>
+            <div id="mensajeModal">{{mensaje}}</div>
             <div (click)="modal.dismiss('Cross click')" id="cerrarBtn" class="popRegular divi">X Cerrar</div>
         </div>        
     </div>

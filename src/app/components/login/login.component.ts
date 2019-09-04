@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {GeneralServiceService}from 'src/app/services/general-service.service';
+/*import {EncuestaService}from 'src/app/services/encuesta.service';*/
+import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
+declare var _ : any;
 
 @Component({
   selector: 'app-login',
@@ -8,11 +13,13 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
 	localizaciones: any[];
+	login: any;
+	localizacion: any;
 
-  constructor() { }
+  constructor(private generalService: GeneralServiceService,  private router: Router) { }
 
   ngOnInit() {
-  	this.localizaciones = [
+  	/*this.localizaciones = [
   		{nombre:"Planta 170"},
 		{nombre:"Planta 240"},
 		{nombre:"Planta Bombeo"},
@@ -56,7 +63,71 @@ export class LoginComponent implements OnInit {
 		{nombre:"Planta Floridablanca"},
 		{nombre:"Comerciales"},
 		{nombre:"Construrama"}
-  	];
+  	];*/
+  	this.login = {nombre:"", cedula:""};
+
+  	forkJoin(
+      [
+        this.generalService.getLocalizaciones()   //0
+      ] 
+    ).subscribe(response =>{
+    	this.localizaciones = response[0];
+    	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Seleeciona...'});
+    	this.localizacion = this.localizaciones[0];
+    });
+  }
+
+  logLocal() {
+  	console.log(this.localizacion)
+  }
+
+  loginButton(){
+  	/*validamos el formulario*/
+  	var validacion = this.validar();
+  	if(validacion == "OK"){
+  		/*si el formulario esta bien*/
+  		let filter = {
+      where: {cedula:this.login.cedula}
+    	};
+    	/*Pedimos los usuarios con esa cedula*/
+    	this.generalService.getUsuariosFilter(filter).subscribe(res=>{
+    		console.log(res);
+    		if(res.length>0){
+    			/*si existe la cedula usamos ese usuario*/
+    			var usuario = res[0];
+    			setUserAndSendToEscoger(usuario,this.router);
+    		}else{
+    			/*de lo contrario creamos un nuevo usuario*/
+    			this.generalService.postUsuario(this.login).subscribe(rea=>{
+    				console.log(rea);
+    				setUserAndSendToEscoger(rea,this.router);
+    			});
+    		}
+    	});
+  	}else {
+  		/*le informamos al usuario que el formulario esta mal*/
+  		alert(validacion);
+  	}
+
+  	function setUserAndSendToEscoger(user,router){
+  		window.localStorage.setItem("id_usuario",user.id);
+  		router.navigate(['/escoger']);
+  	}
+
+  }
+
+  validar(){
+  	var res = "OK";
+  	if(this.localizacion.id==0){
+  		res = "Por favor selecciona un sitio de trabajo";
+  	}
+  	if(!this.login.cedula || this.login.cedula==""){
+  		res = "Por favor escribe tu cedula";
+  	}
+  	if(!this.login.nombre || this.login.nombre==""){
+  		res = "Por favor escribe tu nombre";
+  	}
+  	return res;
   }
 
 }

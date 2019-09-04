@@ -154,14 +154,22 @@
   padding-right: 3vw;
   border-radius: 10px;
   position: absolute;
-  bottom: 24vh;    
+  bottom: 24vh;  
+  font-family: 'Titillium Web', sans-serif;  
 }
 
 #cerrarBtn {
-  position: relative;
-  top: 25px;
+  align-self: center;
   font-size: 17px;
-  justify-self: end;
+  justify-self: center;
   cursor: pointer;  
-  height: 15px;
+  text-decoration: underline;
+  color: red;
+}
+
+
+#mensajeModal {
+  font-size: 17px;
+  justify-self: center;
+  align-self: center;
 }

@@ -6,24 +6,23 @@
   <div class="cel1 texto"><h4 class="size">Nombre</h4></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1"><input type="text" class="inputs"></div>
+  <div class="cel1"><input [(ngModel)]="login.nombre" type="text" class="inputs"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <div class="cel1 texto1"><h4 class="size1">Cedula</h4></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1"><input type="text" class="inputs"></div>
+  <div class="cel1"><input [(ngModel)]="login.cedula" type="text" class="inputs"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <div class="cel1 texto2"><h4 class="size2">Sitio trabajo</h4></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1"><select class="selects"><option>Selecciona</option>
-    <option *ngFor="let local of localizaciones">{{local.nombre}}</option>
+  <div class="cel1"><select (change)="logLocal()" [(ngModel)]="localizacion" class="selects"><option [ngValue]="local" *ngFor="let local of localizaciones">{{local.nombre}}</option>
   </select></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1 botonenviar"><button routerLink="/escoger" class="btnenviar">INICIAR</button></div>
+  <div class="cel1 botonenviar"><button (click)="loginButton()" class="btnenviar">INICIAR</button></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <div class="cel1 img-principal"><img src="../../../assets/logop.png" class="img-logop"></div>

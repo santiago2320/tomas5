@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {GeneralServiceService}from 'src/app/services/general-service.service';
 
 @Component({
   selector: 'app-carga-home',
@@ -8,12 +9,18 @@ import { Router } from '@angular/router';
 })
 export class CargaHomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private generalService: GeneralServiceService, private router: Router) { }
 
   ngOnInit() {
-  	setTimeout(()=>{
-  		this.router.navigate(['/login']);
-  	},8500);
+  	/*window.localStorage.setItem("token","WfyaNfIzGXSVwDBJzJIG2q0G0LTGyHZB3h0cIG6m33kSR8TU569ADqOqM3DtACI2");*/
+  	this.generalService.login({"username":"admin", "password":"wakanda"}).subscribe(res=>{
+  		console.log(res);
+  		window.localStorage.setItem("token",res.id);
+  		setTimeout(()=>{
+	  		this.router.navigate(['/login']);
+	  	},8500);
+  	});
+  	
   }
 
 }

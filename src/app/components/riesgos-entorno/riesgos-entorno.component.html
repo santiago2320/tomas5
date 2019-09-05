@@ -12,10 +12,10 @@
             <p class="txtblanco controlInfo">{{riesgo.pregunta}}</p>
             </div>
             <div class="cel1">
-                <input type="radio" [value]="true" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
+                <input type="radio" [value]="'Si'" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
             </div>
             <div class="cel1">
-                <input type="radio" [value]="false" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
+                <input type="radio" [value]="'No'" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
             </div>
         </div>
         <div class="abiertaRiesgosEntorno">

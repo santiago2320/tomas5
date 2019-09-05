@@ -1,6 +1,6 @@
-<div id="grid-prin-encuesta-azul">
+<div id="grid-prin-encuesta-azul">    
     <div class="celda eaHead" id="subgriduno">
-        <div (click)="logPaso()" class="cel1 headSpace"></div>        
+        <div (click)="openModal2(content2)" class="cel1 headSpace"></div>        
     </div>
     <div class="celda" id="subgrid-dos">
         <div class="eaBody" id="subgrid-dos-uno">
@@ -24,14 +24,33 @@
 
 <div class="fixedDown">
     <div id="btnSend" class="cel1 center">
-        <button (click)="nextStep()" class="btnEnviar">CONTINUAR</button>
+        <button (click)="nextStep(content)" class="btnEnviar">CONTINUAR</button>
     </div>
     <div class="cel1 progressBarCont">
         <div class="progress-bar">
-           <div style="width: 50%"></div>
+           <div class="barraprogreso" style="width:0%"></div>
         </div>
     </div>
     <div class="celda eaFooter center" id="subgrid-tres">
         <!-- <div class="cel1">Este contenido lo ha creado el propietario del formulario.<br>Los datos que proporcione se enviaran a este propietario.</div> -->
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <div class="grid1">
+            <div id="mensajeModal">{{mensaje}}</div>
+            <div (click)="modal.dismiss('Cross click')" id="cerrarBtn" class="popRegular divi">X Cerrar</div>
+        </div>        
+    </div>
+</ng-template>
+
+<ng-template #content2 let-modal>
+    <div class="modal-body">
+        <div class="gridmodalriesgos celroja">
+            <div class="msgModal" id="celverde">{{mensaje}} va un mensaje aca</div>         
+            <div class="btnno celverde"><button class="no">No</button></div>
+            <div class="btnsi celverde"><button class="si">Si</button></div>
+        </div>        
+    </div>
+</ng-template>

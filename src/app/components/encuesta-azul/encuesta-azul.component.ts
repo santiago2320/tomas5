@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {EncuestaService}from 'src/app/services/encuesta.service';
+import { forkJoin } from 'rxjs';
+declare var _ : any;
 
 @Component({
   selector: 'app-encuesta-azul',
@@ -14,23 +18,13 @@ export class EncuestaAzulComponent implements OnInit {
 
   indexActual: number;
 
+  mensaje: any;
 
-  constructor(private router: Router) { }
+
+  constructor(private encuestaService: EncuestaService,private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
-  	this.proceso = [
-      //{tipo:"titulo",  infoPaso:{titulo:"¿ hay algo adicional que debes tener en encuenta para garantizar tu integridad ?", id:1}},
-  		//{tipo:"cerrada", infoPaso:{pregunta:"Pregunta uno?", si:"Que bueno", no:"que idiot eres", id:1}},
-  		//{tipo:"abierta", infoPaso:{pregunta:"Cual es tu sabor favorito?",  id:1}},
-  		//{tipo:"abierta_bombillo",infoPaso:{pregunta:"en que momento de la tarea estoy mas en riesgo?", mensaje:"asegurate de mantenerlas alejadas de la linea de fuego.imaginasi alog pasara", tipo:"arriba", id:1}},      
-  		//{tipo:"riesgos", infoPaso:{pregunta:"Selecciona los riesgos que identificas:", riesgos:[
-                    //{pregunta:"riesgo 1", id:1},
-                    //{pregunta:"riesgo 2", id:1},
-                    //{pregunta:"riesgo 3", id:1}]}},
-  		//{tipo:"controles", infoPaso:{pregunta:"Cuales controles aplicas", controles:[
-                    //{pregunta:"controles 1", id:1},
-                    //{pregunta:"controles 2", id:1},
-                    //{pregunta:"controles 3", id:1}]}},
+  	/*this.proceso = [
       {tipo:"titulo",  infoPaso:{titulo:"Invierte un momento para observar tu entorno, respira y da una vuelta al lugar en el cual trabajarás.  Esto marcará la direrencia.", id:1}},
       {tipo:"riesgos", infoPaso:{pregunta:"Selecciona los riesgos que identificas:", riesgos:[
                     {pregunta:"1 Entrar en contacto / golpes con partes móviles de máquinas.", id:1},
@@ -74,25 +68,114 @@ export class EncuestaAzulComponent implements OnInit {
       {tipo:"titulo",  infoPaso:{titulo:"¿ Te comprometes a PARAR si observas una situación insegura o sientes que algo no esta bien?", id:1}},
       {tipo:"titulo",  infoPaso:{titulo:"¿Te comprometes a intervenir a un compañero si observas que está realizando un comportamiento inseguro?", id:1}}
 
-  	];
+  	];*/
+    this.pasoActual = {id:0, tipo:"cargando", infoPaso:{}};
+    var id_encuesta = window.localStorage.id_encuesta;
+    this.encuestaService.getEncuestaById(id_encuesta).subscribe(res=>{
+      console.log(res);
+      var pasos = res.preguntas;
+      pasos = _.orderBy(pasos,"orden");
+      this.proceso = [];
+      _.forEach(pasos,step=>{
+        this.proceso.push(this.crearPaso(step));
+      });
+      this.indexActual = 0;
+      this.pasoActual = this.proceso[this.indexActual];
+      this.actualizarPorcentaje();
+    });
 
-    this.indexActual = 0;
-    this.pasoActual = this.proceso[this.indexActual];
+    
   }
 
-  nextStep() {
-    if(this.indexActual< this.proceso.length -1){
-      var mensaje = this.validations();
-      if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
+  crearPaso(paso){
+    var step = {id:paso.id, tipo:paso.tipo, paso:paso, infoPaso:{}};
+    if(paso.tipo =="titulo"){
+      step.infoPaso = {
+        id: paso.id,
+        titulo: paso.pregunta
+      };
+    } else if(paso.tipo =="riesgos"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        riesgos: paso.items
+      };
+    } else if(paso.tipo =="cerrada"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        si: paso.mensaje_si,
+        no: paso.mensaje_no
+      };
+    } else if(paso.tipo =="abierta"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta
+      };
+    } else if(paso.tipo =="abierta_bombillo"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        mensaje: paso.mensaje
+      };
+    } else if(paso.tipo =="controles"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        controles: paso.items
+      };
+    } else if(paso.tipo =="entorno"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        riesgos: paso.items
+      };
+    } else if(paso.tipo =="riesgosEntorno"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta,
+        riesgosEntorno: paso.items
+      };
+    } else {
+      console.log("Error: paso desconocido");
+      console.log(paso);
+    }
+    return step;
+  }
+
+  openModal(content) {    
+    this.modalService.open(content, { size: 'lg',centered: true });    
+    /*console.log(this.modalService);*/
+    setTimeout(()=>{this.modalService.dismissAll('Cross click');}, 2000); 
+  }
+
+  openModal2 (content2){
+    this.modalService.open(content2,{size:'lg',centered:true})  
+  }
+
+  avanzar(){
+    this.guardarRespuestas();
+      if(this.indexActual< this.proceso.length -1){
         this.indexActual++;
-       this.pasoActual = this.proceso[this.indexActual];
+        this.pasoActual = this.proceso[this.indexActual];
+        this.actualizarPorcentaje();
       }else{
-        if(this.pasoActual.tipo != 'riesgos'){
-          alert(mensaje);
-        }
+        this.router.navigate(['/escoger']);
       }
-    }else {
-      this.router.navigate(['/escoger']);
+  }
+  nextStep(content,content2) {
+    var mensaje = this.validations();
+    if(mensaje=="OK" ){
+      if(this.pasoActual.tipo == 'riesgos'){
+        this.openModal2 (content2);
+      }else{
+        this.avanzar();
+      }
+    }else{
+      if(this.pasoActual.tipo != 'riesgos'){
+        this.mensaje = mensaje;
+        this.openModal(content);
+      }
     }
   }
 
@@ -100,9 +183,113 @@ export class EncuestaAzulComponent implements OnInit {
     console.log(this.pasoActual);
   }
 
+  guardarRespuestas(){
+    var respuestas = this.crearRespuestasItems();
+    var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno"];
+    if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
+      respuestas.push(this.crearRespuesta());
+    }
+    this.encuestaService.postRespuesta(respuestas).subscribe(res=>{
+      console.log(res);
+    });
+  }
+
+  crearRespuesta(){
+    var answer = {
+      id_pregunta: this.pasoActual.id,
+      id_entrada: window.localStorage.id_entrada,
+      id_item: 0,
+      respuesta:""
+    };
+    if(this.pasoActual.tipo =="titulo"){
+      answer.respuesta = this.pasoActual.infoPaso.titulo;
+    } else if(this.pasoActual.tipo =="riesgos"){
+      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+    } else if(this.pasoActual.tipo =="cerrada"){
+      answer.respuesta = this.pasoActual.infoPaso.check;
+    } else if(this.pasoActual.tipo =="abierta"){
+      answer.respuesta = this.pasoActual.infoPaso.respuesta;
+    } else if(this.pasoActual.tipo =="abierta_bombillo"){
+      answer.respuesta = this.pasoActual.infoPaso.respuesta;
+    } else if(this.pasoActual.tipo =="controles"){
+      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+    } else if(this.pasoActual.tipo =="entorno"){
+      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+    } else if(this.pasoActual.tipo =="riesgosEntorno"){
+      answer.respuesta = this.pasoActual.infoPaso.respuesta || "...";
+    } else {
+      console.log("Error: paso desconocido");
+      console.log(this.pasoActual);
+    }
+    return answer;
+
+  }
+
+  crearRespuestasItems(){
+    var answers = [];
+    if(this.pasoActual.tipo =="titulo"){
+    } else if(this.pasoActual.tipo =="riesgos"){
+      _.forEach(this.pasoActual.infoPaso.riesgos,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.check? "Si":"No";
+        answers.push(answer);
+      });
+    } else if(this.pasoActual.tipo =="controles"){
+      _.forEach(this.pasoActual.infoPaso.controles,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.check;
+        answers.push(answer);
+      });
+    } else if(this.pasoActual.tipo =="entorno"){
+      _.forEach(this.pasoActual.infoPaso.riesgos,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.respuesta || "...";
+        answers.push(answer);
+      });
+    } else if(this.pasoActual.tipo =="riesgosEntorno"){
+      _.forEach(this.pasoActual.infoPaso.riesgosEntorno,item=>{
+        var answer = {
+          id_pregunta: this.pasoActual.id,
+          id_entrada: window.localStorage.id_entrada,
+          id_item: item.id,
+          respuesta:""
+        };
+        answer.respuesta = item.check;
+        answers.push(answer);
+      });
+    } 
+    return answers;
+  }
+
+  actualizarPorcentaje () {
+    var porcentaje = (this.indexActual+1)/this.proceso.length;
+    var progressbar = document.querySelector(".barraprogreso") as HTMLElement;
+    var widthBarra =  Math.round(porcentaje * 86);
+    progressbar.style.width = widthBarra+"%";
+    var stepCont = document.querySelector("#stepContainer") as HTMLElement;
+    stepCont.scrollTop = 0;
+
+  }
+
   validations(){
     var mensaje: string;
     var count:number;
+    count=0;
     if (this.pasoActual.tipo == 'titulo') {
       
         mensaje="OK";
@@ -113,7 +300,7 @@ export class EncuestaAzulComponent implements OnInit {
       this.pasoActual.infoPaso.riesgos.forEach((riesgo)=>{
         if( riesgo.check=="true" ) {
           total ++;
-         }
+         }         
       });
       mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar asi?";
       
@@ -142,7 +329,10 @@ export class EncuestaAzulComponent implements OnInit {
     else if (this.pasoActual.tipo == 'controles') {
       this.pasoActual.infoPaso.controles.forEach((control)=>{
         if( control.hasOwnProperty('check') ) {
-          mensaje="OK";
+          count=count + 1;
+          if (count == 7) {
+             mensaje="OK";
+          }          
          }
          else{
            mensaje="Selecciona una respuesta para cada control";

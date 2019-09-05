@@ -77,11 +77,39 @@ export class EncuestaRojaComponent implements OnInit {
 
   nextStep() {
     if(this.indexActual< this.proceso.length -1){
-      this.indexActual++;
-      this.pasoActual = this.proceso[this.indexActual];            
+      var mensaje = this.validations();
+      if(mensaje=="OK"){
+        this.indexActual++;
+       this.pasoActual = this.proceso[this.indexActual];
+      }else{
+        alert(mensaje);        
+      }
     }else {
       this.router.navigate(['/escoger']);
-    }    
+    }
+  }
+
+  logPaso() {
+    console.log(this.pasoActual);
+  }
+
+
+  validations(){
+    var mensaje: string;
+    var counter: number;
+    mensaje = "OK";
+
+    if (this.pasoActual.tipo == 'riesgosEntorno') {
+      this.pasoActual.infoPaso.riesgosEntorno.forEach((riesgo)=>{
+        if( riesgo.hasOwnProperty('check') ) {
+          counter ++;
+         }
+         else{
+           mensaje="Selecciona una respuesta para cada control";
+          }
+      });
+    }
+    return mensaje;
   }
 
 }

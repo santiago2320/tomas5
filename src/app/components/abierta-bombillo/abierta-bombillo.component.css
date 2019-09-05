@@ -13,7 +13,8 @@
 }
 .img-principal {
     align-self: center;
-    padding-left: 20px
+    padding-left: 20px;
+    margin-top:10px
 }
 #size{
     font-size: 26px;
@@ -91,6 +92,10 @@
 
 .iconContainer {
     justify-self: center;
+}
+
+.mensajeBomb {
+    align-self: center;
 }
 
 .iconHead {

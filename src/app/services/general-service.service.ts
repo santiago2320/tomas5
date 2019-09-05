@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GeneralServiceService {
 
-  apiUrl:string = 'http://localhost:3030/api/';
+  apiUrl:string = 'https://toma5digital.herokuapp.com/api/';
+  
 
   constructor(private http:HttpClient) { }
 

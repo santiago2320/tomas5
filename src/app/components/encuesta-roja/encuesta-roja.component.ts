@@ -138,7 +138,7 @@ export class EncuestaRojaComponent implements OnInit {
 
   guardarRespuestas(){
     var respuestas = this.crearRespuestasItems();
-    var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno"];
+    var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno","riesgos","controles"];
     if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
       respuestas.push(this.crearRespuesta());
     }
@@ -157,7 +157,7 @@ export class EncuestaRojaComponent implements OnInit {
     if(this.pasoActual.tipo =="titulo"){
       answer.respuesta = this.pasoActual.infoPaso.titulo;
     } else if(this.pasoActual.tipo =="riesgos"){
-      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+      answer.respuesta = this.pasoActual.infoPaso.respuesta || "...";
     } else if(this.pasoActual.tipo =="cerrada"){
       answer.respuesta = this.pasoActual.infoPaso.check;
     } else if(this.pasoActual.tipo =="abierta"){
@@ -165,7 +165,7 @@ export class EncuestaRojaComponent implements OnInit {
     } else if(this.pasoActual.tipo =="abierta_bombillo"){
       answer.respuesta = this.pasoActual.infoPaso.respuesta;
     } else if(this.pasoActual.tipo =="controles"){
-      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+      answer.respuesta = this.pasoActual.infoPaso.respuesta || "...";
     } else if(this.pasoActual.tipo =="entorno"){
       answer.respuesta = this.pasoActual.infoPaso.pregunta;
     } else if(this.pasoActual.tipo =="riesgosEntorno"){
@@ -244,23 +244,6 @@ export class EncuestaRojaComponent implements OnInit {
 
   }
   
-  nextStep() {
-    if(this.indexActual< this.proceso.length -1){
-      var mensaje = this.validations();
-      if(mensaje=="OK"){
-        this.indexActual++;
-       this.pasoActual = this.proceso[this.indexActual];
-      }else{
-        alert(mensaje);        
-      }
-    }else {
-      this.router.navigate(['/escoger']);
-    }
-  }
-
-  logPaso() {
-    console.log(this.pasoActual);
-  }
 
   validations(){
     var mensaje: string;
@@ -276,9 +259,21 @@ export class EncuestaRojaComponent implements OnInit {
            mensaje="Selecciona una respuesta para cada control";
           }
       });
+    }else if (this.pasoActual.tipo == 'abierta' || this.pasoActual.tipo == 'abierta_bombillo') {
+      if( this.pasoActual.infoPaso.hasOwnProperty('respuesta') ) {
+        if( this.pasoActual.infoPaso.respuesta != "") {
+          mensaje="OK";
+        }
+        else{
+          mensaje="Por favor escribe una respuesta";
+        }
+      }
+      else{
+        mensaje="Por favor escribe una respuesta";
+      }
     }
     return mensaje;
-     }
+  }
 
   logPaso() {
     console.log(this.pasoActual);

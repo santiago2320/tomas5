@@ -191,7 +191,7 @@
   grid-template-columns: 3fr 1fr;
   background-color: #ffffff;
   width: 85vw;
-  height: 50px;
+  height: auto;
   margin-left: 4.5vw;
   padding-left: 3vw;
   padding-right: 3vw;
@@ -215,4 +215,6 @@
   font-size: 17px;
   justify-self: center;
   align-self: center;
+  text-align: center;
+  padding: 5px 0px;
 }

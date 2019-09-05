@@ -39,10 +39,10 @@
     font-size: 15px;
     line-height: 16px;
     height: 100%;
-    background: transparent;
+    background: white;
     width: 95%;
     border: none;
-    color: white;
+    color: black;
 }
 
 .size{

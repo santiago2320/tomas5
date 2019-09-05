@@ -18,7 +18,7 @@
                 <input type="radio" [value]="'No'" [(ngModel)]="riesgo.check" name="riesgoEntorno {{riesgo.id}}" id="radiouno">
             </div>
         </div>
-        <div class="abiertaRiesgosEntorno">
+        <div *ngIf="infoPaso.id==282" class="abiertaRiesgosEntorno">
         	<div class="titleControles cel1 wText">
         		Observa a tu alrededor (360°) y pregúntate:
         	</div>

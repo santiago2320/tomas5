@@ -163,11 +163,12 @@ export class EncuestaAzulComponent implements OnInit {
         this.router.navigate(['/escoger']);
       }
   }
+
   nextStep(content,content2) {
     var mensaje = this.validations();
-    if(mensaje=="OK" ){
+    if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
       if(this.pasoActual.tipo == 'riesgos'){
-        this.openModal2 (content2);
+        this.avanzar();
       }else{
         this.avanzar();
       }
@@ -185,7 +186,7 @@ export class EncuestaAzulComponent implements OnInit {
 
   guardarRespuestas(){
     var respuestas = this.crearRespuestasItems();
-    var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno"];
+    var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno","riesgos","controles"];
     if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
       respuestas.push(this.crearRespuesta());
     }
@@ -204,7 +205,7 @@ export class EncuestaAzulComponent implements OnInit {
     if(this.pasoActual.tipo =="titulo"){
       answer.respuesta = this.pasoActual.infoPaso.titulo;
     } else if(this.pasoActual.tipo =="riesgos"){
-      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+      answer.respuesta = this.pasoActual.infoPaso.respuesta || "...";
     } else if(this.pasoActual.tipo =="cerrada"){
       answer.respuesta = this.pasoActual.infoPaso.check;
     } else if(this.pasoActual.tipo =="abierta"){
@@ -212,7 +213,7 @@ export class EncuestaAzulComponent implements OnInit {
     } else if(this.pasoActual.tipo =="abierta_bombillo"){
       answer.respuesta = this.pasoActual.infoPaso.respuesta;
     } else if(this.pasoActual.tipo =="controles"){
-      answer.respuesta = this.pasoActual.infoPaso.pregunta;
+      answer.respuesta = this.pasoActual.infoPaso.respuesta || "...";
     } else if(this.pasoActual.tipo =="entorno"){
       answer.respuesta = this.pasoActual.infoPaso.pregunta;
     } else if(this.pasoActual.tipo =="riesgosEntorno"){

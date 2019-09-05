@@ -7,27 +7,26 @@
         <div class="eaBody" id="subgrid-dos-uno">
           
           <div id="stepContainer" class="cel1">
-            <div class="celda" id="subgridheader">
+            <div *ngIf="pasoActual.tipo !='abierta'" class="celda" id="subgridheader">
                 <div class="cel1 lineLeft"></div>
                 <div class="cel1 center wText" >{{textoHeader}}</div>
                 <div class="cel1 lineRight"></div>
                 <div class="cel1"></div>
                 <div class="cel1 iconContainer">
                 <img class="iconHead" (click)="logPaso()" src="../../../assets/escudo.png">
-                 /*<img (click)="logPaso()" class="iconHead" src="../../../assets/escudo.png">/*    
 
                 </div>
                 <div class="cel1"></div>
             </div>
                 <!-- ACA VAN LOS PASOS DE LA ENCUESTA 
-                <app-titulo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='titulo'"></app-titulo>
+                
+                -->
                 <app-abierta [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='abierta'"></app-abierta>
                 <app-abierta-bombillo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='abierta_bombillo'"></app-abierta-bombillo>
                 <app-bombillo-abierta [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='bombillo_abierta'"></app-bombillo-abierta>
                 <app-pregunta-si-no [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='cerrada'"></app-pregunta-si-no>
                 <app-grid-riesgos [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgos'"></app-grid-riesgos>
                 <app-grid-controles [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='controles'"></app-grid-controles>
-                -->
                 <app-titulo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='titulo'"></app-titulo>
                 <app-entorno-table [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='entorno'"></app-entorno-table>
                 <app-riesgos-entorno [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgosEntorno'"></app-riesgos-entorno>
@@ -41,7 +40,7 @@
 
 <div class="fixedDown">
     <div id="btnSend" class="cel1 center">
-        <button (click)="nextStep(content)" class="btnEnviar">CONTINUAR</button>
+        <button (click)="nextStep(content,content2)" class="btnEnviar">CONTINUAR</button>
     </div>
     <div class="cel1 progressBarCont">
         <div class="progress-bar">

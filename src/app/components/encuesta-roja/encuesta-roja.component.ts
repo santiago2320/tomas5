@@ -243,6 +243,24 @@ export class EncuestaRojaComponent implements OnInit {
     stepCont.scrollTop = 0;
 
   }
+  
+  nextStep() {
+    if(this.indexActual< this.proceso.length -1){
+      var mensaje = this.validations();
+      if(mensaje=="OK"){
+        this.indexActual++;
+       this.pasoActual = this.proceso[this.indexActual];
+      }else{
+        alert(mensaje);        
+      }
+    }else {
+      this.router.navigate(['/escoger']);
+    }
+  }
+
+  logPaso() {
+    console.log(this.pasoActual);
+  }
 
   validations(){
     var mensaje: string;
@@ -255,15 +273,16 @@ export class EncuestaRojaComponent implements OnInit {
           counter ++;
          }
          else{
-           mensaje = "Selecciona una respuesta para cada control";
+           mensaje="Selecciona una respuesta para cada control";
           }
       });
     }
     return mensaje;
-  }
+     }
 
   logPaso() {
     console.log(this.pasoActual);
+
   }
 
 }

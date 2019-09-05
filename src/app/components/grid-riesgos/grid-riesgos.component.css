@@ -60,9 +60,16 @@ h3 {
 }
 
 .wText {
-    color: #ffffff;
+    color: white;
     font-size: 20px;
     text-align: center;
+}
+
+.rText {
+    color: rgb(231, 44, 55);
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
 }
 
 .iconContainer {
@@ -73,4 +80,37 @@ h3 {
     height: 4vh;
     width: auto;
     margin-top: 5px;
+}
+
+.abiertaRiesgos {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.cel1 {   
+    align-self: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.abiertaRiesgos {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#txt-area {
+    width: 100%;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    font-size: 20px;
+    border-radius: 25px;
+    height: 63px;
+}
+
+.text-area {
+    display: grid;
+    /*grid-column-start: 1;
+    grid-column-end: 3;*/
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
 }

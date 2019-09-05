@@ -61,7 +61,6 @@
     color: white;
     font-weight: 600;
     font-size: 18px;
-
 }
 
 .controlInfo {
@@ -120,4 +119,14 @@
     height: 4vh;
     width: auto;
     margin-top: 5px;
+}
+
+.cel1 {   
+    align-self: center;
+}
+
+.rText {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
 }

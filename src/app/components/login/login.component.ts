@@ -95,12 +95,13 @@ export class LoginComponent implements OnInit {
     		if(res.length>0){
     			/*si existe la cedula usamos ese usuario*/
     			var usuario = res[0];
-    			setUserAndSendToEscoger(usuario,this.router);
+				setUserAndSendToEscoger(usuario,this.router,this.localizacion);
+			
     		}else{
     			/*de lo contrario creamos un nuevo usuario*/
     			this.generalService.postUsuario(this.login).subscribe(rea=>{
     				console.log(rea);
-    				setUserAndSendToEscoger(rea,this.router);
+    				setUserAndSendToEscoger(rea,this.router,this.localizacion);
     			});
     		}
     	});
@@ -109,8 +110,9 @@ export class LoginComponent implements OnInit {
   		alert(validacion);
   	}
 
-  	function setUserAndSendToEscoger(user,router){
-  		window.localStorage.setItem("id_usuario",user.id);
+  	function setUserAndSendToEscoger(user,router,localizacion){
+		  window.localStorage.setItem("id_usuario",user.id);
+		  window.localStorage.setItem("id_localizacion",localizacion.id);
   		router.navigate(['/escoger']);
   	}
 
@@ -123,7 +125,7 @@ export class LoginComponent implements OnInit {
   	}
   	if(!this.login.cedula || this.login.cedula==""){
   		res = "Por favor escribe tu cedula";
-  	}
+	  }
   	if(!this.login.nombre || this.login.nombre==""){
   		res = "Por favor escribe tu nombre";
   	}

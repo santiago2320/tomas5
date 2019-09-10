@@ -28,7 +28,8 @@ export class EscogerComponent implements OnInit {
   	});
   	if(encuesta){
   		var data = {
-	  		id_usuario:window.localStorage.id_usuario,
+			  id_usuario:window.localStorage.id_usuario,
+			  id_localizacion:window.localStorage.id_localizacion,
 	  		fecha: new Date(),
 	  		id_encuesta:encuesta.id
 	  	};

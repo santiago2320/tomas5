@@ -298,6 +298,7 @@ export class EncuestaAzulComponent implements OnInit {
     }
     else if (this.pasoActual.tipo == 'riesgos') {
       var total: number;
+      total=0;
       this.pasoActual.infoPaso.riesgos.forEach((riesgo)=>{
         if( riesgo.check=="true" ) {
           total ++;

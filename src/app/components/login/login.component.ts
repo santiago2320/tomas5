@@ -3,6 +3,7 @@ import {GeneralServiceService}from 'src/app/services/general-service.service';
 /*import {EncuestaService}from 'src/app/services/encuesta.service';*/
 import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
+
 declare var _ : any;
 
 @Component({

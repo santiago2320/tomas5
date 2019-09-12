@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { OfflineService } from './offline.service';
 import Dexie from 'dexie';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServicioOfflineService {
 
-  constructor(private readonly offlineService: OfflineService, private httpClient: HttpClient) {
+  constructor( private httpClient: HttpClient) {
 
     this.createIndexedDatabase();
     this.createDatabase();
-    this.registerDate(offlineService);
+    this.registerDate();
    }
 
    private db: any;

@@ -27,6 +27,9 @@ import { GeneralServiceService } from './services/general-service.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {DropdownModule} from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +59,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    DropdownModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [GeneralServiceService],

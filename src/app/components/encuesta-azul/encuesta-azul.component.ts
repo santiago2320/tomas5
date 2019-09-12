@@ -150,8 +150,12 @@ export class EncuestaAzulComponent implements OnInit {
   }
 
   openModal2 (content2){
-    this.modalService.open(content2,{size:'lg',centered:true})  
+    this.modalService.open(content2,{size:'lg',centered:true});
   }
+
+  cerrarModal () {
+    this.avanzar(),this.modalService.dismissAll('Cerrar');
+   }
 
   avanzar(){
     this.guardarRespuestas();
@@ -168,7 +172,7 @@ export class EncuestaAzulComponent implements OnInit {
     var mensaje = this.validations();
     if(mensaje=="OK" || this.pasoActual.tipo == 'riesgos'){
       if(this.pasoActual.tipo == 'riesgos'){
-        this.avanzar();
+        this.openModal2(content2);
       }else{
         this.avanzar();
       }
@@ -300,11 +304,11 @@ export class EncuestaAzulComponent implements OnInit {
       var total: number;
       total=0;
       this.pasoActual.infoPaso.riesgos.forEach((riesgo)=>{
-        if( riesgo.check=="true" ) {
-          total ++;
+        if( riesgo.check==true ) {
+          total = total +1;
          }         
       });
-      mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar asi?";
+      this.mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar asi?";
       
     }
     else if (this.pasoActual.tipo == 'cerrada') {

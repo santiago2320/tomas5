@@ -49,3 +49,24 @@ input[type="checkbox"]:checked {
 .txtblanco {
   color: #ffffff;
 }
+
+
+.ui-dropdown label.ui-dropdown-label {
+  background: #ffffff;
+  border-radius: 10px;
+  border: none;
+  width: 60vw;
+}
+
+.ui-dropdown-panel .ui-dropdown-items-wrapper {
+  background: #ffffff;  
+}
+
+.ui-dropdown-panel .ui-dropdown-filter-container {
+  background: none;
+  border: none;
+}
+
+.ui-widget-header .ui-inputtext, .ui-widget-content .ui-inputtext {
+  border: none;
+}

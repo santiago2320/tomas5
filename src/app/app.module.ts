@@ -25,6 +25,8 @@ import { EntornoTableComponent } from './components/entorno-table/entorno-table.
 import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-entorno.component';
 import { GeneralServiceService } from './services/general-service.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [GeneralServiceService],
   bootstrap: [AppComponent]

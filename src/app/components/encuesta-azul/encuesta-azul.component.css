@@ -208,6 +208,11 @@
     align-self: center;
     margin-bottom: 15px;
     font-family: 'Titillium Web', sans-serif; 
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding: 2px;
+    font-weight: bold;
 }
 
 .botones {

@@ -48,9 +48,9 @@
 <ng-template #content2 let-modal>
     <div class="modal-body">
         <div class="gridmodalriesgos celroja">
-            <div class="msgModal" id="celverde">{{mensaje}} va un mensaje aca</div>         
-            <div class="btnno celverde"><button class="no">No</button></div>
-            <div class="btnsi celverde"><button class="si">Si</button></div>
+            <div class="msgModal" id="celverde">{{mensaje}} </div>         
+            <div class="btnno celverde"><button class="no" (click)="modal.dismiss('Cerrar')">No</button></div>
+            <div class="btnsi celverde"><button class="si" (click)="cerrarModal()">Si</button></div>
         </div>        
     </div>
 </ng-template>

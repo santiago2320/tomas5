@@ -3,6 +3,11 @@ import {GeneralServiceService}from 'src/app/services/general-service.service';
 /*import {EncuestaService}from 'src/app/services/encuesta.service';*/
 import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectItem } from 'primeng/api';
+
 declare var _ : any;
 
 @Component({
@@ -15,6 +20,8 @@ export class LoginComponent implements OnInit {
 	localizaciones: any[];
 	login: any;
 	localizacion: any;
+
+
 
   constructor(private generalService: GeneralServiceService,  private router: Router) { }
 
@@ -72,7 +79,7 @@ export class LoginComponent implements OnInit {
       ] 
     ).subscribe(response =>{
     	this.localizaciones = response[0];
-    	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Seleeciona...'});
+    	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Selecciona...'});
     	this.localizacion = this.localizaciones[0];
     });
   }

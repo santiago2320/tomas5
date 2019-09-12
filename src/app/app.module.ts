@@ -25,6 +25,8 @@ import { EntornoTableComponent } from './components/entorno-table/entorno-table.
 import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-entorno.component';
 import { GeneralServiceService } from './services/general-service.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {DropdownModule} from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   providers: [GeneralServiceService],
   bootstrap: [AppComponent]

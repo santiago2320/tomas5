@@ -25,8 +25,11 @@ import { EntornoTableComponent } from './components/entorno-table/entorno-table.
 import { RiesgosEntornoComponent } from './components/riesgos-entorno/riesgos-entorno.component';
 import { GeneralServiceService } from './services/general-service.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +60,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     HttpClientModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [GeneralServiceService],
   bootstrap: [AppComponent]

@@ -11,10 +11,9 @@ export class ServicioOfflineService {
 
     this.createIndexedDatabase();
     this.createDatabase();
-    this.registerDate();
    }
 
-   private db: any;
+  private db: any;
   private donedb: any;
 
   // ---------- create the indexedDB
@@ -43,24 +42,4 @@ export class ServicioOfflineService {
 
   }
 
-  
-  private registerDate(offlineService: OfflineService) {
-    
-    offlineService.connectionChanged.subscribe(online => {
-    
-      console.log(online);
-      if (online) {
-        console.log('went online');
-        console.log('sending all stored items');
-       
-        //pass the items to the backend if the connetion is enabled
-        this.sendItemsFromIndexedDb();
-      } else {
-        console.log('went offline, storing in indexdb');
-        
-       
-      }
-    });
-    
-  }
 }

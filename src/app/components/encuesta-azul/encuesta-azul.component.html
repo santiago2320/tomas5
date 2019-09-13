@@ -13,6 +13,7 @@
                 <app-pregunta-si-no [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='cerrada'"></app-pregunta-si-no>
                 <app-grid-riesgos [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgos'"></app-grid-riesgos>
                 <app-grid-controles [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='controles'"></app-grid-controles>
+                <app-certificado [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='certificado'"></app-certificado>
                 
             </div>
             

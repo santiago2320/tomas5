@@ -1,0 +1,60 @@
+.certificadoSect {
+	position: relative;	
+}
+.export-button {
+	background-color: #fa1a1a;
+    padding: 4px;
+    border-radius: 10px;
+    width: 67%;
+    border: none; 
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;    
+}
+
+.actions {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.certificado {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 3fr 1fr 1fr 1fr 1fr 2fr;	
+	margin-right: 20px;
+	margin-left: 20px;
+
+}
+
+.textoCertificado {
+	font-size: 25px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.tituloCertificado {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	text-align: center;
+	font-size: 45px;
+	color: #ffffff;
+}
+
+.descargarCertificado {	
+	line-height: 40px;
+	font-size: 30px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 25vh;
+	position: relative;
+}
+
+.icono {
+	justify-self: center;
+	margin-bottom: 60px;
+}
+
+.certificadoCont {
+	background-image: url("../../../assets/backgroundCertificado.jpg");
+	/*visibility: hidden;*/
+}

@@ -79,6 +79,8 @@ export class EncuestaAzulComponent implements OnInit {
       _.forEach(pasos,step=>{
         this.proceso.push(this.crearPaso(step));
       });
+      var certi = {tipo:"certificado", infoPaso:{Pregunta:"",id:123}};
+      this.proceso.push(certi);
       this.indexActual = 0;
       this.pasoActual = this.proceso[this.indexActual];
       this.actualizarPorcentaje();
@@ -135,6 +137,11 @@ export class EncuestaAzulComponent implements OnInit {
         id: paso.id,
         pregunta: paso.pregunta,
         riesgosEntorno: paso.items
+      };
+    }else if(paso.tipo =="certificado"){
+      step.infoPaso = {
+        id: paso.id,
+        pregunta: paso.pregunta
       };
     } else {
       console.log("Error: paso desconocido");

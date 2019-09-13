@@ -30,6 +30,7 @@
                 <app-titulo [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='titulo'"></app-titulo>
                 <app-entorno-table [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='entorno'"></app-entorno-table>
                 <app-riesgos-entorno [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='riesgosEntorno'"></app-riesgos-entorno>
+                <app-certificado [infoPaso]="pasoActual.infoPaso" *ngIf="pasoActual.tipo =='certificado'"></app-certificado>
             </div>
             
         </div>        

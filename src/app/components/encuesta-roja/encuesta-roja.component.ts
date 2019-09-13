@@ -92,6 +92,10 @@ export class EncuestaRojaComponent implements OnInit {
         pregunta: paso.pregunta,
         riesgosEntorno: paso.items
       };
+    }else if(paso.tipo =="certificado"){
+      step.infoPaso = {
+        id: paso.id        
+      };
     } else {
       console.log("Error: paso desconocido");
       console.log(paso);

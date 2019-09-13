@@ -29,6 +29,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CertificadoComponent } from './components/certificado/certificado.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CargaHomeComponent,
     BienvenidoRojoComponent,
     EntornoTableComponent,
-    RiesgosEntornoComponent
+    RiesgosEntornoComponent,
+    CertificadoComponent    
   ],
   imports: [
     BrowserModule,

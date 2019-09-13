@@ -8,6 +8,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectItem } from 'primeng/api';
+import * as html2pdf from 'html2pdf.js';
 
 declare var _ : any;
 
@@ -22,7 +23,19 @@ export class LoginComponent implements OnInit {
 	login: any;
 	localizacion: any;
 
-
+  onExportClick() {
+    const options = {
+      filename: "file.pdf",
+      image: {type: "jpeg"},
+      html2canvas: {},
+      jsPDF: {orientation: "landscape"}      
+    };
+    const content: Element = document.getElementById("toexport");
+    html2pdf()
+    .from(content)
+    .set(options)
+    .save();
+  }
 
   constructor(private generalService: GeneralServiceService,  private router: Router) { }
 

@@ -45,8 +45,10 @@
 	font-size: 30px;
 	color: #ffffff;
 	text-align: center;
-	margin-top: 25vh;
+	margin-top: 5vh;
 	position: relative;
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 .icono {
@@ -55,6 +57,11 @@
 }
 
 .certificadoCont {
-	background-image: url("../../../assets/backgroundCertificado.jpg");
-	/*visibility: hidden;*/
+	background-image: url("../../../assets/backgroundCertificado.jpg");	
+	/*visibility: hidden;*/	
+}
+
+.certificadoContainer {
+	margin: 20px;	
+	border: 3px solid #ffffff;
 }

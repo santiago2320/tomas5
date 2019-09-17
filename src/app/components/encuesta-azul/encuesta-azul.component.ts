@@ -21,7 +21,7 @@ export class EncuestaAzulComponent implements OnInit {
   mensaje: any;
 
 
-  constructor(private encuestaService: EncuestaService,private router: Router, private modalService: NgbModal) { }
+  constructor(private sincronizacionService: SincronizacionService, private encuestaService: EncuestaService,private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
   	/*this.proceso = [
@@ -75,10 +75,10 @@ export class EncuestaAzulComponent implements OnInit {
       console.log(res);
       var pasos = res.preguntas;
       pasos = _.orderBy(pasos,"orden");
-      this.proceso = [];
+      this.proceso = [];      
       _.forEach(pasos,step=>{
         this.proceso.push(this.crearPaso(step));
-      });
+      });      
       var certi = {tipo:"certificado", infoPaso:{Pregunta:"",id:123}};
       this.proceso.push(certi);
       this.indexActual = 0;

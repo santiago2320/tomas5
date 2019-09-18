@@ -66,25 +66,5 @@ export class EscogerComponent implements OnInit {
   	this.goColor("roja");
   }
 
-  testCrear(){
-    console.log("Creando...");
-    var elNuevo = {id_pregunta:1,id_item:2,respuesta:"si",id_entrada:1,dexie:true};
-    this.sincronizacionServicio.addUsuario(elNuevo);
-
-  }
-
-  testEditar(){
-    console.log("Editando...");
-    var elViejo = {id:1, id_pregunta:1,id_item:2,respuesta:"si pero talvez",id_entrada:1,dexie:true};
-    this.sincronizacionServicio.putUsuario(elViejo);
-    
-  }
-
-  testEliminar(){
-    console.log("Eliminando...");
-    var elViejo = {id:1, id_pregunta:1,id_item:2,respuesta:"si pero talvez",id_entrada:1,dexie:true};
-    this.sincronizacionServicio.deleteUsuario(elViejo.id);
-    
-  }
 
 }

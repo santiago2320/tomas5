@@ -10,11 +10,16 @@ import Dexie from 'dexie';
 })
 export class SincronizacionService {
 
+  private usuariosDb: any;
+  private entradasDb: any;
+  private respuestasDb: any;
+
   constructor(private servicioOfflineService:ServicioOfflineService) {
   	this.registerToEvents(servicioOfflineService);
+    this.crearTablas();
   }
 
-  private registerToEvents(servicioOfflineService: ServicioOfflineService,httpClient: HttpClient) {
+  private registerToEvents(servicioOfflineService: ServicioOfflineService) {
     
     servicioOfflineService.connectionChanged.subscribe(online => {
     
@@ -22,21 +27,13 @@ export class SincronizacionService {
       if (online) {
         console.log('En linea!');        
        
-        //pass the items to the backend if the connetion is enabled
-        //this.sendItemsFromIndexedDb();
       } else {
         console.log('Desconectado!');        
        
       }
     });
-
-    this.crearTablas();
     
   }
-
-  private usuariosDb: any;
-   private entradasDb: any;
-   private respuestasDb: any;
  
    private crearTablas(){
      //TABLA USUARIOS
@@ -81,7 +78,8 @@ export class SincronizacionService {
    async addUsuario(usuario){
      /*usuario--> {id_pregunta:1,id_item:2,respuesta:"si",id_entrada:1,dexie:true};*/
      this.usuariosDb.usuarios.add(usuario).then(function(res){
-       console.log(res);
+       console.log("User creado en Dexie: "+res);
+       window.localStorage.setItem("id_usuario_dexie",res);
      }).catch(e=>{
        alert("Error de dexie");
      });
@@ -108,7 +106,8 @@ export class SincronizacionService {
    async addEntrada(entrada){
     /*entrada-> {id_pregunta:1,id_item:2,respuesta:"si",id_entrada:1,dexie:true};*/
     this.entradasDb.entradas.add(entrada).then(function(res){
-      console.log(res);
+      console.log("Entrada creada en Dexie: "+res);
+      window.localStorage.setItem("id_entrada_dexie",res);
     }).catch(e=>{
       alert("Error de dexie");
     });

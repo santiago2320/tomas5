@@ -53,29 +53,28 @@ export class LoginComponent implements OnInit {
       where: {cedula:this.login.cedula}
     	};
     	/*Pedimos los usuarios con esa cedula*/
-    	this.generalService.getUsuariosFilter(filter).subscribe(res=>{
-    		console.log(res);
-    		if(res.length>0){
-    			/*si existe la cedula usamos ese usuario*/
-    			var usuario = res[0];
-				setUserAndSendToEscoger(usuario,this.router,this.localizacion);
-			
-    		}else{
-          var online = window.navigator.onLine;
-          if(online){
+      var online = window.navigator.onLine;
+      if(online){
+        this.generalService.getUsuariosFilter(filter).subscribe(res=>{
+          console.log(res);
+          if(res.length>0){
+            /*si existe la cedula usamos ese usuario*/
+            var usuario = res[0];
+            setUserAndSendToEscoger(usuario,this.router,this.localizacion);
+        
+          }else{            
             this.generalService.postUsuario(this.login).subscribe(rea=>{
-              console.log(rea);
-              setUserAndSendToEscoger(rea,this.router,this.localizacion);
-            });
-          }else{
-            window.localStorage.setItem("id_usuario","0");
-            this.sincronizacionService.addUsuario(this.login);
-            //esto pasas en addUsuario del servicio                        
-            window.localStorage.setItem("id_localizacion",this.localizacion.id);
-            this.router.navigate(['/escoger']);
-          }    			
-    		}
-    	});
+                console.log(rea);
+                setUserAndSendToEscoger(rea,this.router,this.localizacion);
+            });          
+          }
+        });  
+      }else{
+        window.localStorage.setItem("id_usuario","0");
+        this.sincronizacionService.addUsuario(this.login);              
+        window.localStorage.setItem("id_localizacion",this.localizacion.id);
+        this.router.navigate(['/escoger']);
+      }	
   	}else {
   		/*le informamos al usuario que el formulario esta mal*/
   		alert(validacion);

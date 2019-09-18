@@ -1,3 +1,11 @@
+.titulos {
+	font-family: 'Titillium Web', sans-serif;
+    font-size: 25px;
+    line-height: 26px;
+    color: white;
+}
+
+
 .certificadoSect {
 	position: relative;	
 }

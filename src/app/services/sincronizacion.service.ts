@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { ServicioOfflineService } from './servicio-offline.service';
 import { Router, ActivatedRoute, Route } from "@angular/router";
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class SincronizacionService {
 
-  constructor() { }
+  constructor(private servicioOfflineService:ServicioOfflineService) {
+  	this.registerToEvents(servicioOfflineService);
+  }
 
   private registerToEvents(servicioOfflineService: ServicioOfflineService) {
     
@@ -20,8 +23,7 @@ export class SincronizacionService {
         //pass the items to the backend if the connetion is enabled
         //this.sendItemsFromIndexedDb();
       } else {
-        console.log('Desconectado!');
-        
+        console.log('Desconectado!');        
        
       }
     });

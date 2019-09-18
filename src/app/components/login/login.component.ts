@@ -8,6 +8,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectItem } from 'primeng/api';
+import { SincronizacionService } from 'src/app/services/sincronizacion.service';
 
 declare var _ : any;
 
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
 	login: any;
 	localizacion: any;
 
-  constructor(private generalService: GeneralServiceService,  private router: Router) { }
+  constructor(private generalService: GeneralServiceService,private sincronizacionService: SincronizacionService, private router: Router) { }
 
   ngOnInit() {
   	
@@ -60,11 +61,19 @@ export class LoginComponent implements OnInit {
 				setUserAndSendToEscoger(usuario,this.router,this.localizacion);
 			
     		}else{
-    			/*de lo contrario creamos un nuevo usuario*/
-    			this.generalService.postUsuario(this.login).subscribe(rea=>{
-    				console.log(rea);
-    				setUserAndSendToEscoger(rea,this.router,this.localizacion);
-    			});
+          var online = window.navigator.onLine;
+          if(online){
+            this.generalService.postUsuario(this.login).subscribe(rea=>{
+              console.log(rea);
+              setUserAndSendToEscoger(rea,this.router,this.localizacion);
+            });
+          }else{
+            window.localStorage.setItem("id_usuario","0");
+            this.sincronizacionService.addUsuario(this.login);
+            //esto pasas en addUsuario del servicio                        
+            window.localStorage.setItem("id_localizacion",this.localizacion.id);
+            this.router.navigate(['/escoger']);
+          }    			
     		}
     	});
   	}else {

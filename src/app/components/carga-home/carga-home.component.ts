@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {GeneralServiceService}from 'src/app/services/general-service.service';
+import { SincronizacionService } from 'src/app/services/sincronizacion.service';
 
 @Component({
   selector: 'app-carga-home',
@@ -9,7 +10,7 @@ import {GeneralServiceService}from 'src/app/services/general-service.service';
 })
 export class CargaHomeComponent implements OnInit {
 
-  constructor(private generalService: GeneralServiceService, private router: Router) { }
+  constructor(private generalService: GeneralServiceService,private sincronizacionService: SincronizacionService, private router: Router) { }
 
   ngOnInit() {
   	/*window.localStorage.setItem("token","WfyaNfIzGXSVwDBJzJIG2q0G0LTGyHZB3h0cIG6m33kSR8TU569ADqOqM3DtACI2");*/

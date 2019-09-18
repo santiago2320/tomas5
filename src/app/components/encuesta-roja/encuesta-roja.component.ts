@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {EncuestaService}from 'src/app/services/encuesta.service';
 import { forkJoin } from 'rxjs';
+import { SincronizacionService } from 'src/app/services/sincronizacion.service';
 declare var _ : any;
 
 @Component({
@@ -22,7 +23,7 @@ export class EncuestaRojaComponent implements OnInit {
 
   mensaje: any;
 
-  constructor(private encuestaService: EncuestaService, private router: Router, private modalService: NgbModal) { }
+  constructor(private encuestaService: EncuestaService,private sincronizacionService: SincronizacionService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
 
@@ -36,6 +37,8 @@ export class EncuestaRojaComponent implements OnInit {
       _.forEach(pasos,step=>{
         this.proceso.push(this.crearPaso(step));
       });
+      var certi = {tipo:"certificado", infoPaso:{Pregunta:"",id:123}};
+      this.proceso.push(certi);
       this.indexActual = 0;
       this.pasoActual = this.proceso[this.indexActual];
       this.actualizarPorcentaje();

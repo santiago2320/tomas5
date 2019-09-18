@@ -45,8 +45,7 @@ export class ServicioOfflineService {
     return !!window.navigator.onLine;
   }
 
-  private updateOnlineStatus() {
-  console.log(window.navigator.onLine)
+  private updateOnlineStatus() {  
     this.internalConnectionChanged.next(window.navigator.onLine);
   }
 

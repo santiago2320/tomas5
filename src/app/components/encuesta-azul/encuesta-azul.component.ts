@@ -199,11 +199,15 @@ export class EncuestaAzulComponent implements OnInit {
   }
 
   guardarRespuestas(){
+    //Crear repuestas de preguntas con subitems
     var respuestas = this.crearRespuestasItems();
+    //Validar si tiene respuesta unica
     var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno","riesgos","controles"];
     if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
+      //Crear la repuesta unica
       respuestas.push(this.crearRespuesta());
     }
+    //Crear la respuestas en BD real
     this.encuestaService.postRespuesta(respuestas).subscribe(res=>{
       console.log(res);
     });

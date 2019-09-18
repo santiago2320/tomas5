@@ -3,6 +3,7 @@ import {GeneralServiceService}from 'src/app/services/general-service.service';
 import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
 import {SincronizacionService} from 'src/app/services/sincronizacion.service'; 
+import Dexie from 'dexie';
 
 
 @Component({
@@ -36,21 +37,34 @@ export class EscogerComponent implements OnInit {
 
 		if(encuesta){
 			var data = {
+				dexie: false,
 				id_usuario:window.localStorage.id_usuario,
 				id_localizacion:window.localStorage.id_localizacion,
 				fecha: new Date(),
 				id_encuesta:encuesta.id
 			};	
-	  
-  	
-		  window.localStorage.setItem("id_encuesta",encuesta.id);
-		  console.log ('offline')
-	  	/*console.log(data);*/
-	  	this.generalService.postEntrada(data).subscribe(res=>{
-	  		console.log(res);
-	  		window.localStorage.setItem("id_entrada",res.id);
-	  		this.router.navigate(['/encuesta'+color]);
-		  });
+		  	window.localStorage.setItem("id_encuesta",encuesta.id);
+		
+		  	/*console.log(data);*/
+		  	var online = window.navigator.onLine;
+			if ((online)&& (window.localStorage.id_usuario>0)) {
+				this.generalService.postEntrada(data).subscribe(res=>{
+					console.log(res);		
+					window.localStorage.setItem("id_entrada",res.id);
+					this.router.navigate(['/encuesta'+color]);
+				});
+			} else{
+				window.localStorage.setItem("id_entrada","0");
+				if (window.localStorage.id_usuario>0) {
+					data.dexie=false;
+				}else {
+					data.id_usuario=window.localStorage.id_usuario_dexie;
+					data.dexie=true;
+				}
+				this.sincronizacionService.addEntrada(data);
+				this.router.navigate(['/encuesta'+color]);
+
+			}
 		
   	}else{
   		alert("Error! No se encuentra encuesta "+color+", contacta soporte!");
@@ -65,6 +79,5 @@ export class EscogerComponent implements OnInit {
   goRed(){
   	this.goColor("roja");
   }
-
 
 }

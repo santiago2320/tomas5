@@ -4,6 +4,7 @@ import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
 import {SincronizacionService} from 'src/app/services/sincronizacion.service'; 
 
+
 @Component({
   selector: 'app-escoger',
   templateUrl: './escoger.component.html',
@@ -13,7 +14,11 @@ export class EscogerComponent implements OnInit {
 
 	encuestas: any[];
 
-  constructor(private generalService: GeneralServiceService, private router: Router,private sincronizacionServicio: SincronizacionService) { }
+
+
+
+  constructor(private generalService: GeneralServiceService,private sincronizacionService: SincronizacionService, private router: Router) { }
+
 
   ngOnInit() {
   	let filter = {};

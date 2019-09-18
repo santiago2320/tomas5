@@ -4,12 +4,15 @@ import { Router, ActivatedRoute, Route } from "@angular/router";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import Dexie from 'dexie';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class SincronizacionService {
 
-  constructor() { }
+  constructor(private servicioOfflineService:ServicioOfflineService) {
+  	this.registerToEvents(servicioOfflineService);
+  }
 
   private registerToEvents(servicioOfflineService: ServicioOfflineService,httpClient: HttpClient) {
     
@@ -22,8 +25,7 @@ export class SincronizacionService {
         //pass the items to the backend if the connetion is enabled
         //this.sendItemsFromIndexedDb();
       } else {
-        console.log('Desconectado!');
-        
+        console.log('Desconectado!');        
        
       }
     });

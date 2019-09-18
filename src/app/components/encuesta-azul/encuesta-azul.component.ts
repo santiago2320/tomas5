@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {EncuestaService}from 'src/app/services/encuesta.service';
+import { EncuestaService } from 'src/app/services/encuesta.service';
 import { forkJoin } from 'rxjs';
+import { SincronizacionService } from 'src/app/services/sincronizacion.service';
+
+
 declare var _ : any;
 
 @Component({
@@ -21,9 +24,9 @@ export class EncuestaAzulComponent implements OnInit {
   mensaje: any;
 
 
-  constructor(private sincronizacionService: SincronizacionService, private encuestaService: EncuestaService,private router: Router, private modalService: NgbModal) { }
+  constructor(private encuestaService: EncuestaService,private sincronizacionService: SincronizacionService,private router: Router, private modalService: NgbModal) { }
 
-  ngOnInit() {
+  ngOnInit() {     
   	/*this.proceso = [
       {tipo:"titulo",  infoPaso:{titulo:"Invierte un momento para observar tu entorno, respira y da una vuelta al lugar en el cual trabajarás.  Esto marcará la direrencia.", id:1}},
       {tipo:"riesgos", infoPaso:{pregunta:"Selecciona los riesgos que identificas:", riesgos:[
@@ -75,10 +78,10 @@ export class EncuestaAzulComponent implements OnInit {
       console.log(res);
       var pasos = res.preguntas;
       pasos = _.orderBy(pasos,"orden");
-      this.proceso = [];      
+      this.proceso = [];            
       _.forEach(pasos,step=>{
         this.proceso.push(this.crearPaso(step));
-      });      
+      });
       var certi = {tipo:"certificado", infoPaso:{Pregunta:"",id:123}};
       this.proceso.push(certi);
       this.indexActual = 0;
@@ -87,7 +90,7 @@ export class EncuestaAzulComponent implements OnInit {
     });
 
     
-  }
+  }  
 
   crearPaso(paso){
     var step = {id:paso.id, tipo:paso.tipo, paso:paso, infoPaso:{}};
@@ -196,11 +199,15 @@ export class EncuestaAzulComponent implements OnInit {
   }
 
   guardarRespuestas(){
+    //Crear repuestas de preguntas con subitems
     var respuestas = this.crearRespuestasItems();
+    //Validar si tiene respuesta unica
     var tiposRespuestaUnica = ["cerrada","abierta","abierta_bombillo","riesgosEntorno","riesgos","controles"];
     if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
+      //Crear la repuesta unica
       respuestas.push(this.crearRespuesta());
     }
+    //Crear la respuestas en BD real
     this.encuestaService.postRespuesta(respuestas).subscribe(res=>{
       console.log(res);
     });
@@ -353,6 +360,6 @@ export class EncuestaAzulComponent implements OnInit {
       });
     } 
     return mensaje;
-  }
+  }  
     
 }

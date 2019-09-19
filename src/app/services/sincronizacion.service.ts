@@ -3,7 +3,7 @@ import { ServicioOfflineService } from './servicio-offline.service';
 import { Router, ActivatedRoute, Route } from "@angular/router";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import Dexie from 'dexie';
-
+declare var _ : any;
 
 @Injectable({
   providedIn: 'root'
@@ -129,7 +129,7 @@ export class SincronizacionService {
     }).catch(e=>{
       alert("Error de dexie");
     });
-  }
+  }  
 
   async addRespuesta(respuesta){
     /*Respuesta--> {id_pregunta:1,id_item:2,respuesta:"si",id_entrada:1,dexie:true};*/
@@ -138,6 +138,17 @@ export class SincronizacionService {
     }).catch(e=>{
       alert("Error de dexie");
     });
+  }
+
+  async addRespuestas(respuestas){    
+    this.respuestasDb.version(1).stores({
+        respuestasList: 'id_pregunta,id_entrada,id_item,respuesta'
+    });
+    this.respuestasDb.respuestasList.bulkAdd(respuestas).then(function(res){
+      console.log(res);
+    }).catch(Dexie.BulkError, function(e){
+      alert("Error de dexie")
+    });      
   }
 
   async putRespuesta(respuesta){

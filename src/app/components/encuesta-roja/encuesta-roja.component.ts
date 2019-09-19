@@ -46,6 +46,16 @@ export class EncuestaRojaComponent implements OnInit {
 
   }
 
+  ajustarDexie(respuesta) {
+    if (window.localStorage.id_entrada > 0) {
+      respuesta.id_entrada = window.localStorage.id_entrada;
+      respuesta.dexie = false;
+    }else{
+      respuesta.id_entrada = window.localStorage.id_entrada_dexie;
+      respuesta.dexie = true;
+    }
+  }
+
   crearPaso(paso){
     var step = {id:paso.id, tipo:paso.tipo, paso:paso, infoPaso:{}};
     if(paso.tipo =="titulo"){
@@ -149,9 +159,19 @@ export class EncuestaRojaComponent implements OnInit {
     if(tiposRespuestaUnica.indexOf(this.pasoActual.tipo)!=-1){
       respuestas.push(this.crearRespuesta());
     }
-    this.encuestaService.postRespuesta(respuestas).subscribe(res=>{
-      console.log(res);
-    });
+    var online = window.navigator.onLine;
+    if (online) {
+      if (window.localStorage.id_entrada == 0) {
+        this.sincronizacionService.addRespuestas(respuestas);
+      }else{
+        //Crear la respuestas en BD real
+        this.encuestaService.postRespuesta(respuestas).subscribe(res=>{
+          console.log(res);
+        });
+      }      
+    }else{
+      this.sincronizacionService.addRespuestas(respuestas);
+    }
   }
 
   crearRespuesta(){
@@ -181,6 +201,7 @@ export class EncuestaRojaComponent implements OnInit {
       console.log("Error: paso desconocido");
       console.log(this.pasoActual);
     }
+    this.ajustarDexie(answer);
     return answer;
 
   }
@@ -197,6 +218,7 @@ export class EncuestaRojaComponent implements OnInit {
           respuesta:""
         };
         answer.respuesta = item.check? "Si":"No";
+        this.ajustarDexie(answer);
         answers.push(answer);
       });
     } else if(this.pasoActual.tipo =="controles"){
@@ -208,6 +230,7 @@ export class EncuestaRojaComponent implements OnInit {
           respuesta:""
         };
         answer.respuesta = item.check;
+        this.ajustarDexie(answer);
         answers.push(answer);
       });
     } else if(this.pasoActual.tipo =="entorno"){
@@ -219,6 +242,7 @@ export class EncuestaRojaComponent implements OnInit {
           respuesta:""
         };
         answer.respuesta = item.respuesta || "...";
+        this.ajustarDexie(answer);
         answers.push(answer);
       });
     } else if(this.pasoActual.tipo =="riesgosEntorno"){
@@ -230,6 +254,7 @@ export class EncuestaRojaComponent implements OnInit {
           respuesta:""
         };
         answer.respuesta = item.check;
+        this.ajustarDexie(answer);
         answers.push(answer);
       });
     } 

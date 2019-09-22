@@ -309,7 +309,7 @@ export class EncuestaAzulComponent implements OnInit {
     var mensaje: string;
     var count:number;
     count=0;
-    if (this.pasoActual.tipo == 'titulo') {
+    if (this.pasoActual.tipo == 'titulo' ||this.pasoActual.tipo == 'certificado') {
       
         mensaje="OK";
       

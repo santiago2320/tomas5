@@ -41,8 +41,10 @@ export class EscogerComponent implements OnInit {
 				id_usuario:window.localStorage.id_usuario,
 				id_localizacion:window.localStorage.id_localizacion,
 				fecha: new Date(),
-				id_encuesta:encuesta.id
+				id_encuesta:encuesta.id				
 			};	
+			var infoEncuesta = {fecha:new Date(),encuesta:encuesta.nombre};
+			window.localStorage.setItem("infoEncuesta",JSON.stringify(infoEncuesta));
 		  	window.localStorage.setItem("id_encuesta",encuesta.id);
 		
 		  	/*console.log(data);*/

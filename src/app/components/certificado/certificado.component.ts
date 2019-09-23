@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {GeneralServiceService}from 'src/app/services/general-service.service';
+import {SincronizacionService} from 'src/app/services/sincronizacion.service'; 
 import * as html2pdf from 'html2pdf.js';
+declare var _ : any;
 
 @Component({
   selector: 'app-certificado',
@@ -10,7 +13,9 @@ export class CertificadoComponent implements OnInit {
 
 	@Input() infoPaso: any;
 
-  constructor() { }
+  infoEntrada: any;  
+
+  constructor(private generalService: GeneralServiceService,private sincronizacionService: SincronizacionService) { }
 
   onExportClick() {  	
 		const options = {
@@ -27,6 +32,29 @@ export class CertificadoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getInfoCertificado();
+  }  
+
+  getInfoCertificado(){
+    let infoEncuesta = JSON.parse(window.localStorage.infoEncuesta);
+    let infoCertificado = JSON.parse(window.localStorage.infoUsuario);
+    function formatDate(date) {
+      var monthNames = [
+        "Ene", "Feb", "Mar",
+        "Abr", "May", "Jun", "Jul",
+        "Ago", "Sep", "Oct",
+        "Nov", "Dic"
+      ];
+    ​
+      var day = date.getDate();
+      var monthIndex = date.getMonth();
+      var year = date.getFullYear();
+    ​
+      return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+    this.infoEntrada = {nombre:infoCertificado.nombre,cedula:infoCertificado.cedula,localizacion:infoCertificado.localizacion,fecha:formatDate(infoEncuesta.fecha),encuesta:infoEncuesta.encuesta};    
   }
 
 }
+
+

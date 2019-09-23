@@ -84,6 +84,14 @@ export class SincronizacionService {
        alert("Error de dexie");
      });
    }
+
+   async getUsuario(id_usuario){
+      this.usuariosDb.usuarios.get(id_usuario).then(function(res){
+        console.log(res);
+      }).catch(e=>{
+        alert("Error de dexie");
+      });
+    }
  
    async putUsuario(usuario){
      /*usuario--> {id:1,id_pregunta:1,id_item:2,respuesta:"si",id_entrada:1,dexie:true};*/
@@ -108,6 +116,14 @@ export class SincronizacionService {
     this.entradasDb.entradas.add(entrada).then(function(res){
       console.log("Entrada creada en Dexie: "+res);
       window.localStorage.setItem("id_entrada_dexie",res);
+    }).catch(e=>{
+      alert("Error de dexie");
+    });
+  }
+
+  async getEntrada(id_entrada){
+    this.entradasDb.entradas.get(id_entrada).then(function(res){
+      console.log(res);
     }).catch(e=>{
       alert("Error de dexie");
     });

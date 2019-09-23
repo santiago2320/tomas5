@@ -73,8 +73,6 @@ export class GeneralServiceService {
     return this.http.get<any>(url, this.getHeaders());
   }
 
-  
-
   getPreguntas():Observable<any>{
     let url = this.apiUrl + "preguntas";
     return this.http.get<any>(url, this.getHeaders());
@@ -89,5 +87,15 @@ export class GeneralServiceService {
     let url = this.apiUrl + "usuarios";
     return this.http.get<any>(url, this.getHeaders());
   }
+
+  getUsuarioById(id):Observable<any>{
+    let url = this.apiUrl + "usuarios/" + id;
+    return this.http.get<any>(url, this.getHeaders());
+  }
+
+  getEntradasFilter(filter):Observable<any>{
+    let url = this.apiUrl + "entradas?filter=" + JSON.stringify(filter);
+    return this.http.get<any>(url, this.getHeaders());
+  }  
 
 }

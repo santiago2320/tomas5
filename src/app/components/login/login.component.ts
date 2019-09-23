@@ -53,6 +53,8 @@ export class LoginComponent implements OnInit {
       where: {cedula:this.login.cedula}
     	};
     	/*Pedimos los usuarios con esa cedula*/
+      let infoCertificado = {nombre:this.login.nombre,cedula:this.login.cedula,localizacion:this.localizacion.nombre};
+      window.localStorage.setItem("infoUsuario",JSON.stringify(infoCertificado));
       var online = window.navigator.onLine;
       if(online){
         this.generalService.getUsuariosFilter(filter).subscribe(res=>{

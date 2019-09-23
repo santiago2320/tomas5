@@ -47,7 +47,7 @@ export class EncuestaRojaComponent implements OnInit {
   }
 
   ajustarDexie(respuesta) {
-    if (window.localStorage.id_entrada > 0) {
+    if (window.localStorage.id_entrada != "0") {
       respuesta.id_entrada = window.localStorage.id_entrada;
       respuesta.dexie = false;
     }else{

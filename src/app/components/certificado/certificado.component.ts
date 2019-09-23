@@ -38,7 +38,8 @@ export class CertificadoComponent implements OnInit {
   getInfoCertificado(){
     let infoEncuesta = JSON.parse(window.localStorage.infoEncuesta);
     let infoCertificado = JSON.parse(window.localStorage.infoUsuario);
-    function formatDate(date) {
+    function formatDate(fecha) {
+      var date = new Date(fecha);
       var monthNames = [
         "Ene", "Feb", "Mar",
         "Abr", "May", "Jun", "Jul",

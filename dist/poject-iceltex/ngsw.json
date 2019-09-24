@@ -1,0 +1,136 @@
+{
+  "configVersion": 1,
+  "timestamp": 1569299111982,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.20524621dc19caa897db.js",
+        "/main-es5.7ec903177f5eb43662b0.js",
+        "/polyfills-es2015.5728f680576ca47e99fe.js",
+        "/polyfills-es5.7f43b971448d2fb49202.js",
+        "/runtime-es2015.858f8dd898b75fe86926.js",
+        "/runtime-es5.741402d1d47331ce975c.js",
+        "/scripts.93a120a4f837dde6770a.js",
+        "/styles.cf8f87683a14bd42f9f7.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/background-login.jpg",
+        "/assets/background.PNG",
+        "/assets/background1.jpg",
+        "/assets/backgroundCertificado.jpg",
+        "/assets/bombillo.PNG",
+        "/assets/escudo.png",
+        "/assets/header.png",
+        "/assets/iconBrain.png",
+        "/assets/iconControles.png",
+        "/assets/iconRiesgos.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img.png",
+        "/assets/imgcargando.gif",
+        "/assets/logop.png",
+        "/assets/mano.PNG",
+        "/assets/personaje-inicio.png",
+        "/background1.41b2136ad5ce664db892.jpg",
+        "/backgroundCertificado.6288312051e2bbab004d.jpg",
+        "/color.c7a33805ffda0d32bd2a.png",
+        "/hue.0614c27197fc3ce572e1.png",
+        "/line.567f57385ea3dde2c9ae.gif",
+        "/loading.8732a6660b528fadfaeb.gif",
+        "/password-meter.d59e6dc2616c53ce8e77.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api",
+      "patterns": [
+        "https:\\/\\/toma5digital\\.herokuapp\\.com\\/api\\/"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 86400000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/background-login.jpg": "d68c746738bddcd98360e5d3ea4edfa994a334a4",
+    "/assets/background.PNG": "31d5b50a220d50d75f6ab063cb03360a98fe53d8",
+    "/assets/background1.jpg": "fe6b748fdc7f4caf36c03271ec04f5d67b40e841",
+    "/assets/backgroundCertificado.jpg": "77675b784d10cd1a1e86b245213301740aaca14e",
+    "/assets/bombillo.PNG": "73531320df4dc38ff4d7e4cd6018a6bb76569f1d",
+    "/assets/escudo.png": "1e8cbd7e51c675624c2729316e2aec4437f528bd",
+    "/assets/header.png": "a4850800133d090fc3a3356b720bdc6913e73268",
+    "/assets/iconBrain.png": "dbd5d02cdde4b8fa9e8ddc2ab22a1533f826247a",
+    "/assets/iconControles.png": "4db935f47819057e3bbfef61af0f477a35bd653d",
+    "/assets/iconRiesgos.png": "2b49aa0e9d97dc66b8b26f490a4bf37a78bfbfb1",
+    "/assets/icons/icon-128x128.png": "a060d0fc11c867b1d507adc5aebc5dc84b5948aa",
+    "/assets/icons/icon-144x144.png": "2384d67446d9efd030a7a21faca3ebeb39e795fc",
+    "/assets/icons/icon-152x152.png": "c881bb37d755e36cec3b7fb26ab31b5ffa1b873f",
+    "/assets/icons/icon-192x192.png": "7b2cf31314e791a08d23f899c691783b1af3dc17",
+    "/assets/icons/icon-384x384.png": "d5c41219099576b596aea0f6e55260d829453736",
+    "/assets/icons/icon-512x512.png": "d5c41219099576b596aea0f6e55260d829453736",
+    "/assets/icons/icon-72x72.png": "9881b401d4b73eb606c49cac577375972e8adf9e",
+    "/assets/icons/icon-96x96.png": "173be49c81c699dbd3bb6d45667d6ed886c4ac04",
+    "/assets/img.png": "ab8aba3c5f670e21ed0600ff4fb47a70cf6a4c2a",
+    "/assets/imgcargando.gif": "177d9cd3e1c19b9fbd7c83a311cce860b2134674",
+    "/assets/logop.png": "7cdf608d5b1de809326f2ebddd63aadf06991d84",
+    "/assets/mano.PNG": "2153c34d97bdbbd3eaa1aa323f57dbe08d9cb4b4",
+    "/assets/personaje-inicio.png": "ea50d4b69f6cb976b78f3bd7561704de7e7bcd6e",
+    "/background1.41b2136ad5ce664db892.jpg": "fe6b748fdc7f4caf36c03271ec04f5d67b40e841",
+    "/backgroundCertificado.6288312051e2bbab004d.jpg": "77675b784d10cd1a1e86b245213301740aaca14e",
+    "/color.c7a33805ffda0d32bd2a.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
+    "/favicon.ico": "44f072a7079bad20daa6079dc27d0494e2bc21be",
+    "/hue.0614c27197fc3ce572e1.png": "f81ae627637a684614aa726e206c73ce099a01fd",
+    "/index.html": "299eec052a0a7f037dc86384ead717c369864540",
+    "/line.567f57385ea3dde2c9ae.gif": "a2af20bd160ca9cfc2c85527663ff7429267519a",
+    "/loading.8732a6660b528fadfaeb.gif": "72998a116936156dc7cace0606dab499fe4f3ce8",
+    "/main-es2015.20524621dc19caa897db.js": "4fb9766fea501160d57c8adfaf156e69b87af4b5",
+    "/main-es5.7ec903177f5eb43662b0.js": "640fa426f85aa2870d784a7c15bb081683306a55",
+    "/password-meter.d59e6dc2616c53ce8e77.png": "e0e101bd2a1cbda41398b48a4ab1792d89cb7334",
+    "/polyfills-es2015.5728f680576ca47e99fe.js": "77f974dd2b186031cfc4f4526d96db4efcd39353",
+    "/polyfills-es5.7f43b971448d2fb49202.js": "f84a71ef6c7a788b5fe701bf2405313d7766a66d",
+    "/runtime-es2015.858f8dd898b75fe86926.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/runtime-es5.741402d1d47331ce975c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/scripts.93a120a4f837dde6770a.js": "2dcc6bfa5a836843a09c8214ffbb65771bf0e9d6",
+    "/styles.cf8f87683a14bd42f9f7.css": "e999b8c057659b7c9ed931809549477e93fde031"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

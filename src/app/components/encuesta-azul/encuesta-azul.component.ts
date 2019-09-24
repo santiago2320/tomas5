@@ -347,7 +347,7 @@ export class EncuestaAzulComponent implements OnInit {
           total = total +1;
          }         
       });
-      this.mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar asi?";
+      this.mensaje = "Seleccionaste "+total+" de 13 riesgos, ¿Quieres continuar así?";
       
     }
     else if (this.pasoActual.tipo == 'cerrada') {

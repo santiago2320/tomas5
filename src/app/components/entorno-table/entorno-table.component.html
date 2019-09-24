@@ -6,15 +6,15 @@
     </div>
     <div class="subgrid-dos cel-roja">
         <div class="cel1 size">Riesgo</div>
-        <div class="cel1 size">controlable</div>
-        <div class="cel1 size">¿como controlarlo?</div>
+        <div class="cel1 size">Controlable</div>
+        <div class="cel1 size">¿Cómo controlarlo?</div>
         <!---->
         <div class="grid-riesgo" *ngFor="let riesgo of infoPaso.riesgos">
             <div class="cel1 txt_riesgo">{{riesgo.pregunta}}</div>
-            <div class="cel1 label_si">Si</div>
+            <div class="cel1 label_si">SI</div>
             <div class="cel1 inputs"><textarea  class="respuestaRiesgo" [(ngModel)]="riesgo.respuesta"></textarea></div>
             <div class="cel1 label_no">NO</div>
-            <div class="cel1 txt_no">Reportar el jefe de planta o instructor de seguridad vial</div>
+            <div class="cel1 txt_no">Reportar al jefe de planta o instructor de seguridad vial</div>
         </div>
         
     </div>

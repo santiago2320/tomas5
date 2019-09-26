@@ -28,7 +28,7 @@
     font-family: 'Titillium Web', sans-serif;    
  }
  .title {
-    padding-top: 19px;
+    padding-top: 10px;
  }
  .titulo {
     color: #ffffff;
@@ -40,17 +40,17 @@
  .texto {
     justify-self: center;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
  }
  .texto1 {
    justify-self: center;
    text-align: center;
-   padding-top: 25px;
+   padding-top: 10px;
 }
 .texto2 {
    justify-self: center;
    text-align: center;
-   padding-top: 25px;
+   padding-top: 10px;
 }
  .size {
     color: #ffffff;
@@ -77,7 +77,6 @@
  .img-principal {
   justify-self: center;
   padding-left: 44px;
-  padding-top: 30px;
  
  
  }
@@ -85,7 +84,7 @@
    width: 70%;
    height: auto;
    justify-self: center;
-   margin-top: 65px;
+   margin-top: 30px;
    
  }
  .selects {
@@ -100,6 +99,7 @@
  }
  .btnenviar {
     background-color: #fa1a1a;
+    margin-top: 15px;
     padding: 4px;
     border-radius: 10px;
     width: 67%;
@@ -107,12 +107,12 @@
     color: #ffffff;
     font-size: 20px;
     font-family: 'Titillium Web', sans-serif;
+    justify-self: center;
  }
  .botonenviar {
     width: 100%;
    align-self: center;
-   padding-top: 40px;
-   padding-left: 45px
+   
    
  }
  .select-items {

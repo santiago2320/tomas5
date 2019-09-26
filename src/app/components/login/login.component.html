@@ -25,23 +25,24 @@
   <p-dropdown  [options]="localizaciones" [(ngModel)]="localizacion" [filter]="true"  optionLabel="nombre"></p-dropdown>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1 texto2"><h4 class="size2">Empresa contratista</h4></div>
+  
+  <div class="cel1 texto2"><h4 class="size2">Es contratista:</h4></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-   <div class="cel1"><input [(ngModel)]="login.esContratita" type="text" class="inputs"></div>
-   <div class="cel1"></div>
-   <div class="cel1"></div>
-   <div class="cel1 texto2"><h4 class="size2">Es contratista:</h4></div>
-   <div class="cel1"></div>
-   <div class="cel1"></div>
-   <select class="select-items" name="select">
-    <option value="valueno">NO</option> 
-    <option value="valuesi">SI</option>
+   <select [(ngModel)]="login.is_contratista" class="select-items" name="select">
+    <option value="No">No</option> 
+    <option value="Si">Si</option>
   </select>
    <div class="cel1"></div>
    <div class="cel1"></div>
-
-  <div class="cel1 botonenviar"><button (click)="loginButton()" class="btnenviar">INICIAR</button></div>
+  <div class="cel1 texto2"><h4 class="size2">Empresa contratista</h4></div> 
+   <div class="cel1"></div>
+   <div class="cel1"></div>
+   <div class="cel1"><input [(ngModel)]="login.empresa_contratista" type="text" class="inputs"></div>
+   
+   <div class="cel1"></div>
+   <div class="cel1"></div>
+   <button (click)="loginButton()" class="btnenviar">INICIAR</button>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <div class="cel1 img-principal"><img src="../../../assets/logop.png" class="img-logop"></div>

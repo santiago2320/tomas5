@@ -21,13 +21,14 @@ export class LoginComponent implements OnInit {
 
 	localizaciones: any[];
 	login: any;
-	localizacion: any;
+  localizacion: any;
+  
 
   constructor(private generalService: GeneralServiceService,private sincronizacionService: SincronizacionService, private router: Router) { }
 
   ngOnInit() {
   	
-  	this.login = {nombre:"", cedula:""};
+  	this.login = {nombre:"", cedula:"",empresa_contratista:"",is_contratista:""};
 
   	forkJoin(
       [
@@ -97,11 +98,20 @@ export class LoginComponent implements OnInit {
   	}
   	if(!this.login.cedula || this.login.cedula==""){
   		res = "Por favor escribe tu cedula";
-	  }
+	  } 
   	if(!this.login.nombre || this.login.nombre==""){
   		res = "Por favor escribe tu nombre";
-  	}
+    }
+    console.log(this.login);
+      if (this.login.is_contratista=="Si") {
+        if (!this.login.empresa_contratista ||this.login.empresa_contratista=="")
+      
+        res="por favor escribe la empresa";
+
+      
+        
+      }
   	return res;
   }
-
+  
 }

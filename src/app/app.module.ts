@@ -30,6 +30,9 @@ import { environment } from '../environments/environment';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CertificadoComponent } from './components/certificado/certificado.component';
+import { DescargarComponent } from './components/descargar/descargar.component';
+import { ExcelExportService } from './services/excel-export.service';
+
 
 
 @NgModule({
@@ -53,7 +56,8 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
     BienvenidoRojoComponent,
     EntornoTableComponent,
     RiesgosEntornoComponent,
-    CertificadoComponent    
+    CertificadoComponent,
+    DescargarComponent    
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,7 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [GeneralServiceService],
+  providers: [GeneralServiceService,ExcelExportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

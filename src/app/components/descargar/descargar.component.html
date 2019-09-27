@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Column1</th>
+				<th>Column2</th>
+				<th>Column3</th>
+				<th>Column4</th>
+				<th>Column5</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let x of data">
+				<td>{{x.col1}}</td>
+				<td>{{x.col2}}</td>
+				<td>{{x.col3}}</td>
+				<td>{{x.col4}}</td>
+				<td>{{x.col5}}</td>			
+			</tr>
+		</tbody>		
+	</table>
+	<div>
+		<label>
+			<button (click)="exportToExcel()" title="Excel" style="z-index: 13;">Export</button>
+		</label>
+	</div>
+</body>
+</html>

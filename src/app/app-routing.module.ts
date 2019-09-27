@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
 import { CargaHomeComponent } from './components/carga-home/carga-home.component';
 import { BienvenidoRojoComponent } from './components/bienvenido-rojo/bienvenido-rojo.component';
+import { DescargarComponent } from './components/descargar/descargar.component';
 
 
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:"login",component:LoginComponent },
   {path:"bienvenido",component:BienvenidoComponent },
   {path:"home",component:CargaHomeComponent},
-  {path:"bienvenidorojo",component:BienvenidoRojoComponent},  
+  {path:"bienvenidorojo",component:BienvenidoRojoComponent},
+  {path:"descargar",component:DescargarComponent}  
 ];
 
 @NgModule({

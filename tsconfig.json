@@ -18,9 +18,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "exceljs": [
-      "node_modules/exceljs/dist/exceljs.min.js"
     ]
   }
 }

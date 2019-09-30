@@ -44,7 +44,7 @@ export class SincronizacionService {
      this.usuariosDb = new Dexie("TablaUsuarios");
      //Hacer crear la tabla (bases datos)
      this.usuariosDb.version(1).stores({
-       usuarios: "++id,nombre,cedula,is_contratista,empresa_contratista"
+       usuarios: "++id,nombre,cedula,is_contratista,empresa_contratista,unidad_negocio"
      });
      //Verificar que quedo bien
      this.usuariosDb.open().catch(function (err) {

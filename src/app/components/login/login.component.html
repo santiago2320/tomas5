@@ -18,11 +18,18 @@
   <div class="cel1 texto2"><h4 class="size2">Sitio trabajo</h4></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
- 
-
   <!--<div class="cel1"><select (change)="logLocal()" [(ngModel)]="localizacion" class="selects"><option [ngValue]="local" *ngFor="let local of localizaciones">{{local.nombre}}</option>
   </select></div>-->
   <p-dropdown  [options]="localizaciones" [(ngModel)]="localizacion" [filter]="true"  optionLabel="nombre"></p-dropdown>
+  <div class="cel1"></div>
+  <div class="cel1"></div>
+  <div class="cel1 texto1"><h4 class="size1">Unidad de negocio</h4></div>
+  <div class="cel1"></div>
+  <div class="cel1"></div>
+  <select [(ngModel)]="login.unidad_negocio" class="select-items" name="select">
+    <option value="No">No</option> 
+    <option value="Si">Si</option>
+  </select>
   <div class="cel1"></div>
   <div class="cel1"></div>
   

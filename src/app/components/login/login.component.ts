@@ -20,6 +20,7 @@ declare var _ : any;
 export class LoginComponent implements OnInit {
 
 	localizaciones: any[];
+  unidades: any[];
 	login: any;
   localizacion: any;
   
@@ -28,16 +29,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   	
-  	this.login = {nombre:"", cedula:"",empresa_contratista:"",is_contratista:""};
+  	this.login = {nombre:"", cedula:"",empresa_contratista:"",is_contratista:"No", unidad_negocio:""};
 
   	forkJoin(
       [
-        this.generalService.getLocalizaciones()   //0
+        this.generalService.getLocalizaciones(),   //0
+        this.generalService.getUnidadesNegocio()
       ] 
     ).subscribe(response =>{
     	this.localizaciones = response[0];
     	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Selecciona...'});
     	this.localizacion = this.localizaciones[0];
+
+      this.unidades = response[1];
+      this.unidades.splice(0, 0, {id: 0, nombre: 'Selecciona...'});
+      this.login.unidad_negocio = this.unidades[0].nombre;
     });
   }
 
@@ -93,6 +99,14 @@ export class LoginComponent implements OnInit {
 
   validar(){
   	var res = "OK";
+    if (this.login.is_contratista=="Si") {
+      if (!this.login.empresa_contratista ||this.login.empresa_contratista==""){
+        res="Escribe por favor el nombre de la empresa contratista";
+      }
+    }
+    if(!this.login.unidad_negocio||this.login.unidad_negocio=='Selecciona...'){
+      res="Selecciona tu unidad de negocio";
+    }
   	if(this.localizacion.id==0){
   		res = "Por favor selecciona un sitio de trabajo";
   	}
@@ -102,15 +116,7 @@ export class LoginComponent implements OnInit {
   	if(!this.login.nombre || this.login.nombre==""){
   		res = "Por favor escribe tu nombre";
     }
-    console.log(this.login);
-      if (this.login.is_contratista=="Si") {
-        if (!this.login.empresa_contratista ||this.login.empresa_contratista=="")
-      
-        res="por favor escribe la empresa";
-
-      
-        
-      }
+    
   	return res;
   }
   

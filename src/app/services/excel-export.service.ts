@@ -45,18 +45,23 @@ export class ExcelExportService {
   	workbook.modified = new Date();
   	workbook.addWorksheet(sName, {views: [{state:'frozen',ySplit:3,xSplit:2,activeCell:'A1',showGridLines:false}]})
   	var sheet = workbook.getWorksheet(1);
-  	var data1 = ['Exported Data'];
+  	var data1 = ['Consulta a la base de datos de toma5'];
   	sheet.addRow(data1);
   	sheet.addRow("");
   	sheet.getRow(3).values = cols;
   	sheet.columns = [
-  		{key: 'col1'},
-  		{key: 'col2'},
-  		{key: 'col3'},
-  		{key: 'col4'},
-  		{key: 'col5'}
+  		{key: 'id_entrada'},
+  		{key: 'fecha'},
+  		{key: 'localizacion'},
+  		{key: 'codigoLocalizacion'},
+  		{key: 'encuesta'},
+      {key: 'usuario'},
+      {key: 'cedula'},
+      {key: 'preguntaPrincipal'},
+      {key: 'preguntaSecundaria'},
+      {key: 'respuesta'}
   	];
-  	this.colArray = ['A3','B3','C3','D3','E3'];
+  	this.colArray = ['A3','B3','C3','D3','E3','F3','G3','H3','I3','J3'];
   	sheet.addRows(data);
   	sheet = this.applyRowStyle(sheet);
   	sheet.getCell('A1','A2').font = {
@@ -65,7 +70,7 @@ export class ExcelExportService {
   		size: 18
   	};
   	this.colArray.map(key => {
-  		sheet.getCell(key).fill = {
+  		/*sheet.getCell(key).fill = {
   			type: 'gradient',
   			degree: 0,
   			stops: [
@@ -73,20 +78,75 @@ export class ExcelExportService {
   				{position:0.5,color:{argb:'d9f1fa'}},
   				{position:1,color:{argb:'d9f1fa'}},
   			]
-  		};
+  		};*/
   		sheet.getCell(key).alignment = {wrapText:true,verical:'middle',horizontal:'center'};
   		sheet.getCell(key).border = {right: {style:'thin'},top: {style:"thin"}};
-  		sheet.getCell(key).font = {
+  		/*sheet.getCell(key).font = {
   			name: 'Tahoma',
   			family: 2,
   			size: 18,
   			bold: true
-  		};
+  		};*/
   	});
   	workbook.xlsx.writeBuffer().then(data => {
   		var blob = new Blob([data],{type: blobType});
   		FileSaver.saveAs(blob,excelFileName,true);
   	});
   }
-  
+
+
+  exportToExcelEntradas(name,sName,fileName,excelFileName,blobType,cols,data){
+    var workbook = new Excel.Workbook();
+    workbook.creator = 'Web';
+    workbook.lastModifiedBy = 'Web';
+    workbook.created = new Date();
+    workbook.modified = new Date();
+    workbook.addWorksheet(sName, {views: [{state:'frozen',ySplit:3,xSplit:2,activeCell:'A1',showGridLines:false}]})
+    var sheet = workbook.getWorksheet(1);
+    var data1 = ['Consulta a la base de datos de toma5'];
+    sheet.addRow(data1);
+    sheet.addRow("");
+    sheet.getRow(3).values = cols;
+    sheet.columns = [
+      {key: 'id'},
+      {key: 'fecha'},
+      {key: 'localizacion'},
+      {key: 'codigoLocalizacion'},
+      {key: 'encuesta'},
+      {key: 'usuario'},
+      {key: 'cedula'}
+    ];
+    this.colArray = ['A3','B3','C3','D3','E3','F3','G3'];
+    sheet.addRows(data);
+    sheet = this.applyRowStyle(sheet);
+    sheet.getCell('A1','A2').font = {
+      name: 'Tahoma',
+      family: 2,
+      size: 18
+    };
+    this.colArray.map(key => {
+      /*sheet.getCell(key).fill = {
+        type: 'gradient',
+        degree: 0,
+        stops: [
+          {position:0,color:{argb:'d9f1fa'}},
+          {position:0.5,color:{argb:'d9f1fa'}},
+          {position:1,color:{argb:'d9f1fa'}},
+        ]
+      };*/
+      sheet.getCell(key).alignment = {wrapText:true,verical:'middle',horizontal:'center'};
+      sheet.getCell(key).border = {right: {style:'thin'},top: {style:"thin"}};
+      /*sheet.getCell(key).font = {
+        name: 'Tahoma',
+        family: 2,
+        size: 18,
+        bold: true
+      };*/
+    });
+    workbook.xlsx.writeBuffer().then(data => {
+      var blob = new Blob([data],{type: blobType});
+      FileSaver.saveAs(blob,excelFileName,true);
+    });
+  }
+
 }

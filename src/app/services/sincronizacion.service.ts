@@ -29,13 +29,25 @@ export class SincronizacionService {
       console.log(online);
       if (online) {
         console.log('En linea!');    
-        this.leerDexieYSincronizar();    
+        this.logearYSincronizar();    
       } else {
         console.log('Desconectado!');        
        
       }
     });
     
+  }
+
+  logearYSincronizar(){
+    if(window.localStorage.token){
+      this.leerDexieYSincronizar();
+    }else{
+      this.generalService.login({"username":"admin", "password":"wakanda"}).subscribe(res=>{
+        console.log(res);
+        window.localStorage.setItem("token",res.id);
+        this.leerDexieYSincronizar();
+      });
+    }  
   }
  
    private crearTablas(){

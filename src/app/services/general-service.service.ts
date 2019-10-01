@@ -36,6 +36,11 @@ export class GeneralServiceService {
     return this.http.get<any>(url, this.getHeaders());
   }
 
+  getUnidadesNegocio():Observable<any>{
+    let url = this.apiUrl + "unidades_negocio";
+    return this.http.get<any>(url, this.getHeaders());
+  }
+
   getUsuariosFilter(filter):Observable<any>{
     let url = this.apiUrl + "usuarios?filter=" + JSON.stringify(filter);
     return this.http.get<any>(url, this.getHeaders());
@@ -54,6 +59,43 @@ export class GeneralServiceService {
   postEntrada(data):Observable<any>{
     let url = this.apiUrl + "entradas";
     return this.http.post<any>(url, data, this.getHeaders());
+  }
+
+  getTablaEntradas():Observable<any>{
+    var filter = {    
+      include: ["usuario","encuesta","localizacion"]
+    };
+    let url = this.apiUrl + "entradas?filter=" + JSON.stringify(filter);
+    return this.http.get<any>(url, this.getHeaders());
+  }
+
+  getTablaRespuestas():Observable<any>{
+    var filter = {    
+      include: [{
+        relation: 'pregunta',
+        scope: {}
+      },{
+        relation: 'item',
+        scope: {}
+      },{
+        relation: 'entrada',
+        scope: {
+          include: [{
+            relation: 'usuario',
+            scope: {
+            }
+          },{
+            relation: 'localizacion',
+            scope: {}
+          },{
+            relation: 'encuesta',
+            scope: {}
+          }]
+        }
+      }]
+    };
+    let url = this.apiUrl + "respuestas?filter=" + JSON.stringify(filter);
+    return this.http.get<any>(url, this.getHeaders());
   }
   
   /*standar services*/

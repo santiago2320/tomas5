@@ -1,33 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>Column1</th>
-				<th>Column2</th>
-				<th>Column3</th>
-				<th>Column4</th>
-				<th>Column5</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let x of data">
-				<td>{{x.col1}}</td>
-				<td>{{x.col2}}</td>
-				<td>{{x.col3}}</td>
-				<td>{{x.col4}}</td>
-				<td>{{x.col5}}</td>			
-			</tr>
-		</tbody>		
-	</table>
-	<div>
-		<label>
-			<button (click)="exportToExcel()" title="Excel" style="z-index: 13;">Export</button>
-		</label>
+<div class="descargarContainer">
+	<div class="descargar">
+		<div class="headerDescargar">
+			<div class="logoDescargar">
+				<img class="descargarLogo" src="../../../assets/logo.jpg">
+			</div>
+			<div class="tituloDescargar">
+				CONSULTA LA BASE DE DATOS DE TOMA5
+			</div>
+		</div>
+		<div class="contenidoDescargar">
+			<div class="textosDescargar">
+				<div class="entradasTextoDescargar">
+					<div class="preguntaDescargar">¿Que es una entrada?</div>
+					<div class="textoDescargar">
+						Una entrada es cuando un usuario responde a todas las preguntas de una de las encuestas de toma5 (toma5 o mi entorno seguro)
+					</div>
+				</div>
+				<div class="textoDescargar">
+					Descarga todas las respuestas proporcionadas por los usuarios de toma5
+				</div>
+			</div>			
+			<div class="botonesContenedor">
+				<div class="botonDescargarEntradas">
+					<label>
+						<button class="descargarButton" (click)="downloadEntradas()" title="Excel" style="z-index: 13;">PEDIR ENTRADAS</button>
+					</label>
+				</div>
+				<div class="botonDescargarRespuestas">
+					<label>
+						<button class="descargarButton" (click)="downloadRespuestas()" title="Excel" style="z-index: 13;">PEDIR RESPUESTAS</button>
+					</label>
+				</div>	
+			</div>
+		</div>	
 	</div>
-</body>
-</html>
+</div>

@@ -1,0 +1,83 @@
+.descargarContainer{
+	height: 95vh;
+	width: 100vw;
+	background: #023670;
+	position: relative;
+	z-index: 5;	
+	padding-top: 5vh;
+}
+.descargar{
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+	grid-template-columns: 1fr;	
+
+	height: 90vh;
+	width: 90vw;		
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+.headerDescargar{
+	display: grid;
+	grid-row: 1/2;
+	grid-column: 1/8;
+	grid-template-columns: 3fr 4fr;
+}
+.logoDescargar{
+	grid-column: 1/2;
+}
+.tituloDescargar{
+	grid-column: 2/3;
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: 700;
+}
+.contenidoDescargar{
+	display: grid;	
+	grid-template-columns: 5fr 1fr 2fr;
+	grid-column: 
+}
+.textosDescargar{
+	display: grid;
+	grid-column: 1/2;
+}
+.botonesContenedor{
+	display: grid;
+	grid-column: 3/4;
+	grid-template-rows: 1fr 1fr 1fr 1fr; 
+}
+.botonDescargarEntradas{
+	align-self: end;
+	grid-row: 1/2;	
+}
+.botonDescargarRespuestas{
+	align-self: end;
+	grid-row: 3/4;
+}
+.entradasTextoDescargar{
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+}
+.descargarButton{	
+	color: #ffffff;
+	background: #ff0000;
+	border-radius: 15px;
+	border: 0px;
+	height: 50px;
+	width: 65%;
+	font-size: 16px;
+}
+.textoDescargar{
+	color: #ffffff;
+	font-size: 25px;
+}
+.preguntaDescargar{
+	color: #ffffff;
+	font-size: 30px;
+	text-align: center;
+	font-weight: 900;
+}
+.descargarLogo{
+	height: auto;
+	width: 85%;
+	border-radius: 15px;
+}

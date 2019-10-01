@@ -94,6 +94,7 @@ export class ExcelExportService {
   	});
   }
 
+
   exportToExcelEntradas(name,sName,fileName,excelFileName,blobType,cols,data){
     var workbook = new Excel.Workbook();
     workbook.creator = 'Web';
@@ -147,4 +148,5 @@ export class ExcelExportService {
       FileSaver.saveAs(blob,excelFileName,true);
     });
   }
+
 }

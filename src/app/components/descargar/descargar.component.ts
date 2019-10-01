@@ -33,7 +33,7 @@ export class DescargarComponent implements OnInit {
   }
 
 
-  donwloadEntradas(){
+  downloadEntradas(){
     console.log("Descargando info");
     this.generalService.getTablaEntradas().subscribe(res=>{
       console.log("Llego la info");
@@ -50,7 +50,7 @@ export class DescargarComponent implements OnInit {
       this.excelJsService.exportToExcelEntradas(this.name,this.sName,this.fileName,this.excelFileName,this.blobType,cols,tablaEntradas);
     });
   }
-  donwloadRespuestas(){
+  downloadRespuestas(){
     console.log("Descargando info");
     this.generalService.getTablaRespuestas().subscribe(res=>{
       console.log("Llego la info");

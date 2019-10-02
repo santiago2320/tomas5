@@ -21,10 +21,10 @@ export class DescargarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.name = 'dataToma5';
-    this.fileName = 'dataToma5';
-    this.sName = 'dataToma5';
-    this.excelFileName = 'dataToma5.xlsx';
+    this.name = 'entradasToma5';
+    this.fileName = 'entradasToma5';
+    this.sName = 'entradasToma5';
+    this.excelFileName = 'entradasToma5.xlsx';
     this.generalService.login({"username":"admin", "password":"wakanda"}).subscribe(res=>{
       console.log(res);
       window.localStorage.setItem("token",res.id); 
@@ -46,7 +46,7 @@ export class DescargarComponent implements OnInit {
           this.leerEntrada(datos,entra);
           tablaEntradas.push(datos);
       });
-      let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula"];
+      let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula","Es Contratista","Empresa Contratista","Unidad Negocio"];
       this.excelJsService.exportToExcelEntradas(this.name,this.sName,this.fileName,this.excelFileName,this.blobType,cols,tablaEntradas);
     });
   }
@@ -78,8 +78,8 @@ export class DescargarComponent implements OnInit {
           }
           tablaRespuestas.push(datos);
       });
-      let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula","Pregunta principal","Pregunta secundaria","Respuesta"];
-      this.excelJsService.exportToExcel(this.name,this.sName,this.fileName,this.excelFileName,this.blobType,cols,tablaRespuestas);
+      let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula","Pregunta principal","Pregunta secundaria","Respuesta","Es Contratista","Empresa Contratista","Unidad Negocio"];
+      this.excelJsService.exportToExcel("respuestasToma5","respuestasToma5","respuestasToma5","respuestasToma5.xlsx",this.blobType,cols,tablaRespuestas);
     });
   }
 
@@ -102,6 +102,21 @@ export class DescargarComponent implements OnInit {
       if (entra.usuario) {
         datos.usuario = entra.usuario.nombre;
         datos.cedula = entra.usuario.cedula;
+        if (entra.usuario.is_contratista) {
+          datos.is_contratista = entra.usuario.is_contratista;
+        }else{
+          datos.is_contratista = "Error(validación de usuario no encontrada)";
+        }
+        if (entra.usuario.empresa_contratista) {
+          datos.empresa_contratista = entra.usuario.empresa_contratista;
+        }else{
+          datos.empresa_contratista = "Error(Empresa contratista no encontrada)";
+        }
+        if (entra.usuario.unidad_negocio) {
+          datos.unidad_negocio = entra.usuario.unidad_negocio;
+        }else{
+          datos.unidad_negocio = "Error(Unidad de negocio no encontrada)";
+        }
       }
       else {
         datos.usuario = "Error(usuario no encontrado)";

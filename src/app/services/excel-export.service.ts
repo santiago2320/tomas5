@@ -59,7 +59,10 @@ export class ExcelExportService {
       {key: 'cedula'},
       {key: 'preguntaPrincipal'},
       {key: 'preguntaSecundaria'},
-      {key: 'respuesta'}
+      {key: 'respuesta'},
+      {key: 'is_contratista'},
+      {key: 'empresa_contratista'},
+      {key: 'unidad_negocio'}
   	];
   	this.colArray = ['A3','B3','C3','D3','E3','F3','G3','H3','I3','J3'];
   	sheet.addRows(data);
@@ -114,7 +117,10 @@ export class ExcelExportService {
       {key: 'codigoLocalizacion'},
       {key: 'encuesta'},
       {key: 'usuario'},
-      {key: 'cedula'}
+      {key: 'cedula'},
+      {key: 'is_contratista'},
+      {key: 'empresa_contratista'},
+      {key: 'unidad_negocio'}
     ];
     this.colArray = ['A3','B3','C3','D3','E3','F3','G3'];
     sheet.addRows(data);

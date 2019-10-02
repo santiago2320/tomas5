@@ -103,6 +103,8 @@ export class LoginComponent implements OnInit {
       if (!this.login.empresa_contratista ||this.login.empresa_contratista==""){
         res="Escribe por favor el nombre de la empresa contratista";
       }
+    }else{
+      this.login.empresa_contratista = "N/A";
     }
     if(!this.login.unidad_negocio||this.login.unidad_negocio=='Selecciona...'){
       res="Selecciona tu unidad de negocio";
@@ -115,7 +117,7 @@ export class LoginComponent implements OnInit {
 	  } 
   	if(!this.login.nombre || this.login.nombre==""){
   		res = "Por favor escribe tu nombre";
-    }
+    }    
     
   	return res;
   }

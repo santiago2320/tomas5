@@ -23,7 +23,7 @@ export class EncuestaService {
     return httpOptions;
   }
 
-  /*servicios para leer y responder las encuestas*/
+  /*servicios para leer y respnder las encuestas*/
 
   getEncuestaById(id):Observable<any>{
   	let filter = {

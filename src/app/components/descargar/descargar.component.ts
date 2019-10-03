@@ -110,7 +110,7 @@ export class DescargarComponent implements OnInit {
         if (entra.usuario.empresa_contratista) {
           datos.empresa_contratista = entra.usuario.empresa_contratista;
         }else{
-          datos.empresa_contratista = "Error(Empresa contratista no encontrada)";
+          datos.empresa_contratista = "(Empresa contratista no encontrada/no relacionada)";
         }
         if (entra.usuario.unidad_negocio) {
           datos.unidad_negocio = entra.usuario.unidad_negocio;

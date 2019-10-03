@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
  
 const app = express();
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
+app.use(redirectToHTTPS([], []));
  
 // Serve only the static files form the dist directory
 // Replace the '/dist/<to_your_project_name>'

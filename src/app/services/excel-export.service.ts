@@ -64,7 +64,7 @@ export class ExcelExportService {
       {key: 'preguntaSecundaria'},
       {key: 'respuesta'}      
   	];
-  	this.colArray = ['A3','B3','C3','D3','E3','F3','G3','H3','I3','J3'];
+  	this.colArray = ['A3','B3','C3','D3','E3','F3','G3','H3','I3','J3','K3','L3','M3'];
   	sheet.addRows(data);
   	sheet = this.applyRowStyle(sheet);
   	sheet.getCell('A1','A2').font = {
@@ -122,7 +122,7 @@ export class ExcelExportService {
       {key: 'empresa_contratista'},
       {key: 'unidad_negocio'}
     ];
-    this.colArray = ['A3','B3','C3','D3','E3','F3','G3'];
+    this.colArray = ['A3','B3','C3','D3','E3','F3','G3','H3','I3','J3'];
     sheet.addRows(data);
     sheet = this.applyRowStyle(sheet);
     sheet.getCell('A1','A2').font = {

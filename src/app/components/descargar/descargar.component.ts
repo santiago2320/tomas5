@@ -83,6 +83,7 @@ export class DescargarComponent implements OnInit {
           tablaRespuestas.push(datos);
       });
       let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula","Es Contratista","Empresa Contratista","Unidad Negocio","Pregunta principal","Pregunta secundaria","Respuesta"];
+      this.cargando=false;
       this.excelJsService.exportToExcel("respuestasToma5","respuestasToma5","respuestasToma5","respuestasToma5.xlsx",this.blobType,cols,tablaRespuestas);
     });
   }

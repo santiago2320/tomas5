@@ -35,7 +35,7 @@
 				</div>	
 			</div>
 			<div class="img">
-				<img [(ngModel)]="cargando" src="../../../assets/loading.gif" alt="cargando">
+				<img  *ngIf="cargando" src="../../../assets/loading.gif" alt="cargando">
 			</div>
 		</div>	
 	</div>

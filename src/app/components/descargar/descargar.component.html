@@ -23,7 +23,9 @@
 			<div class="botonesContenedor">
 				<div class="botonDescargarEntradas">
 					<label>
-						<button class="descargarButton" (click)="downloadEntradas()" title="Excel" style="z-index: 13;">PEDIR ENTRADAS</button>
+						
+						<button class="descargarButton" (click)="downloadEntradas()" title="Excel" style="z-index: 13;" onclick="imagen">PEDIR ENTRADAS</button>
+						
 					</label>
 				</div>
 				<div class="botonDescargarRespuestas">
@@ -32,6 +34,10 @@
 					</label>
 				</div>	
 			</div>
+			<div class="img">
+				<img [(ngModel)]="cargando" src="../../../assets/loading.gif" alt="cargando">
+			</div>
 		</div>	
 	</div>
 </div>
+

@@ -13,7 +13,8 @@ export class DescargarComponent implements OnInit {
 	name:string;
 	sName:string;
 	fileName:string;
-	excelFileName:string;
+  excelFileName:string;
+  cargando:boolean;
 	blobType: string = 'aplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UFT-8';
 
   constructor(private excelJsService: ExcelExportService,private generalService: GeneralServiceService) {
@@ -25,9 +26,11 @@ export class DescargarComponent implements OnInit {
     this.fileName = 'entradasToma5';
     this.sName = 'entradasToma5';
     this.excelFileName = 'entradasToma5.xlsx';
+    this.cargando= true;  
     this.generalService.login({"username":"admin", "password":"wakanda"}).subscribe(res=>{
       console.log(res);
       window.localStorage.setItem("token",res.id); 
+      this.cargando = false;
     });
     
   }
@@ -47,6 +50,7 @@ export class DescargarComponent implements OnInit {
           tablaEntradas.push(datos);
       });
       let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula","Es Contratista","Empresa Contratista","Unidad Negocio"];
+      this.cargando=false;
       this.excelJsService.exportToExcelEntradas(this.name,this.sName,this.fileName,this.excelFileName,this.blobType,cols,tablaEntradas);
     });
   }
@@ -123,6 +127,7 @@ export class DescargarComponent implements OnInit {
         datos.cedula = "Error(usuario no encontrado)";
       }
   }
+
 
 
 }

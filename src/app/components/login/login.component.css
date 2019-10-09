@@ -72,7 +72,7 @@
    -webkit-appearance: none;
    padding: 10px;
    border-radius: 10px;
-   border: solid #818181;
+   border: 2px solid #818181;
 
  }
  .img-principal {
@@ -125,9 +125,13 @@
    border: none;
  }
  .top {
-    margin-top: 20px;
+    margin-top: 10px;
 
  }
  .tops {
+   border: 2px solid  #818181;
+ }
+
+ .ui-dropdown label.ui-dropdown-label{
    border: solid  #818181;
  }

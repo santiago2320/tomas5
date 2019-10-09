@@ -3,49 +3,50 @@
     <div class="cel1 title"><h3 class="titulo">Toma 5 Digital</h3></div>
     <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1 texto"><h4 class="size">Nombres y Apellidos Completos</h4></div>
+  <div class="cel1 texto"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1"><input [(ngModel)]="login.nombre" type="text" class="inputs"></div>
+  <div class="cel1 top"><input [(ngModel)]="login.nombre" type="text" class="inputs" placeholder="Nombre y Apellidos Completos"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1 texto1"><h4 class="size1">Cédula</h4></div>
+  <div class="cel1 texto1"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1"><input [(ngModel)]="login.cedula" type="number" class="inputs"></div>
+  <div class="cel1 top"><input [(ngModel)]="login.cedula" type="number" class="inputs" placeholder="Cédula"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1 texto2"><h4 class="size2">Sitio trabajo</h4></div>
+  <div class="cel1 texto2"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <!---->
-  <p-dropdown  [options]="localizaciones" [(ngModel)]="localizacion" [filter]="true"  optionLabel="nombre"></p-dropdown>
+  <p-dropdown  [options]="localizaciones" [(ngModel)]="localizacion" [filter]="true"  optionLabel="nombre" placeholder="Sitio trabajo" class=" top tops"></p-dropdown>
   <div class="cel1"></div>
   <div class="cel1"></div>
-  <div class="cel1 texto1"><h4 class="size1">Unidad de negocio</h4></div>
+  <div class="cel1 texto1"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <div class="cel1">
-    <select  [(ngModel)]="login.unidad_negocio" class="selects">
+    <select  [(ngModel)]="login.unidad_negocio" class="selects top tops">
       <option [ngValue]="local.nombre" *ngFor="let local of unidades">{{local.nombre}}</option>
     </select>
   </div>
   <div class="cel1"></div>
   <div class="cel1"></div>
   
-  <div class="cel1 texto2"><h4 class="size2">Es contratista:</h4></div>
+  <div class="cel1 texto2"></div>
   <div class="cel1"></div>
   <div class="cel1"></div>
-   <select [(ngModel)]="login.is_contratista" class="selects" name="select">
+   <select [(ngModel)]="login.is_contratista" class="selects top tops" name="select">
+    <option value="No">¿Es contratista?</option>
     <option value="No">No</option> 
     <option value="Si">Si</option>
   </select>
    <div class="cel1"></div>
    <div *ngIf="login.is_contratista=='Si'" class="cel1"></div>
-  <div *ngIf="login.is_contratista=='Si'" class="cel1 texto2"><h4 class="size2">Empresa contratista</h4></div> 
+  <div *ngIf="login.is_contratista=='Si'" class="cel1 texto2"></div> 
    <div *ngIf="login.is_contratista=='Si'" class="cel1"></div>
    <div *ngIf="login.is_contratista=='Si'" class="cel1"></div>
-   <div *ngIf="login.is_contratista=='Si'" class="cel1"><input [(ngModel)]="login.empresa_contratista" type="text" class="inputs"></div>
+   <div *ngIf="login.is_contratista=='Si'" class="cel1"><input [(ngModel)]="login.empresa_contratista" type="text" class="inputs" placeholder="Empresa contratista"></div>
    
    <div *ngIf="login.is_contratista=='Si'" class="cel1"></div>
    <div class="cel1"></div>

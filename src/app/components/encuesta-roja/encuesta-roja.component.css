@@ -82,6 +82,8 @@
     font-weight: 400;
     font-family: 'Titillium Web', sans-serif;
     text-align: center;
+    margin: 0px 0px;
+    padding: 0px 0px;
 }
 
 /*barra de carga*/
@@ -121,7 +123,9 @@
 }
 
 #btnSend{
-  align-self: center;
+  display:grid;
+  grid-template-columns: 1fr; 
+  justify-self: center;
 }
 
 #stepContainer {

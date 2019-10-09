@@ -72,7 +72,8 @@
    -webkit-appearance: none;
    padding: 10px;
    border-radius: 10px;
-   border: none;
+   border: solid #818181;
+
  }
  .img-principal {
   justify-self: center;
@@ -122,4 +123,11 @@
    padding: 10px;
    border-radius: 10px;
    border: none;
+ }
+ .top {
+    margin-top: 20px;
+
+ }
+ .tops {
+   border: solid  #818181;
  }

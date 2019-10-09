@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
       ] 
     ).subscribe(response =>{
     	this.localizaciones = response[0];
-    	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Selecciona...'});
+    	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Sitio de trabajo...'});
     	this.localizacion = this.localizaciones[0];
 
       this.unidades = response[1];
-      this.unidades.splice(0, 0, {id: 0, nombre: 'Selecciona...'});
+      this.unidades.splice(0, 0, {id: 0, nombre: 'Unidad de negocio...'});
       this.login.unidad_negocio = this.unidades[0].nombre;
     });
   }

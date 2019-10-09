@@ -7,6 +7,10 @@
 			<div class="tituloDescargar">
 				CONSULTA LA BASE DE DATOS DE TOMA5
 			</div>
+			<div *ngIf="cargando" class="img" id="imgFondo">
+				<span  class="msgLoading">Estamos procesando tu solicitud...</span>
+				<img   class="imgLoading" src="../../../assets/loading.gif" alt="cargando">		 
+			</div>
 		</div>
 		<div class="contenidoDescargar">
 			<div class="textosDescargar">
@@ -33,9 +37,6 @@
 						<button class="descargarButton" (click)="downloadRespuestas()" title="Excel" style="z-index: 13;">PEDIR RESPUESTAS</button>
 					</label>
 				</div>	
-			</div>
-			<div class="img">
-				<img  *ngIf="cargando" src="../../../assets/loading.gif" alt="cargando">
 			</div>
 		</div>	
 	</div>

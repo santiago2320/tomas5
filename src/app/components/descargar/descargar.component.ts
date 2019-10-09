@@ -38,6 +38,7 @@ export class DescargarComponent implements OnInit {
 
   downloadEntradas(){
     console.log("Descargando info");
+    this.cargando=true;
     this.generalService.getTablaEntradas().subscribe(res=>{
       console.log("Llego la info");
       var tablaEntradas = [];
@@ -52,10 +53,12 @@ export class DescargarComponent implements OnInit {
       let cols = ["Id Entrada","Fecha","Planta","Codigo Planta","Encuesta","Usuario","Cedula","Es Contratista","Empresa Contratista","Unidad Negocio"];
       this.cargando=false;
       this.excelJsService.exportToExcelEntradas(this.name,this.sName,this.fileName,this.excelFileName,this.blobType,cols,tablaEntradas);
+      
     });
   }
   downloadRespuestas(){
     console.log("Descargando info");
+    this.cargando=true;
     this.generalService.getTablaRespuestas().subscribe(res=>{
       console.log("Llego la info");
       var tablaRespuestas = [];

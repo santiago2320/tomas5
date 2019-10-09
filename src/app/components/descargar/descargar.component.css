@@ -25,6 +25,7 @@
 .logoDescargar{
 	grid-column: 1/2;
 }
+
 .tituloDescargar{
 	grid-column: 2/3;
 	color: #ffffff;
@@ -80,4 +81,34 @@
 	height: auto;
 	width: 85%;
 	border-radius: 15px;
+}
+
+.imgLoading {	
+	position: fixed;
+	padding-left: 36%;
+	padding-top: 10%;
+}
+.img {
+	justify-self: center;
+
+
+}
+#imgFondo {
+	position: fixed;
+	background: #023670eb;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	
+	
+}
+.msgLoading {
+	position: fixed;
+	color: #f5f0f09f;
+	font-size: 18px;
+	z-index: 2;
+	margin-top: 15%;
+	font-weight: bold;
+	padding-left: 36%;
+	padding-top: 10%;
 }

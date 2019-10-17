@@ -142,6 +142,8 @@ export class EncuestaRojaComponent implements OnInit {
         this.pasoActual = this.proceso[this.indexActual];
         this.actualizarPorcentaje();
       }else{
+        window.localStorage.removeItem("id_entrada");
+        window.localStorage.removeItem("id_entrada_dexie");
         this.router.navigate(['/escoger']);
       }
   }

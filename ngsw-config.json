@@ -29,7 +29,8 @@
     {
       "name":"api",
       "urls":[
-        "https://toma5digital.herokuapp.com/api/"
+        "https://toma5digital.herokuapp.com/api/localizaciones",
+        "https://toma5digital.herokuapp.com/api/unidades_negocio"
       ],
       "cacheConfig":{
         "strategy":"performance",

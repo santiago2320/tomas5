@@ -38,16 +38,60 @@ export class SincronizacionService {
     
   }
 
+  entradaConocida(){
+    var conocida = false;
+    if(window.localStorage.id_entrada && Number(window.localStorage.id_entrada)>0){
+      conocida = true;
+    }
+    if(window.localStorage.id_entrada_dexie && Number(window.localStorage.id_entrada_dexie)>0){
+      conocida = true;
+    }
+    return conocida;
+  }
+
+  validarTokenYCargar(comp,cb){
+    var online = window.navigator.onLine;
+    if (online) { 
+      if (this.validarTokenVigente()) { 
+        cb(comp);
+      } else {
+        this.generalService.login({"username":"admin", "password":"wakanda"}).subscribe(res=>{
+          console.log("New token");
+          window.localStorage.setItem("token",res.id);
+          window.localStorage.setItem("fecha_token",new Date().toString());
+          cb(comp);
+        });
+      }
+    } else {
+      cb(comp);
+    }
+  }
+
   logearYSincronizar(){
-    if(window.localStorage.token){
+    if(this.validarTokenVigente()){
       this.leerDexieYSincronizar();
     }else{
       this.generalService.login({"username":"admin", "password":"wakanda"}).subscribe(res=>{
         console.log(res);
         window.localStorage.setItem("token",res.id);
+        window.localStorage.setItem("fecha_token",new Date().toString());
         this.leerDexieYSincronizar();
       });
     }  
+  }
+
+  validarTokenVigente(){
+    var vigente = false;
+    if (window.localStorage.token && window.localStorage.fecha_token){
+      var yesterday = new Date();
+      yesterday.setDate(yesterday.getDate()-1);
+      /*fecha.setDate(fecha.getDate()+num);*/
+      var fechaToken = new Date(window.localStorage.fecha_token);
+      if (fechaToken > yesterday){
+        vigente = true;
+      }
+    }
+    return vigente;
   }
  
    private crearTablas(){

@@ -5,7 +5,7 @@
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/home",
   "related_applications": [],
   "prefer_related_applications": false,
   "icons": [

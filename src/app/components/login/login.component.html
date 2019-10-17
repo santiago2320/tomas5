@@ -50,7 +50,8 @@
    
    <div *ngIf="login.is_contratista=='Si'" class="cel1"></div>
    <div class="cel1"></div>
-   <button (click)="loginButton()" class="btnenviar">INICIAR</button>
+   <div *ngIf="!loaded" class="cel1"></div>
+   <button *ngIf="loaded" (click)="loginButton()" class="btnenviar">INICIAR</button>
   <div class="cel1"></div>
   <div class="cel1"></div>
   <div class="cel1 img-principal"><img src="../../../assets/logop.png" class="img-logop"></div>

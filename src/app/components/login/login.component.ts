@@ -23,29 +23,35 @@ export class LoginComponent implements OnInit {
   unidades: any[];
 	login: any;
   localizacion: any;
+  loaded: boolean;
   
 
   constructor(private generalService: GeneralServiceService,private sincronizacionService: SincronizacionService, private router: Router) { }
 
   ngOnInit() {
-  	
+    this.loaded = false;	
   	this.login = {nombre:"", cedula:"",empresa_contratista:"",is_contratista:"No", unidad_negocio:""};
+    this.sincronizacionService.validarTokenYCargar(this,this.cargarDatos);
+  }
 
-  	forkJoin(
+  cargarDatos(_this){
+    forkJoin(
       [
-        this.generalService.getLocalizaciones(),   //0
-        this.generalService.getUnidadesNegocio()
+        _this.generalService.getLocalizaciones(),   //0
+        _this.generalService.getUnidadesNegocio()
       ] 
     ).subscribe(response =>{
-    	this.localizaciones = response[0];
-    	this.localizaciones.splice(0, 0, {id: 0, nombre: 'Sitio de trabajo...'});
-    	this.localizacion = this.localizaciones[0];
+      console.log(response);
+      _this.localizaciones = response[0];
+      _this.localizaciones.splice(0, 0, {id: 0, nombre: 'Sitio de trabajo...'});
+      _this.localizacion = _this.localizaciones[0];
 
-      this.unidades = response[1];
-      this.unidades.splice(0, 0, {id: 0, nombre: 'Unidad de negocio...'});
-      this.login.unidad_negocio = this.unidades[0].nombre;
+      _this.unidades = response[1];
+      _this.unidades.splice(0, 0, {id: 0, nombre: 'Unidad de negocio...'});
+      _this.login.unidad_negocio = _this.unidades[0].nombre;
+      _this.loaded = true;
     });
-  }
+  }  
 
   logLocal() {
   	console.log(this.localizacion)
@@ -106,7 +112,7 @@ export class LoginComponent implements OnInit {
     }else{
       this.login.empresa_contratista = "N/A";
     }
-    if(!this.login.unidad_negocio||this.login.unidad_negocio=='Selecciona...'){
+    if(!this.login.unidad_negocio||this.login.unidad_negocio=='Unidad de negocio...'){
       res="Selecciona tu unidad de negocio";
     }
   	if(this.localizacion.id==0){

@@ -50,12 +50,16 @@ input[type="checkbox"]:checked {
   color: #ffffff;
 }
 
+.top .ui-dropdown{
+  min-width: 100%;
+  width: 100%;
+}
 
 .ui-dropdown label.ui-dropdown-label {
   background: #ffffff;
   border-radius: 10px;
   border: none;
-  width: 60vw;
+  /*width: 60vw;*/
   border: 2px solid  #818181;
 }
 

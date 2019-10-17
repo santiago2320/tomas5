@@ -22,20 +22,42 @@ export class EscogerComponent implements OnInit {
 
 
   ngOnInit() {
+  	this.routing();
+  	this.sincronizacionService.validarTokenYCargar(this,this.cargarDatos);
+  }
+
+  routing(){
+  	if(!this.usuarioConocido()){
+  		this.router.navigate(['/login']);
+  	}
+  }
+
+  usuarioConocido(){
+  	var conocida = false;
+    if(window.localStorage.id_usuario && Number(window.localStorage.id_usuario)>0){
+      conocida = true;
+    }  
+    if(window.localStorage.id_usuario_dexie && Number(window.localStorage.id_usuario_dexie)>0){
+      conocida = true;
+    }   
+    return conocida;
+  }
+
+  cargarDatos(_this){
   	let filter = {};
-  	this.generalService.getEncuestasFilter(filter).subscribe(res=>{
+  	_this.generalService.getEncuestasFilter(filter).subscribe(res=>{
   		console.log(res);
-  		this.encuestas = res;
+  		_this.encuestas = res;
   	});
   }
 
   goColor(color:string){
   	var encuesta = this.encuestas.find(enc=>{
   		return enc.tipo == color;
-	  });
+	});
 	  
 
-		if(encuesta){
+	if(encuesta){
 			var data = {
 				dexie: false,
 				id_usuario:window.localStorage.id_usuario,

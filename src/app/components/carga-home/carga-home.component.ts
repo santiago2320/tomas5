@@ -41,6 +41,7 @@ export class CargaHomeComponent implements OnInit {
     ).subscribe(response =>{
       console.log(response);
       window.localStorage.setItem("token",response[0].id);
+      window.localStorage.setItem("fecha_token",new Date().toString());
       this.router.navigate(['/login']);
     });
   }

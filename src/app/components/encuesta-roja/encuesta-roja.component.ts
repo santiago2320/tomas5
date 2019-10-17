@@ -26,24 +26,33 @@ export class EncuestaRojaComponent implements OnInit {
   constructor(private encuestaService: EncuestaService,private sincronizacionService: SincronizacionService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.routing();
+    this.sincronizacionService.validarTokenYCargar(this,this.cargarDatos);
+  }
 
-    this.pasoActual = {id:0, tipo:"cargando", infoPaso:{}};
+  routing(){
+    if(!this.sincronizacionService.entradaConocida()){
+      this.router.navigate(['/escoger']);
+    }
+  }
+
+  cargarDatos(_this){
+    _this.pasoActual = {id:0, tipo:"cargando", infoPaso:{}};
     var id_encuesta = window.localStorage.id_encuesta;
-    this.encuestaService.getEncuestaById(id_encuesta).subscribe(res=>{
+    _this.encuestaService.getEncuestaById(id_encuesta).subscribe(res=>{
       console.log(res);
       var pasos = res.preguntas;
       pasos = _.orderBy(pasos,"orden");
-      this.proceso = [];
+      _this.proceso = [];
       _.forEach(pasos,step=>{
-        this.proceso.push(this.crearPaso(step));
+        _this.proceso.push(_this.crearPaso(step));
       });
       var certi = {tipo:"certificado", infoPaso:{Pregunta:"",id:123}};
-      this.proceso.push(certi);
-      this.indexActual = 0;
-      this.pasoActual = this.proceso[this.indexActual];
-      this.actualizarPorcentaje();
+      _this.proceso.push(certi);
+      _this.indexActual = 0;
+      _this.pasoActual = _this.proceso[_this.indexActual];
+      _this.actualizarPorcentaje();
     });
-
   }
 
   ajustarDexie(respuesta) {

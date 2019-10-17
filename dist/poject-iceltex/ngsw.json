@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1570650832727,
+  "timestamp": 1571212716217,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.6c552c150ad6e9f46839.js",
-        "/main-es5.2637c6abcbf37496959c.js",
+        "/main-es2015.eaf669e98f20307db777.js",
+        "/main-es5.202bd1214f0be0b31137.js",
         "/polyfills-es2015.5728f680576ca47e99fe.js",
         "/polyfills-es5.7f43b971448d2fb49202.js",
         "/runtime-es2015.858f8dd898b75fe86926.js",
@@ -67,7 +67,8 @@
     {
       "name": "api",
       "patterns": [
-        "https:\\/\\/toma5digital\\.herokuapp\\.com\\/api\\/"
+        "https:\\/\\/toma5digital\\.herokuapp\\.com\\/api\\/localizaciones",
+        "https:\\/\\/toma5digital\\.herokuapp\\.com\\/api\\/unidades_negocio"
       ],
       "strategy": "performance",
       "maxSize": 100,
@@ -108,11 +109,11 @@
     "/color.c7a33805ffda0d32bd2a.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
     "/favicon.ico": "44f072a7079bad20daa6079dc27d0494e2bc21be",
     "/hue.0614c27197fc3ce572e1.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/index.html": "0da0f78c574c27277aef63f4c70d18a47c487e89",
+    "/index.html": "1b955f9adf40d2be7a0e2f4b67ce040f5443bc92",
     "/line.567f57385ea3dde2c9ae.gif": "a2af20bd160ca9cfc2c85527663ff7429267519a",
     "/loading.8732a6660b528fadfaeb.gif": "72998a116936156dc7cace0606dab499fe4f3ce8",
-    "/main-es2015.6c552c150ad6e9f46839.js": "2e0760aff51995d35e2070233b7771c05b3ef66e",
-    "/main-es5.2637c6abcbf37496959c.js": "551f724c0d73869c90b93bb2eb711408a97121ae",
+    "/main-es2015.eaf669e98f20307db777.js": "638171e8090be8f05a3fbf48dfe69b3cd07f4668",
+    "/main-es5.202bd1214f0be0b31137.js": "3d3bf195fd23096f72dcd0bd31991fac1bcd3655",
     "/password-meter.d59e6dc2616c53ce8e77.png": "e0e101bd2a1cbda41398b48a4ab1792d89cb7334",
     "/polyfills-es2015.5728f680576ca47e99fe.js": "77f974dd2b186031cfc4f4526d96db4efcd39353",
     "/polyfills-es5.7f43b971448d2fb49202.js": "f84a71ef6c7a788b5fe701bf2405313d7766a66d",

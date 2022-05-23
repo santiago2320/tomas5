@@ -24,7 +24,7 @@
     "@angular/service-worker": "~8.0.1",
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
     "bootstrap": "^4.3.1",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "exceljs": "^2.0.1",
     "express": "^4.17.1",
     "express-http-to-https": "^1.1.4",
